@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PracticaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,22 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {    
-    return "Bienvenido a la Página Principal";
-});
+Route::get('/', HomeController::class);
 
-Route::get('practicas', function(){
-    return "Bienvenido a la Gestión de Prácticas Preprofesionales";
-});
-
-Route::get('practicas/create', function(){
-    return "En esta página podras crear un nuevo registro.";
-});
-
-Route::get('practicas/{procedimiento}/{registro?}', function($procedimiento, $registro = null){
-    if($registro){
-        return "Bienvenido al registro: $registro, del procedimiento $procedimiento";
-    }else{
-        return "Bienvenido al procedimiento: $procedimiento";
-    }
+Route::controller(PracticaController::class)->group(function(){
+    Route::get('practicas', 'index');
+    Route::get('practicas/create', 'create');
+    Route::get('practicas/{procedimientos}', 'show');
 });

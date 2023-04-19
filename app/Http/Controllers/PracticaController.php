@@ -18,3 +18,5 @@ class PracticaController extends Controller
         return view('practicas.show', compact('procedimiento'));        
     }
 }
+
+?>

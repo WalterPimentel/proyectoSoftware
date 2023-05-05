@@ -9,5 +9,5 @@ class responsables_cpi extends Model
 {
     use HasFactory;
 
-    protected $table = "nombreTablas";
+    protected $table = "responsables_cpi";
 }

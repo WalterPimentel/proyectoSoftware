@@ -9,5 +9,5 @@ class etapas extends Model
 {
     use HasFactory;
 
-    protected $table = "nombreTablas";
+    protected $table = "etapas";
 }

@@ -9,5 +9,5 @@ class informe_gestion extends Model
 {
     use HasFactory;
 
-    protected $table = "nombreTablas";
+    protected $table = "informe_gestion";
 }

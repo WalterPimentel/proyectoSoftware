@@ -9,5 +9,5 @@ class acta_aprobacion extends Model
 {
     use HasFactory;
     
-    protected $table = "nombreTablas";
+    protected $table = "acta_aprobacion";
 }

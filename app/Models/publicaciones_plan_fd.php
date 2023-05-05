@@ -9,5 +9,5 @@ class publicaciones_plan_fd extends Model
 {
     use HasFactory;
 
-    protected $table = "nombreTablas";
+    protected $table = "publicaciones_plan_fd";
 }

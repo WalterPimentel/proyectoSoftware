@@ -9,5 +9,5 @@ class plan_fd extends Model
 {
     use HasFactory;
 
-    protected $table = "nombreTablas";
+    protected $table = "plan_fd";
 }

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('idEstudiante');
             $table->integer('idDocente');
             $table->integer('idEmpresa');
-            $table->string('Titulo', 250);
             $table->integer('idEtapa');
+            $table->string('Titulo', 250);            
 
             $table->timestamps();
         });

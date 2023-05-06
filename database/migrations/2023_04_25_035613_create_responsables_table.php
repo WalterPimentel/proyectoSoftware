@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('idResponsable');
 
             $table->string('codigoResponsable', 15);
-            $table->string('nombresResponsable', 25);
+            $table->string('nombresResponsable', 30);
             $table->string('apellidopResponsable', 20);
             $table->string('apellidomResponsable', 20);
             $table->string('cargoResponsable', 100);
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ResponsablesCPI');
+        Schema::dropIfExists('Responsables_CPI');
     }
 };

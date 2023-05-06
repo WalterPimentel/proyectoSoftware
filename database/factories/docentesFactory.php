@@ -22,7 +22,7 @@ class docentesFactory extends Factory
             'apellidopDocente' =>$this->faker->lastName(),
             'apellidomDocente' =>$this->faker->lastName(),
             'telefonoDocente' => $this->faker->unique()->numberBetween(900000000,999999999),
-            'CorreoDocente' => $this->faker->unique()->safeEmail(),
+            'CorreoDocente' => $this->faker->unique()->companyEmail(),
 
         ];
     }

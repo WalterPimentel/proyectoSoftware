@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('Necesidades', function (Blueprint $table) {
             $table->id('idNecesidades');
 
-            $table->integer('idResponsable');
             $table->string('areaNecesidades');
             $table->string('descripcionNecesidades')->nullable();
             $table->string('aplicacionNecesidades', 100)->nullable();

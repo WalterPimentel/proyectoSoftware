@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('rubroEmpresa', 100);
             $table->string('direccionEmpresa', 100);
             $table->string('telefonoEmpresa', 15)->nullable();
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
 
             $table->timestamps();
         });

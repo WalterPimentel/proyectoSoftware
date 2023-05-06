@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('cargoResponsable', 100);
             $table->string('areaResponsable', 100);
             $table->string('telefonoResponsable', 15)->nullable();
-            $table->string('correoResponsable', 15)->nullable();
+            $table->string('correoResponsable', 50)->nullable();
 
             $table->timestamps();
         });

@@ -16,7 +16,6 @@ return new class extends Migration
 
             $table->integer('idPlanFD');
             $table->integer('idSecretariaDecanato');
-            $table->integer('idResponsableEnviado');
             $table->dateTime('FechaActaAprobacion');
 
             $table->timestamps();

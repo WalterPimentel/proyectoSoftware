@@ -14,9 +14,7 @@ return new class extends Migration
         Schema::create('Cuadro_Necesidades', function (Blueprint $table) {
             $table->id('idCuadroNecesidades');
 
-            $table->integer('idResponsable');
-            $table->integer('idTDR');
-            $table->integer('idNecesidades');
+            $table->integer('idTDR');            
             $table->integer('idResponsableEnviado');
             $table->string('areaCuadroNecesidades');
             $table->tinyInteger('estadoCuadroNecesidades');
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('CuadroNecesidades');
+        Schema::dropIfExists('Cuadro_Necesidades');
     }
 };

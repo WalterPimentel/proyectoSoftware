@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
 
             $table->string('codigoDocente', 15);
-            $table->string('nombresDocente', 25);
+            $table->string('nombresDocente', 30);
             $table->string('apellidopDocente', 20);
             $table->string('apellidomDocente', 20);
             $table->string('telefonoDocente', 15);
             $table->string('CorreoDocente', 50);
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
 
             $table->timestamps();
         });

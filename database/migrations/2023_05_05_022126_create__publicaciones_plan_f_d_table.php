@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('publicaciones_plan_fd', function (Blueprint $table) {
             $table->id('idPublicacionPlanFD');
 
-            $table->integer('idResponsable');
             $table->integer('idActaAprobacion');
             $table->integer('idCronograma');
             $table->tinyInteger('estadoPublicacionPlanFD');

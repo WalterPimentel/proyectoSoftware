@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('nombreEtapa', 100);
-            $table->string('descripcionEtapa', 250);
+            $table->text('descripcionEtapa', 250);
 
             $table->timestamps();
         });

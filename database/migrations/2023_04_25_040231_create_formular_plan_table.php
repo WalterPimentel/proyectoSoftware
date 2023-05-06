@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('idPlanFD');
 
             $table->integer('idResponsable');
+            $table->integer('idResponsableEnviado');
             $table->string('areaPlanFD');
             $table->dateTime('fechaRegistroPlanFD');
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('PlanFD');
+        Schema::dropIfExists('Plan_FD');
     }
 };

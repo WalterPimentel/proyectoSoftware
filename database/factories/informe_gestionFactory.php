@@ -17,11 +17,9 @@ class informe_gestionFactory extends Factory
     {
         return [
             
-            'idResponsable' => $this->faker->numberBetween(1,3),
-            'nombreInformeGestion' => $this->faker->sentence(),
-            'areaGestion' => $this->faker->sentence(),
-            'descripcionInformeGestion' => $this->faker->sentence(),
-            'estadoInformeGestion' => $this->faker->numberBetween(-128,127),
+            'idResponsableElaboracion' => $this->faker->numberBetween(1,3),
+            'descripcionIG' => $this->faker->sentence(),
+            'observacionesIG' => $this->faker->sentence(),
 
         ];
     }

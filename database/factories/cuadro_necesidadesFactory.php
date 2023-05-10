@@ -17,10 +17,13 @@ class cuadro_necesidadesFactory extends Factory
     {
         return [
             
-            'idTDR' => $this->faker->numberBetween(1,50),
-            'idResponsableEnviado' => $this->faker->numberBetween(1,5),
-            'areaCuadroNecesidades' => $this->faker->sentence(),
-            'estadoCuadroNecesidades' => $this->faker->numberBetween(-128,127),
+            'idComision' => $this->faker->numberBetween(1,10),
+            'idTipoRecurso' => $this->faker->numberBetween(1,2),
+            'idTipoCosto' => $this->faker->numberBetween(1,2),
+            'idTDR' => $this->faker->numberBetween(1,25),
+            'descripcionCuadroN' => $this->faker->sentence(),
+            'cantidadCuadroN' => $this->faker->numberBetween(1,74),
+            'precioCuadroN' => $this->faker->randomFloat(2, 1,9999)
 
         ];
     }

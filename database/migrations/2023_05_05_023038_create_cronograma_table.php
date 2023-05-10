@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('cronograma', function (Blueprint $table) {
             $table->id('idCronograma');
 
+            $table->integer('idPlanFD');
             $table->integer('idProyecto');
-            $table->string('areaCronograma');
-            $table->dateTime('fechaRegistroCronograma');
+            $table->string('descripcionCronograma');
 
             $table->timestamps();
         });

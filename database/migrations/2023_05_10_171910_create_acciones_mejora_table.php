@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('acta_aprobacion', function (Blueprint $table) {
-            $table->id('idActaAprobacion');
+        Schema::create('acciones_mejora', function (Blueprint $table) {
+            $table->id('idAccionesMejora');
 
+            $table->integer('idComision');
             $table->integer('idPlanFD');
-            $table->integer('idSecretariaDecanato');
-            $table->dateTime('FechaActaAprobacion');
-
+            $table->integer('idMonitoreoPFD');
+            $table->integer('idTipoRecurso');
+            $table->string('metasAM');
+            $table->string('descripcionAM');
+            
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('acta_aprobacion');
+        Schema::dropIfExists('acciones_mejora');
     }
 };

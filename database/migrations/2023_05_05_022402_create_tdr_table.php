@@ -14,13 +14,10 @@ return new class extends Migration
         Schema::create('tdr', function (Blueprint $table) {
             $table->id('idTDR');
 
-            $table->integer('idResponsable');
-            $table->integer('idNecesidades');
-            $table->string('areaTDR');
-            $table->string('descripcionTDR')->nullable();
-            $table->string('aplicacionTDR', 100)->nullable();
-            $table->dateTime('fechaSolicitudTDR');
-            $table->tinyInteger('estadoTDR');
+            $table->integer('idTipoRecurso');
+            $table->string('mayorCuantiaTDR', 100);
+            $table->string('descripcionTDR');
+            $table->decimal('costoTDR', 10, 2);
 
             $table->timestamps();
         });

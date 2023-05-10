@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class responsables_cpi extends Model
+class monitoreo_pfd extends Model
 {
     use HasFactory;
-
-    protected $table = "responsables_cpi";
+    
+    protected $table = "monitoreo_pfd";
 }

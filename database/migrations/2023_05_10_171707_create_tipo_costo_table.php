@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('publicaciones_plan_fd', function (Blueprint $table) {
-            $table->id('idPublicacionPlanFD');
+        Schema::create('tipo_costo', function (Blueprint $table) {
+            $table->id('idTipoCosto');
 
-            $table->integer('idActaAprobacion');
-            $table->integer('idCronograma');
-            $table->tinyInteger('estadoPublicacionPlanFD');
-
+            $table->integer('idTipoRecurso');
+            $table->string('descripcionCosto');
+            $table->string('observacionesCosto')->nullable();
 
             $table->timestamps();
         });
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('publicaciones_plan_fd');
+        Schema::dropIfExists('tipo_costo');
     }
 };

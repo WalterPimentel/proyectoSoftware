@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Cuadro_Necesidades', function (Blueprint $table) {
-            $table->id('idCuadroNecesidades');
+        Schema::create('tipo_recurso', function (Blueprint $table) {
+            $table->id('idTipoRecurso');
 
-            $table->integer('idTDR');            
-            $table->integer('idResponsableEnviado');
-            $table->string('areaCuadroNecesidades');
-            $table->tinyInteger('estadoCuadroNecesidades');
+            $table->string('descripcionRecurso');
 
             $table->timestamps();
         });
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Cuadro_Necesidades');
+        Schema::dropIfExists('tipo_recurso');
     }
 };

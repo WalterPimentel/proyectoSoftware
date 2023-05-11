@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->integer('idAccionesMejora');
             $table->string('descripcionMPFD');
-            $table->string('porcentajeAvanceMPFD', 4);
+            $table->decimal('porcentajeAvanceMPFD', 5, 2);
 
             $table->timestamps();
         });

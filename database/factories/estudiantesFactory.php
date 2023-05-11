@@ -22,7 +22,7 @@ class estudiantesFactory extends Factory
             'apellidopEstudiante' => $this->faker->lastName(),
             'apellidomEstudiante' => $this->faker->lastName(),
             'telefonoEstudiante' => $this->faker->unique()->numberBetween(900000000,999999999),
-            'correoEstudiante' => $this->faker->companyEmail(),
+            'correoEstudiante' => $this->faker->companyEmail()
 
         ];
     }

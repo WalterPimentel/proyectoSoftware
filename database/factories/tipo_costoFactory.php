@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\tipo_costo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,15 +10,17 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class tipo_costoFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    
+    protected $model = tipo_costo::class;
+
     public function definition(): array
     {
         return [
-            //
+
+            'idTipoRecurso' => $this->faker->numberBetween(1,2),
+            'descripcionCosto' => $this->faker->boolean(),
+            'observacionesCosto' => $this->faker->sentence(),
+            
         ];
     }
 }

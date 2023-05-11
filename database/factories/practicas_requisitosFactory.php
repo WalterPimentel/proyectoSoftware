@@ -17,7 +17,7 @@ class practicas_requisitosFactory extends Factory
         return [
             
             'idPractica' => $this->faker->numberBetween(1,50),
-            'idRequisito' => $this->faker->numberBetween(1,178),
+            'idRequisito' => $this->faker->numberBetween(1,178)
 
         ];
     }

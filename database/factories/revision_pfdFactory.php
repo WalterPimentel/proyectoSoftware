@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\revision_pfd;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,15 +10,15 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class revision_pfdFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = revision_pfd::class;
+
     public function definition(): array
     {
         return [
-            //
+
+            'descripcionRPFD' => $this->faker->sentence(),
+            'ovserbacionesRPFD' => $this->faker->sentence(),
+            
         ];
     }
 }

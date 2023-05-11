@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         empresas::factory(50)->create();
         estudiantes::factory(100)->create();
         etapas::factory(3)->create();
-        //informe_gestion::factory(25)->create()
+        informe_gestion::factory(25)->create();
         monitoreo_pfd::factory(175)->create();
         plan_fd::factory(25)->create();
         Practica::factory(50)->create();

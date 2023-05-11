@@ -20,7 +20,7 @@ class comunicar_plan_fdFactory extends Factory
             'idParteInteresada' => $this->faker->numberBetween(1,7),
             'descripcionComunicarPFD' => $this->faker->sentence(),
             'medioComunicarPFD' => $this->faker->words(2, true),
-            'fechaComunicarPFD' => $this->faker->date(),
+            'fechaComunicarPFD' => $this->faker->dateTimeBetween('-25 years', 'now'),
             'horaComunicarPFD' => $this->faker->time(),
             'observacionesComunicarPFD' => $this->faker->numberBetween(1,20)
         ];

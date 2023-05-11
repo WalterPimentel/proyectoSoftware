@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\tipo_recurso;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,15 +10,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class tipo_recursoFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = tipo_recurso::class;
+
     public function definition(): array
     {
         return [
-            //
+            
+            'descripcionRecurso' => $this->faker->sentence()
         ];
     }
 }

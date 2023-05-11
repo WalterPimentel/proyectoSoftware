@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('idTipoCosto');
 
             $table->integer('idTipoRecurso');
-            $table->string('descripcionCosto');
+            $table->boolean('descripcionCosto');
             $table->string('observacionesCosto')->nullable();
 
             $table->timestamps();

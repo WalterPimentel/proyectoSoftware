@@ -22,7 +22,7 @@ class empresasFactory extends Factory
             'rubroEmpresa' => $this->faker->randomElement(['Alimentación', 'Automotriz', 'Construcción', 'Salud',
                                                             'Educación', 'Energía', 'Finanzas', 'Tecnología']),
             'direccionEmpresa' =>$this->faker->unique()->streetAddress(),
-            'telefonoEmpresa' => $this->faker->unique()->numberBetween(900000000,999999999),
+            'telefonoEmpresa' => $this->faker->unique()->numberBetween(900000000,999999999)
 
         ];
     }

@@ -9,20 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    /*
+    
     public function up(): void
     {
         Schema::create('informe_gestion', function (Blueprint $table) {
             $table->id('idInformeGestion');
 
+            $table->integer('idMonitoreoPFD');
             $table->integer('idResponsableElaboracion');
-            $table->string('descripcionIG');            
+            $table->string('descripcionIG');
             $table->string('observacionesIG')->nullable();            
 
             $table->timestamps();
         });
     }
-    */
+    
     /**
      * Reverse the migrations.
      */

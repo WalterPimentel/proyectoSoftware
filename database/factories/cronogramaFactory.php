@@ -18,7 +18,7 @@ class cronogramaFactory extends Factory
             
             'idPlanFD' => $this->faker->numberBetween(1,25),
             'idProyecto'  => $this->faker->numberBetween(1, 20),
-            'descripcionCronograma' => $this->faker->sentence(),
+            'descripcionCronograma' => $this->faker->sentence()
 
         ];
     }

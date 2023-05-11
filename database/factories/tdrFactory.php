@@ -10,18 +10,16 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class tdrFactory extends Factory
 {
-    
     protected $model = tdr::class;
 
     public function definition(): array
     {
         return [
             
-            'idResponsable' => $this->faker->numberBetween(1,3),
-            'idNecesidades' => $this->faker->numberBetween(1,250),            
-            'areaTDR' => $this->faker->sentence(),
-            'fechaSolicitudTDR' => $this->faker->dateTimeBetween('-4 week', '-1 week'),
-            'estadoTDR' => $this->faker->numberBetween(-128,127),
+            'idTipoRecurso' => $this->faker->numberBetween(1,2),
+            'mayorCuantiaTDR' => $this->faker->boolean(),            
+            'descripcionTDR' => $this->faker->sentence(),
+            'costoTDR' => $this->faker->randomFloat(2, 1, 9999)
 
         ];
     }

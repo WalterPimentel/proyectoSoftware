@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\monitoreo_pfd;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,15 +10,17 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class monitoreo_pfdFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    
+    protected $model = monitoreo_pfd::class;
+    
     public function definition(): array
     {
         return [
-            //
+          
+            'idAccionesMejora' => $this->faker->numberBetween(1,137),
+            'descripcionMPFD' => $this->faker->sentence(),
+            'porcentajeAvanceMPFD' => $this->faker->randomFloat(2, 0, 100)
+
         ];
     }
 }

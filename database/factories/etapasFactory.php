@@ -18,7 +18,7 @@ class etapasFactory extends Factory
         return [
             
             'nombreEtapa' => $this->faker->sentence(),
-            'descripcionEtapa' => $this->faker->paragraph(),
+            'descripcionEtapa' => $this->faker->paragraph()
 
         ];
     }

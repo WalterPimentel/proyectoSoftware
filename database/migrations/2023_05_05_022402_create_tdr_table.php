@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('idTDR');
 
             $table->integer('idTipoRecurso');
-            $table->string('mayorCuantiaTDR', 100);
+            $table->boolean('mayorCuantiaTDR');
             $table->string('descripcionTDR');
             $table->decimal('costoTDR', 10, 2);
 

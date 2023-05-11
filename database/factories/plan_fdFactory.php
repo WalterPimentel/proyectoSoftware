@@ -15,12 +15,21 @@ class plan_fdFactory extends Factory
     
     public function definition(): array
     {
+        $fechaElaboracionPFD = $this->faker->dateTimeBetween('-25 years', 'now');
+        $fechaAprobacionPFD = $this->faker->dateTimeBetween($fechaElaboracionPFD, 'now');
+
         return [
             
-            'idResponsable' => $this->faker->numberBetween(1,3),
-            'idResponsableEnviado' => $this->faker->numberBetween(1,5),
-            'areaPlanFD' => $this->faker->sentence(),
-            'fechaRegistroPlanFD' => $this->faker->dateTimeBetween('-1 week'),
+            'idComision' => $this->faker->numberBetween(1,10),
+            'idCuadroNecesidades' => $this->faker->numberBetween(1,25),
+            'idRevisionPFD' => $this->faker->numberBetween(1,25),
+            'idActaConsejoFacultad' => $this->faker->numberBetween(1,25),
+            'idResponsableElaboracion' => $this->faker->numberBetween(1,10),
+            'idResponsableAprobacion' => $this->faker->numberBetween(1,4),
+            'descripcionPFD' => $this->faker->sentence(),
+            'fechaElaboracionPFD' => $fechaElaboracionPFD,
+            'fechaAprobacionPFD' => $fechaAprobacionPFD,
+            'yearPFD' => $fechaAprobacionPFD->format('Y')
 
         ];
     }

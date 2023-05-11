@@ -24,7 +24,7 @@ class PracticaFactory extends Factory
             'idEmpresa' => $this->faker->numberBetween(1,50),        
             'idEtapa' => $this->faker->numberBetween(1,3),
             //forma de crear una oracion
-            'Titulo' => $this->faker->sentence(),
+            'Titulo' => $this->faker->sentence()
         ];
         /*Aqui algunas propiedades mas
             $this->faker->paragraph() //rellenar con un párrafo

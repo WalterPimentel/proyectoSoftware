@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class docentes extends Model
 {
@@ -12,6 +11,21 @@ class docentes extends Model
 
     protected $table = "docentes";
 
+    //Esta forma es mas reutilizable y guarda en la BD con letra inicial mayuscula
+    //Este codigo es mas util para campos como nombres y apellidos, para textos u oraciones mejor el anterior (solo minusculas)
+
+    public function setAttribute($key, $value)
+    {
+        if (in_array($key, ['nombresDocente', 'apellidopDocente', 'apellidomDocente'])) {
+            $value = ucwords($value);
+        }elseif ($key === 'correoDocente') {
+            $value = strtolower($value);
+        }
+
+        return parent::setAttribute($key, $value);
+    }
+
+    /*
     protected function nombresDocente(): Attribute{
         
         return new Attribute(
@@ -45,24 +59,6 @@ class docentes extends Model
             set: fn($value) => strtolower($value)
         );
 
-    }
-
-
-    //Esta forma es mas reutilizable y guarda en la BD con letra inicial mayuscula
-    //Este codigo es mas util para campos como nombres y apellidos, para textos u oraciones mejor el anterior (solo minusculas)
-    /*
-    protected function capitalizeValue($value)
-    {
-        return ucwords(strtolower($value));
-    }
-
-    public function setAttribute($key, $value)
-    {
-        if (in_array($key, ['nombresDocente', 'apellidopDocente', 'apellidomDocente'])) {
-            $value = $this->capitalizeValue($value);
-        }
-
-        return parent::setAttribute($key, $value);
     }
     */
 }

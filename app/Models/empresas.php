@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class empresas extends Model
 {
@@ -12,39 +11,31 @@ class empresas extends Model
     
     protected $table = "empresas";
 
-    protected function nombreEmpresa(): Attribute{
-        
-        return new Attribute(
-            get: fn($value) => ucwords($value),
-            set: fn($value) => strtolower($value)
-        );
+    protected function capitalizeValue($value)
+    {
+        $lowercaseWords = ['y', 'es', 'de', 'en', 'la', 'del', 'el', 'con'];
+        $words = explode(' ', strtolower($value));
+        $capitalizedWords = [];
 
+        foreach ($words as $key => $word) {
+            if ($key === 0) {
+                $capitalizedWords[] = ucfirst($word);
+            } elseif (in_array($word, $lowercaseWords)) {
+                $capitalizedWords[] = $word;
+            } else {
+                $capitalizedWords[] = ucfirst($word);
+            }
+        }
+
+        return implode(' ', $capitalizedWords);
     }
 
-    protected function encargadoEmpresa(): Attribute{
-        
-        return new Attribute(
-            get: fn($value) => ucwords($value),
-            set: fn($value) => strtolower($value)
-        );
+    public function setAttribute($key, $value)
+    {
+        if (in_array($key, ['nombreEmpresa', 'encargadoEmpresa', 'rubroEmpresa', 'direccionEmpresa'])) {
+            $value = $this->capitalizeValue($value);
+        }
 
-    }
-
-    protected function rubroEmpresa(): Attribute{
-        
-        return new Attribute(
-            get: fn($value) => ucwords($value),
-            set: fn($value) => strtolower($value)
-        );
-
-    }
-
-    protected function direccionEmpresa(): Attribute{
-        
-        return new Attribute(
-            get: fn($value) => ucwords($value),
-            set: fn($value) => strtolower($value)
-        );
-
+        return parent::setAttribute($key, $value);
     }
 }

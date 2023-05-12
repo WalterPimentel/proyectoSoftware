@@ -19,9 +19,9 @@ class comisiones_areasFactory extends Factory
             'idDocente' => $this->faker->numberBetween(1,20),
             'idAdministrativo' => $this->faker->numberBetween(1,5),
             'nombreComision' => $this->faker->words(2, true),
-            'macroProcesComision' => $this->faker->words(3, true),
-            'procesosComision' => $this->faker->words(3, true),
-            'subprocesosComision' => $this->faker->words(3, true),
+            'macroProcesoComision' => $this->faker->words(3, true),
+            'procesoComision' => $this->faker->words(3, true),
+            'subprocesoComision' => $this->faker->words(3, true),
             'periodoComision' => $this->faker->sentence(1)
         ];
     }

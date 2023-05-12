@@ -17,9 +17,9 @@ return new class extends Migration
             $table->integer('idDocente');
             $table->integer('idAdministrativo');
             $table->string('nombreComision', 25);
-            $table->string('macroProcesComision', 50);
-            $table->string('procesosComision', 50);
-            $table->string('subprocesosComision', 50);
+            $table->string('macroProcesoComision', 50);
+            $table->string('procesoComision', 50);
+            $table->string('subprocesoComision', 50);
             $table->string('periodoComision', 50);
 
             $table->timestamps();

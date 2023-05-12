@@ -10,4 +10,13 @@ class revision_pfd extends Model
     use HasFactory;
 
     protected $table = "revision_pfd";
+
+    public function setAttribute($key, $value)
+    {
+        if (in_array($key, ['descripcionRPFD', 'ovserbacionesRPFD'])) {
+            $value = ucfirst($value);
+        }
+
+        return parent::setAttribute($key, $value);
+    }
 }

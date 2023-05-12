@@ -46,26 +46,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //agregar el método mutador para el campo NAME del usuario
-    protected function name(): Attribute{
-        
-        return new Attribute(
-            get: fn($value) => ucwords($value), //muestra mayusculas primeras letras
-            set: fn($value) => strtolower($value)//registra minusculas al BD
+    //agregar el método mutador para el campo NAME y EMAIL del usuario
+    public function setAttribute($key, $value)
+    {
+        if (in_array($key, ['name'])) {
+            $value = ucwords($value);
+        }
+        if (in_array($key, ['email'])) {
+            $value = strtolower($value);
+        }
 
-        );
-
-        //Otra forma de crear mutadores
-        /*
-        return new Attribute(
-            get: function($value){
-                return ucwords($value);
-            },
-
-            set:function($value){
-                return strtolower($value);
-            }
-        );
-        */
+        return parent::setAttribute($key, $value);
     }
 }

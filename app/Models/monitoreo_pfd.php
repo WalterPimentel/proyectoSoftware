@@ -10,7 +10,7 @@ class monitoreo_pfd extends Model
 {
     use HasFactory;
     
-    protected $table = "monitoreo_pfd";
+    protected $table = "monitoreos_pfd";
 
     protected function 	descripcionMPFD(): Attribute{
         

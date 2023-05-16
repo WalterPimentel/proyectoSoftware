@@ -10,7 +10,7 @@ class plan_fd extends Model
 {
     use HasFactory;
 
-    protected $table = "plan_fd";
+    protected $table = "planes_fd";
 
     protected function 	descripcionPFD(): Attribute{
         

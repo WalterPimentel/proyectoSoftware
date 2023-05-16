@@ -9,7 +9,7 @@ class acciones_mejora extends Model
 {
     use HasFactory;
 
-    protected $table = "acciones_mejora";
+    protected $table = "acciones_mejoras";
 
     protected function capitalizeValue($value)
     {

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tdr', function (Blueprint $table) {
-            $table->id('idTDR');
+            $table->id();
 
             $table->integer('idTipoRecurso');
             $table->boolean('mayorCuantiaTDR');

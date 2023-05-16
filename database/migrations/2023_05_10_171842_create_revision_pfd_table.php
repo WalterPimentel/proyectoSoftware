@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('revision_pfd', function (Blueprint $table) {
-            $table->id('idRevisionPFD');
+        Schema::create('revisiones_pfd', function (Blueprint $table) {
+            $table->id();
 
             $table->string('descripcionRPFD');
-            $table->string('ovserbacionesRPFD')->nullable();
+            $table->string('observacionesRPFD')->nullable();
 
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('revision_pfd');
+        Schema::dropIfExists('revisiones_pfd');
     }
 };

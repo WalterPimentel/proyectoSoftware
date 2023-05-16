@@ -9,7 +9,7 @@ class informe_gestion extends Model
 {
     use HasFactory;
 
-    protected $table = "informe_gestion";
+    protected $table = "informes_gestion";
 
     public function setAttribute($key, $value)
     {

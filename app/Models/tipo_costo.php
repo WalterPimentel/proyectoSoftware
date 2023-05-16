@@ -10,7 +10,7 @@ class tipo_costo extends Model
 {
     use HasFactory;
 
-    protected $table = "tipo_costo";
+    protected $table = "tipos_costos";
 
     protected function 	observacionesCosto(): Attribute{
         

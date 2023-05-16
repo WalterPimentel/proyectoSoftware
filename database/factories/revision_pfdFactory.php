@@ -17,7 +17,7 @@ class revision_pfdFactory extends Factory
         return [
 
             'descripcionRPFD' => $this->faker->sentence(),
-            'ovserbacionesRPFD' => $this->faker->sentence(),
+            'observacionesRPFD' => $this->faker->sentence(),
             
         ];
     }

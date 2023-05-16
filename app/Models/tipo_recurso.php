@@ -10,7 +10,7 @@ class tipo_recurso extends Model
 {
     use HasFactory;
 
-    protected $table = "tipo_recurso";
+    protected $table = "tipos_recursos";
 
     protected function 	descripcionRecurso(): Attribute{
         

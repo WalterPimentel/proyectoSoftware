@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cronograma', function (Blueprint $table) {
-            $table->id('idCronograma');
+        Schema::create('cronogramas', function (Blueprint $table) {
+            $table->id();
 
             $table->integer('idPlanFD');
             $table->integer('idProyecto');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cronograma');
+        Schema::dropIfExists('cronogramas');
     }
 };

@@ -9,7 +9,7 @@ class comunicar_plan_fd extends Model
 {
     use HasFactory;
     
-    protected $table = "comunicar_plan_fd";
+    protected $table = "comunicar_planes_fd";
 
     protected function capitalizeValue($value)
     {

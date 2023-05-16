@@ -9,11 +9,11 @@ class revision_pfd extends Model
 {
     use HasFactory;
 
-    protected $table = "revision_pfd";
+    protected $table = "revisiones_pfd";
 
     public function setAttribute($key, $value)
     {
-        if (in_array($key, ['descripcionRPFD', 'ovserbacionesRPFD'])) {
+        if (in_array($key, ['descripcionRPFD', 'observacionesRPFD'])) {
             $value = ucfirst($value);
         }
 

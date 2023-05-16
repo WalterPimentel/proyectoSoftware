@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('monitoreo_pfd', function (Blueprint $table) {
-            $table->id('idMonitoreoPFD');
+        Schema::create('monitoreos_pfd', function (Blueprint $table) {
+            $table->id();
 
             $table->integer('idAccionesMejora');
             $table->string('descripcionMPFD');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('monitoreo_pfd');
+        Schema::dropIfExists('monitoreos_pfd');
     }
 };

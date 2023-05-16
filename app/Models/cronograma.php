@@ -10,7 +10,7 @@ class cronograma extends Model
 {
     use HasFactory;
 
-    protected $table = "cronograma";
+    protected $table = "cronogramas";
 
     protected function 	descripcionCronograma(): Attribute{
         

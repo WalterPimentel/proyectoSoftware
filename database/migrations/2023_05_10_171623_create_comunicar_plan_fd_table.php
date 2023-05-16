@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comunicar_plan_fd', function (Blueprint $table) {
-            $table->id('idComunicarPlanFD');
+        Schema::create('comunicar_planes_fd', function (Blueprint $table) {
+            $table->id();
 
             $table->integer('idPlanFD');
             $table->integer('idParteInteresada');
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comunicar_plan_fd');
+        Schema::dropIfExists('comunicar_planes_fd');
     }
 };

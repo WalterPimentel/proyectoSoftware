@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Docente: ' . $requisito->nombreRequisito)
+@section('title', 'Requisito: ' . $requisito->nombreRequisito)
 
 @section('content')
     <h1>Se encuentra en el registro: {{$requisito->nombreRequisito}}</h1>

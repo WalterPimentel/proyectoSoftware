@@ -27,6 +27,15 @@ Route::controller(PracticaController::class)->group(function(){
     Route::get('practicas/practicasrequisitos/create', 'createPracticasRequisitos')->name('practicasrequisitos.create');
     Route::get('practicas/requisitos/create', 'createRequisitos')->name('requisitos.create');
 
+    //posts
+    Route::post('practicas', 'store')->name('practicas.store');
+    Route::post('practicas/docentes', 'storeDocentes')->name('docentes.store');
+    Route::post('practicas/empresas', 'storeEmpresas')->name('empresas.store');
+    Route::post('practicas/estudiantes', 'storeEstudiantes')->name('estudiantes.store');
+    Route::post('practicas/etapas', 'storeEtapas')->name('etapas.store');
+    Route::post('practicas/practicasrequisitos', 'storePracticasRequisitos')->name('practicasrequisitos.store');
+    Route::post('practicas/requisitos', 'storeRequisitos')->name('requisitos.store');
+
     //shows
     Route::get('practicas/{idPractica}', 'show')->name('practicas.show');
     Route::get('practicas/docentes/{docente}', 'showDocentes')->name('docentes.show');

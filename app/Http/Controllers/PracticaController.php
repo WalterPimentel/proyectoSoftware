@@ -10,43 +10,43 @@ class PracticaController extends Controller
     //indexs
     
     public function index(){
-        $practicas = Practica::paginate();
+        $practicas = Practica::orderby('id', 'desc')->paginate();
 
         return view('practicas.index', compact('practicas'));
         //compat, se usa para enviar una variable a la vista
     }
 
     public function indexDocentes(){
-        $docentes = docentes::paginate();
+        $docentes = docentes::orderby('id', 'desc')->paginate();
 
         return view('practicas/docentes.index', compact('docentes'));
     }
     public function indexEmpresas(){
-        $empresas = empresas::paginate();
+        $empresas = empresas::orderby('id', 'desc')->paginate();
 
         return view('practicas/empresas.index', compact('empresas'));
     }
 
     public function indexEstudiantes(){
-        $estudiantes = estudiantes::paginate();
+        $estudiantes = estudiantes::orderby('id', 'desc')->paginate();
 
         return view('practicas/estudiantes.index', compact('estudiantes'));
     }
 
     public function indexEtapas(){
-        $etapas = etapas::paginate();
+        $etapas = etapas::orderby('id', 'desc')->paginate();
 
         return view('practicas/etapas.index', compact('etapas'));
     }
 
     public function indexPracticasRequisitos(){
-        $practicasRequisitos = practicas_requisitos::paginate();
+        $practicasRequisitos = practicas_requisitos::orderby('id', 'desc')->paginate();
 
         return view('practicas/practicasrequisitos.index', compact('practicasRequisitos'));
     }
 
     public function indexRequisitos(){
-        $requisitos = requisitos::paginate();
+        $requisitos = requisitos::orderby('id', 'desc')->paginate();
 
         return view('practicas/requisitos.index', compact('requisitos'));
     }
@@ -79,6 +79,108 @@ class PracticaController extends Controller
 
     public function createRequisitos(){
         return view('practicas/requisitos.create');     
+    }
+
+    //posts
+
+    public function store(Request $request){
+        $practica = new Practica();
+
+        $practica->codigo = $request->codigo;
+        $practica->idEstudiante = $request->idEstudiante;
+        $practica->idDocente = $request->idDocente;
+        $practica->idEmpresa = $request->idEmpresa;
+        $practica->idEtapa = $request->idEtapa;
+        $practica->titulo = $request->titulo;
+
+        $practica->save();
+
+        return redirect()->route('practicas.show', $practica);
+        
+    }
+
+    public function storeDocentes(Request $request){
+        $docente = new docentes();
+
+        $docente->codigoDocente = $request->codigoDocente;
+        $docente->nombresDocente = $request->nombresDocente;
+        $docente->apellidopDocente = $request->apellidopDocente;
+        $docente->apellidomDocente = $request->apellidomDocente;
+        $docente->telefonoDocente = $request->telefonoDocente;
+        $docente->correoDocente = $request->correoDocente;
+
+        $docente->save();
+
+        return redirect()->route('docentes.show', $docente);
+        
+    }
+
+    public function storeEmpresas(Request $request){
+        $empresa = new empresas();
+
+        $empresa->nombreEmpresa = $request->nombreEmpresa;
+        $empresa->encargadoEmpresa = $request->encargadoEmpresa;
+        $empresa->rubroEmpresa = $request->rubroEmpresa;
+        $empresa->direccionEmpresa = $request->direccionEmpresa;
+        $empresa->telefonoEmpresa = $request->telefonoEmpresa;
+
+        $empresa->save();
+
+        return redirect()->route('empresas.show', $empresa);
+        
+    }
+
+    public function storeEstudiantes(Request $request){
+        $estudiante = new estudiantes();
+
+        $estudiante->codigoEstudiante = $request->codigoEstudiante;
+        $estudiante->nombresEstudiante = $request->nombresEstudiante;
+        $estudiante->apellidopEstudiante = $request->apellidopEstudiante;
+        $estudiante->apellidomEstudiante = $request->apellidomEstudiante;
+        $estudiante->telefonoEstudiante = $request->telefonoEstudiante;
+        $estudiante->correoEstudiante = $request->correoEstudiante;
+
+        $estudiante->save();
+
+        return redirect()->route('estudiantes.show', $estudiante);
+        
+    }
+
+    public function storeEtapas(Request $request){
+        $etapa = new etapas();
+
+        $etapa->nombreEtapa = $request->nombreEtapa;
+        $etapa->descripcionEtapa = $request->descripcionEtapa;
+
+        $etapa->save();
+
+        return redirect()->route('etapas.show', $etapa);
+        
+    }
+
+    public function storePracticasRequisitos(Request $request){
+        $practicarequisito = new practicas_requisitos();
+
+        $practicarequisito->idPractica = $request->idPractica;
+        $practicarequisito->idRequisito = $request->idRequisito;
+
+        $practicarequisito->save();
+
+        return redirect()->route('practicasrequisitos.show', $practicarequisito);
+        
+    }
+    
+    public function storeRequisitos(Request $request){
+        $requisito = new requisitos();
+
+        $requisito->nombreRequisito = $request->nombreRequisito;
+        $requisito->descripcionRequisito = $request->descripcionRequisito;
+        $requisito->estado = $request->estado;
+
+        $requisito->save();
+
+        return redirect()->route('requisitos.show', $requisito);
+        
     }
 
     //shows

@@ -27,7 +27,7 @@ Route::controller(PracticaController::class)->group(function(){
     Route::get('practicas/practicasrequisitos/create', 'createPracticasRequisitos')->name('practicasrequisitos.create');
     Route::get('practicas/requisitos/create', 'createRequisitos')->name('requisitos.create');
 
-    //posts
+    //stores
     Route::post('practicas', 'store')->name('practicas.store');
     Route::post('practicas/docentes', 'storeDocentes')->name('docentes.store');
     Route::post('practicas/empresas', 'storeEmpresas')->name('empresas.store');
@@ -76,6 +76,20 @@ Route::controller(GestionPIController::class)->group(function(){
     Route::get('gestionPI/tdr/create', 'createTDR')->name('tdr.create');
     Route::get('gestionPI/tiposcostos/create', 'createTiposCostos')->name('tiposcostos.create');
     Route::get('gestionPI/tiposrecursos/create', 'createTiposRecursos')->name('tiposrecursos.create');
+
+    //stores
+    Route::post('gestionPI', 'store')->name('gestionPI.store');
+    Route::post('gestionPI/accionesmejoras', 'storeAccionesMejoras')->name('accionesmejoras.store');
+    Route::post('gestionPI/comisiones', 'storeComisiones')->name('comisiones.store');
+    Route::post('gestionPI/comunicarpfd', 'storeComunicarPFD')->name('comunicarpfd.store');
+    Route::post('gestionPI/cronogramas', 'storeCronogramas')->name('cronogramas.store');
+    Route::post('gestionPI/cuadronecesidades', 'storeCuadroNecesidades')->name('cuadronecesidades.store');
+    Route::post('gestionPI/informesgestion', 'storeInformesGestion')->name('informesgestion.store');
+    Route::post('gestionPI/monitoreospfd', 'storeMonitoreosPFD')->name('monitoreospfd.store');
+    Route::post('gestionPI/revisionespfd', 'storeRevisionesPFD')->name('revisionespfd.store');
+    Route::post('gestionPI/tdr', 'storeTDR')->name('tdr.store');
+    Route::post('gestionPI/tiposcostos', 'storeTiposCostos')->name('tiposcostos.store');
+    Route::post('gestionPI/tiposrecursos', 'storeTiposRecursos')->name('tiposrecursos.store');
 
     //shows
     Route::get('gestionPI/{idPlanFD}', 'show')->name('gestionPI.show');

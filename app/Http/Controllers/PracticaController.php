@@ -81,7 +81,7 @@ class PracticaController extends Controller
         return view('practicas/requisitos.create');     
     }
 
-    //posts
+    //stores
 
     public function store(Request $request){
         $practica = new Practica();

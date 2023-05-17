@@ -13,7 +13,7 @@
 
         <label>Nombre:
             <br>
-            <input type="number" name="nombreRequisito">
+            <input type="text" name="nombreRequisito">
         </label>
         <br><br>
 

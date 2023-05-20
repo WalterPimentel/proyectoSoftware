@@ -4,8 +4,15 @@
 
 @section('content')
     <h1>Se encuentra en el registro: {{$etapa->nombreEtapa}}</h1>
+
+    <a href="{{route('etapas.index')}}">Volver a Etapas</a>
+    <br><br>
+
+    <a href="{{route('etapas.edit', $etapa)}}">Editar Registro</a>
+    <br><br>
+
     Descripción:<br>
     {{$etapa->descripcionEtapa}}<br><br>
-    <a href="{{route('etapas.index')}}">Volver a Etapas</a>
+        
     <p><strong>Código: {{$etapa->id}}</strong></p>
 @endsection

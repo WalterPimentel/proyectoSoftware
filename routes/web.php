@@ -37,13 +37,32 @@ Route::controller(PracticaController::class)->group(function(){
     Route::post('practicas/requisitos', 'storeRequisitos')->name('requisitos.store');
 
     //shows
-    Route::get('practicas/{idPractica}', 'show')->name('practicas.show');
+    Route::get('practicas/{practica}', 'show')->name('practicas.show');
     Route::get('practicas/docentes/{docente}', 'showDocentes')->name('docentes.show');
     Route::get('practicas/empresas/{empresa}', 'showEmpresas')->name('empresas.show');
     Route::get('practicas/estudiantes/{estudiante}', 'showEstudiantes')->name('estudiantes.show');
     Route::get('practicas/etapas/{etapa}', 'showEtapas')->name('etapas.show');
-    Route::get('practicas/practicasrequisitos/{practicarequisito}', 'showPracticasRequisitos')->name('practicasrequisitos.show');
+    Route::get('practicas/practicasrequisitos/{practicaRequisito}', 'showPracticasRequisitos')->name('practicasrequisitos.show');
     Route::get('practicas/requisitos/{requisito}', 'showRequisitos')->name('requisitos.show');
+
+    //edits
+    Route::get('practicas/{practica}/edit', 'edit')->name('practicas.edit');
+    Route::get('practicas/docentes/{docente}/edit', 'editDocentes')->name('docentes.edit');
+    Route::get('practicas/empresas/{empresa}/edit', 'editEmpresas')->name('empresas.edit');
+    Route::get('practicas/estudiantes/{estudiante}/edit', 'editEstudiantes')->name('estudiantes.edit');
+    Route::get('practicas/etapas/{etapa}/edit', 'editEtapas')->name('etapas.edit');
+    Route::get('practicas/practicasrequisitos/{practicaRequisito}/edit', 'editPracticasRequisitos')->name('practicasrequisitos.edit');
+    Route::get('practicas/requisitos/{requisito}/edit', 'editRequisitos')->name('requisitos.edit');
+
+    //updates
+    Route::put('practicas/{practica}', 'update')->name('practicas.update');
+    Route::put('practicas/docentes/{docente}', 'updateDocentes')->name('docentes.update');
+    Route::put('practicas/empresas/{empresa}', 'updateEmpresas')->name('empresas.update');
+    Route::put('practicas/estudiantes/{estudiante}', 'updateEstudiantes')->name('estudiantes.update');
+    Route::put('practicas/etapas/{etapa}', 'updateEtapas')->name('etapas.update');
+    Route::put('practicas/practicasrequisitos/{practicaRequisito}', 'updatePracticasRequisitos')->name('practicasrequisitos.update');
+    Route::put('practicas/requisitos/{requisito}', 'updateRequisitos')->name('requisitos.update');
+
 });
 
 //Rutas para la Gestión de Planificación Institucional

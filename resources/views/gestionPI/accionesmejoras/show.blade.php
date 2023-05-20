@@ -4,9 +4,18 @@
 
 @section('content')
     <h1>Se encuentra en el registro: {{$accionmejora->metasAM}}</h1>
+
     <a href="{{route('accionesmejoras.index')}}">Regresar</a>
     <br><br>
-    Descripción:<br>
+
+    <a href="{{route('accionesmejoras.edit', $accionmejora)}}">Editar Registro</a>
+    <br><br>
+
+    Descripción:
+    <br>
     {{$accionmejora->descripcionAM}}
+    <br><br>
+
     <p><strong>Código: {{$accionmejora->id}}</strong></p>
+
 @endsection

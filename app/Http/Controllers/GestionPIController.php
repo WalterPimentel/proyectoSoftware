@@ -135,22 +135,22 @@ class GestionPIController extends Controller
     //stores
 
     public function store(Request $request){
-        $planfd = new plan_fd();
+        $pfd = new plan_fd();
 
-        $planfd->idComision = $request->idComision;
-        $planfd->idCuadroNecesidades = $request->idCuadroNecesidades;
-        $planfd->idRevisionPFD = $request->idRevisionPFD;
-        $planfd->idActaConsejoFacultad = $request->idActaConsejoFacultad;
-        $planfd->idResponsableElaboracion = $request->idResponsableElaboracion;
-        $planfd->idResponsableAprobacion = $request->idResponsableAprobacion;
-        $planfd->descripcionPFD = $request->descripcionPFD;
-        $planfd->fechaElaboracionPFD = $request->fechaElaboracionPFD;
-        $planfd->fechaAprobacionPFD = $request->fechaAprobacionPFD;
-        $planfd->yearPFD = $request->yearPFD;
+        $pfd->idComision = $request->idComision;
+        $pfd->idCuadroNecesidades = $request->idCuadroNecesidades;
+        $pfd->idRevisionPFD = $request->idRevisionPFD;
+        $pfd->idActaConsejoFacultad = $request->idActaConsejoFacultad;
+        $pfd->idResponsableElaboracion = $request->idResponsableElaboracion;
+        $pfd->idResponsableAprobacion = $request->idResponsableAprobacion;
+        $pfd->descripcionPFD = $request->descripcionPFD;
+        $pfd->fechaElaboracionPFD = $request->fechaElaboracionPFD;
+        $pfd->fechaAprobacionPFD = $request->fechaAprobacionPFD;
+        $pfd->yearPFD = $request->yearPFD;
 
-        $planfd->save();
+        $pfd->save();
 
-        return redirect()->route('gestionPI.show', $planfd);
+        return redirect()->route('gestionPI.show', $pfd);
         
     }
 
@@ -313,76 +313,293 @@ class GestionPIController extends Controller
 
     //shows
 
-    public function show($pfd){
-        
-        $pfd = plan_fd::find($pfd);
+    public function show(plan_fd $pfd){
+                
         return view('gestionPI.show', compact('pfd'));
     }
 
-    public function showAccionesMejoras($accionmejora){
-
-        $accionmejora = acciones_mejora::find($accionmejora);
+    public function showAccionesMejoras(acciones_mejora $accionmejora){
+        
         return view('gestionPI/accionesmejoras.show', compact('accionmejora'));
     }
 
-    public function showComisiones($comision){
-
-        $comision = comisiones_areas::find($comision);
+    public function showComisiones(comisiones_areas $comision){
+        
         return view('gestionPI/comisiones.show', compact('comision'));
     }
 
-    public function showComunicarPFD($comunicarpfd){
-
-        $comunicarpfd = comunicar_plan_fd::find($comunicarpfd);
+    public function showComunicarPFD(comunicar_plan_fd $comunicarpfd){
+        
         return view('gestionPI/comunicarpfd.show', compact('comunicarpfd'));
     }
 
-    public function showCronogramas($cronograma){
-
-        $cronograma = cronograma::find($cronograma);
+    public function showCronogramas(cronograma $cronograma){
+        
         return view('gestionPI/cronogramas.show', compact('cronograma'));
     }
 
-    public function showCuadroNecesidades($cuadronecesidad){
-
-        $cuadronecesidad = cuadro_necesidades::find($cuadronecesidad);
+    public function showCuadroNecesidades(cuadro_necesidades $cuadronecesidad){
+        
         return view('gestionPI/cuadronecesidades.show', compact('cuadronecesidad'));
     }
 
-    public function showInformesGestion($informegestion){
-
-        $informegestion = informe_gestion::find($informegestion);
+    public function showInformesGestion(informe_gestion $informegestion){
+        
         return view('gestionPI/informesgestion.show', compact('informegestion'));
     }
 
-    public function showMonitoreosPFD($monitoreopfd){
-
-        $monitoreopfd = monitoreo_pfd::find($monitoreopfd);
+    public function showMonitoreosPFD(monitoreo_pfd $monitoreopfd){
+        
         return view('gestionPI/monitoreospfd.show', compact('monitoreopfd'));
     }
 
-    public function showRevisionesPFD($revisionpfd){
-
-        $revisionpfd = revision_pfd::find($revisionpfd);
+    public function showRevisionesPFD(revision_pfd $revisionpfd){
+        
         return view('gestionPI/revisionespfd.show', compact('revisionpfd'));
     }
 
-    public function showTDR($tdr){
-
-        $tdr = tdr::find($tdr);
+    public function showTDR(tdr $tdr){
+        
         return view('gestionPI/tdr.show', compact('tdr'));
     }
 
-    public function showTiposCostos($tipocosto){
-
-        $tipocosto = tipo_costo::find($tipocosto);
+    public function showTiposCostos(tipo_costo $tipocosto){
+        
         return view('gestionPI/tiposcostos.show', compact('tipocosto'));
     }
 
-    public function showTiposRecursos($tiporecurso){
-
-        $tiporecurso = tipo_recurso::find($tiporecurso);
+    public function showTiposRecursos(tipo_recurso $tiporecurso){
+        
         return view('gestionPI/tiposrecursos.show', compact('tiporecurso'));
+    }
+
+    //edits
+
+    public function edit(plan_fd $pfd){
+                
+        return view('gestionPI.edit', compact('pfd'));
+    }
+
+    public function editAccionesMejoras(acciones_mejora $accionmejora){
+        
+        return view('gestionPI/accionesmejoras.edit', compact('accionmejora'));
+    }
+
+    public function editComisiones(comisiones_areas $comision){
+        
+        return view('gestionPI/comisiones.edit', compact('comision'));
+    }
+
+    public function editComunicarPFD(comunicar_plan_fd $comunicarpfd){
+        
+        return view('gestionPI/comunicarpfd.edit', compact('comunicarpfd'));
+    }
+
+    public function editCronogramas(cronograma $cronograma){
+        
+        return view('gestionPI/cronogramas.edit', compact('cronograma'));
+    }
+
+    public function editCuadroNecesidades(cuadro_necesidades $cuadronecesidad){
+        
+        return view('gestionPI/cuadronecesidades.edit', compact('cuadronecesidad'));
+    }
+
+    public function editInformesGestion(informe_gestion $informegestion){
+        
+        return view('gestionPI/informesgestion.edit', compact('informegestion'));
+    }
+
+    public function editMonitoreosPFD(monitoreo_pfd $monitoreopfd){
+        
+        return view('gestionPI/monitoreospfd.edit', compact('monitoreopfd'));
+    }
+
+    public function editRevisionesPFD(revision_pfd $revisionpfd){
+        
+        return view('gestionPI/revisionespfd.edit', compact('revisionpfd'));
+    }
+
+    public function editTDR(tdr $tdr){
+        
+        return view('gestionPI/tdr.edit', compact('tdr'));
+    }
+
+    public function editTiposCostos(tipo_costo $tipocosto){
+        
+        return view('gestionPI/tiposcostos.edit', compact('tipocosto'));
+    }
+
+    public function editTiposRecursos(tipo_recurso $tiporecurso){
+        
+        return view('gestionPI/tiposrecursos.edit', compact('tiporecurso'));
+    }
+
+    //updates
+
+    public function update(Request $request, plan_fd $pfd){        
+
+        $pfd->idComision = $request->idComision;
+        $pfd->idCuadroNecesidades = $request->idCuadroNecesidades;
+        $pfd->idRevisionPFD = $request->idRevisionPFD;
+        $pfd->idActaConsejoFacultad = $request->idActaConsejoFacultad;
+        $pfd->idResponsableElaboracion = $request->idResponsableElaboracion;
+        $pfd->idResponsableAprobacion = $request->idResponsableAprobacion;
+        $pfd->descripcionPFD = $request->descripcionPFD;
+        $pfd->fechaElaboracionPFD = $request->fechaElaboracionPFD;
+        $pfd->fechaAprobacionPFD = $request->fechaAprobacionPFD;
+        $pfd->yearPFD = $request->yearPFD;
+
+        $pfd->save();
+
+        return redirect()->route('gestionPI.show', $pfd);
+        
+    }
+
+    public function updateAccionesMejoras(Request $request, acciones_mejora $accionmejora){        
+
+        $accionmejora->idComision = $request->idComision;
+        $accionmejora->idPlanFD = $request->idPlanFD;
+        $accionmejora->idMonitoreoPFD = $request->idMonitoreoPFD;
+        $accionmejora->idTipoRecurso = $request->idTipoRecurso;
+        $accionmejora->metasAM = $request->metasAM;
+        $accionmejora->descripcionAM = $request->descripcionAM;
+
+        $accionmejora->save();
+
+        return redirect()->route('accionesmejoras.show', $accionmejora);
+        
+    }
+
+    public function updateComisiones(Request $request, comisiones_areas $comision){        
+
+        $comision->idDocente = $request->idDocente;
+        $comision->idAdministrativo = $request->idAdministrativo;
+        $comision->nombreComision = $request->nombreComision;
+        $comision->macroProcesoComision = $request->macroProcesoComision;
+        $comision->procesoComision = $request->procesoComision;
+        $comision->subprocesoComision = $request->subprocesoComision;
+        $comision->periodoComision = $request->periodoComision;
+
+        $comision->save();
+
+        return redirect()->route('comisiones.show', $comision);
+        
+    }
+
+    public function updateComunicarPFD(Request $request, comunicar_plan_fd $comunicarpfd){        
+
+        $comunicarpfd->idPlanFD = $request->idPlanFD;
+        $comunicarpfd->idParteInteresada = $request->idParteInteresada;
+        $comunicarpfd->descripcionComunicarPFD = $request->descripcionComunicarPFD;
+        $comunicarpfd->medioComunicarPFD = $request->medioComunicarPFD;
+        $comunicarpfd->fechaComunicarPFD = $request->fechaComunicarPFD;
+        $comunicarpfd->horaComunicarPFD = $request->horaComunicarPFD;
+        $comunicarpfd->observacionesComunicarPFD = $request->observacionesComunicarPFD;
+
+        $comunicarpfd->save();
+
+        return redirect()->route('comunicarpfd.show', $comunicarpfd);
+        
+    }
+
+    public function updateCronogramas(Request $request, cronograma $cronograma){        
+
+        $cronograma->idPlanFD = $request->idPlanFD;
+        $cronograma->idProyecto = $request->idProyecto;
+        $cronograma->descripcionCronograma = $request->descripcionCronograma;
+
+        $cronograma->save();
+
+        return redirect()->route('cronogramas.show', $cronograma);
+        
+    }
+
+    public function updateCuadroNecesidades(Request $request, cuadro_necesidades $cuadronecesidad){        
+
+        $cuadronecesidad->idComision = $request->idComision;
+        $cuadronecesidad->idTipoRecurso = $request->idTipoRecurso;
+        $cuadronecesidad->idTipoCosto = $request->idTipoCosto;
+        $cuadronecesidad->idTDR = $request->idTDR;
+        $cuadronecesidad->descripcionCuadroN = $request->descripcionCuadroN;
+        $cuadronecesidad->cantidadCuadroN = $request->cantidadCuadroN;
+        $cuadronecesidad->precioCuadroN = $request->precioCuadroN;
+
+        $cuadronecesidad->save();
+
+        return redirect()->route('cuadronecesidades.show', $cuadronecesidad);
+        
+    }
+
+    public function updateInformesGestion(Request $request, informe_gestion $informegestion){        
+
+        $informegestion->idMonitoreoPFD = $request->idMonitoreoPFD;
+        $informegestion->idResponsableElaboracion = $request->idResponsableElaboracion;
+        $informegestion->descripcionIG = $request->descripcionIG;
+        $informegestion->observacionesIG = $request->observacionesIG;
+
+        $informegestion->save();
+
+        return redirect()->route('informesgestion.show', $informegestion);
+        
+    }
+
+    public function updateMonitoreosPFD(Request $request, monitoreo_pfd $monitoreopfd){        
+
+        $monitoreopfd->idAccionesMejora = $request->idAccionesMejora;
+        $monitoreopfd->descripcionMPFD = $request->descripcionMPFD;
+        $monitoreopfd->porcentajeAvanceMPFD = $request->porcentajeAvanceMPFD;
+
+        $monitoreopfd->save();
+
+        return redirect()->route('monitoreospfd.show', $monitoreopfd);
+        
+    }
+
+    public function updateRevisionesPFD(Request $request, revision_pfd $revisionpfd){        
+
+        $revisionpfd->descripcionRPFD = $request->descripcionRPFD;
+        $revisionpfd->observacionesRPFD = $request->observacionesRPFD;        
+
+        $revisionpfd->save();
+
+        return redirect()->route('revisionespfd.show', $revisionpfd);
+        
+    }
+
+    public function updateTDR(Request $request, tdr $tdr){        
+
+        $tdr->idTipoRecurso = $request->idTipoRecurso;
+        $tdr->mayorCuantiaTDR = $request->mayorCuantiaTDR;        
+        $tdr->descripcionTDR = $request->descripcionTDR;
+        $tdr->costoTDR = $request->costoTDR;
+
+        $tdr->save();
+
+        return redirect()->route('tdr.show', $tdr);
+        
+    }
+    
+    public function updateTiposCostos(Request $request, tipo_costo $tipocosto){        
+
+        $tipocosto->idTipoRecurso = $request->idTipoRecurso;
+        $tipocosto->descripcionCosto = $request->descripcionCosto;        
+        $tipocosto->observacionesCosto = $request->observacionesCosto;
+
+        $tipocosto->save();
+
+        return redirect()->route('tiposcostos.show', $tipocosto);
+        
+    }
+
+    public function updateTiposRecursos(Request $request, tipo_recurso $tiporecurso){        
+
+        $tiporecurso->descripcionRecurso = $request->descripcionRecurso;
+
+        $tiporecurso->save();
+
+        return redirect()->route('tiposrecursos.show', $tiporecurso);
+        
     }
 
 }

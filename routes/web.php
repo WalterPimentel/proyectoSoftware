@@ -111,7 +111,7 @@ Route::controller(GestionPIController::class)->group(function(){
     Route::post('gestionPI/tiposrecursos', 'storeTiposRecursos')->name('tiposrecursos.store');
 
     //shows
-    Route::get('gestionPI/{idPlanFD}', 'show')->name('gestionPI.show');
+    Route::get('gestionPI/{pfd}', 'show')->name('gestionPI.show');
     Route::get('gestionPI/accionesmejoras/{accionmejora}', 'showAccionesMejoras')->name('accionesmejoras.show');
     Route::get('gestionPI/comisiones/{comision}', 'showComisiones')->name('comisiones.show');
     Route::get('gestionPI/comunicarpfd/{comunicarpfd}', 'showComunicarPFD')->name('comunicarpfd.show');
@@ -123,5 +123,33 @@ Route::controller(GestionPIController::class)->group(function(){
     Route::get('gestionPI/tdr/{tdr}', 'showTDR')->name('tdr.show');
     Route::get('gestionPI/tiposcostos/{tipocosto}', 'showTiposCostos')->name('tiposcostos.show');
     Route::get('gestionPI/tiposrecursos/{tiporecurso}', 'showTiposRecursos')->name('tiposrecursos.show');
+
+    //edits
+    Route::get('gestionPI/{pfd}/edit', 'edit')->name('gestionPI.edit');
+    Route::get('gestionPI/accionesmejoras/{accionmejora}/edit', 'editAccionesMejoras')->name('accionesmejoras.edit');
+    Route::get('gestionPI/comisiones/{comision}/edit', 'editComisiones')->name('comisiones.edit');
+    Route::get('gestionPI/comunicarpfd/{comunicarpfd}/edit', 'editComunicarPFD')->name('comunicarpfd.edit');
+    Route::get('gestionPI/cronogramas/{cronograma}/edit', 'editCronogramas')->name('cronogramas.edit');
+    Route::get('gestionPI/cuadronecesidades/{cuadronecesidad}/edit', 'editCuadroNecesidades')->name('cuadronecesidades.edit');
+    Route::get('gestionPI/informesgestion/{informegestion}/edit', 'editInformesGestion')->name('informesgestion.edit');
+    Route::get('gestionPI/monitoreospfd/{monitoreopfd}/edit', 'editMonitoreosPFD')->name('monitoreospfd.edit');
+    Route::get('gestionPI/revisionespfd/{revisionpfd}/edit', 'editRevisionesPFD')->name('revisionespfd.edit');
+    Route::get('gestionPI/tdr/{tdr}/edit', 'editTDR')->name('tdr.edit');
+    Route::get('gestionPI/tiposcostos/{tipocosto}/edit', 'editTiposCostos')->name('tiposcostos.edit');
+    Route::get('gestionPI/tiposrecursos/{tiporecurso}/edit', 'editTiposRecursos')->name('tiposrecursos.edit');
+
+    //updates
+    Route::put('gestionPI/{pfd}', 'update')->name('gestionPI.update');
+    Route::put('gestionPI/accionesmejoras/{accionmejora}', 'updateAccionesMejoras')->name('accionesmejoras.update');
+    Route::put('gestionPI/comisiones/{comision}', 'updateComisiones')->name('comisiones.update');
+    Route::put('gestionPI/comunicarpfd/{comunicarpfd}', 'updateComunicarPFD')->name('comunicarpfd.update');
+    Route::put('gestionPI/cronogramas/{cronograma}', 'updateCronogramas')->name('cronogramas.update');
+    Route::put('gestionPI/cuadronecesidades/{cuadronecesidad}', 'updateCuadroNecesidades')->name('cuadronecesidades.update');
+    Route::put('gestionPI/informesgestion/{informegestion}', 'updateInformesGestion')->name('informesgestion.update');
+    Route::put('gestionPI/monitoreospfd/{monitoreopfd}', 'updateMonitoreosPFD')->name('monitoreospfd.update');
+    Route::put('gestionPI/revisionespfd/{revisionpfd}', 'updateRevisionesPFD')->name('revisionespfd.update');
+    Route::put('gestionPI/tdr/{tdr}', 'updateTDR')->name('tdr.update');
+    Route::put('gestionPI/tiposcostos/{tipocosto}', 'updateTiposCostos')->name('tiposcostos.update');
+    Route::put('gestionPI/tiposrecursos/{tiporecurso}', 'updateTiposRecursos')->name('tiposrecursos.update');
 
 });

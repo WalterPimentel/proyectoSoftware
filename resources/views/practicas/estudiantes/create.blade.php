@@ -13,38 +13,86 @@
 
         <label>Código:
             <br>
-            <input type="number" name="codigoEstudiante">
+            <input type="number" name="codigoEstudiante" value="{{old('codigoEstudiante')}}">
         </label>
+
+        @error('codigoEstudiante')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Código'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Nombres:
             <br>
-            <input type="text" name="nombresEstudiante">
+            <input type="text" name="nombresEstudiante" value="{{old('nombresEstudiante')}}">
         </label>
+        
+        @error('nombresEstudiante')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Nombres'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Apellido Paterno:
             <br>
-            <input type="text" name="apellidopEstudiante">
+            <input type="text" name="apellidopEstudiante" value="{{old('apellidopEstudiante')}}">
         </label>
+        
+        @error('apellidopEstudiante')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Apellido Paterno'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Apellido Materno:
             <br>
-            <input type="text" name="apellidomEstudiante">
+            <input type="text" name="apellidomEstudiante" value="{{old('apellidomEstudiante')}}">
         </label>
+        
+        @error('apellidomEstudiante')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Apellido Materno'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Teléfono:
             <br>
-            <input type="text" name="telefonoEstudiante">
+            <input type="text" name="telefonoEstudiante" value="{{old('telefonoEstudiante')}}">
         </label>
+        
+        @error('telefonoEstudiante')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Teléfono'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Correo:
             <br>
-            <input type="text" name="correoEstudiante">
+            <input type="text" name="correoEstudiante" value="{{old('correoEstudiante')}}">
         </label>
+        
+        @error('correoEstudiante')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Correo'])</small>
+            
+        @enderror
+
         <br><br>
 
         <button type="submit">Enviar Formulario</button>

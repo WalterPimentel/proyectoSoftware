@@ -13,20 +13,44 @@
 
         <label>Nombre:
             <br>
-            <input type="text" name="nombreRequisito">
+            <input type="text" name="nombreRequisito" value="{{old('nombreRequisito')}}">
         </label>
+        
+        @error('nombreRequisito')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Nombre'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Descripción:
             <br>
-            <input type="text" name="descripcionRequisito">
+            <input type="text" name="descripcionRequisito" value="{{old('descripcionRequisito')}}">
         </label>
+        
+        @error('descripcionRequisito')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Descripción'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Estado:
             <br>
-            <input type="number" name="estado">
+            <input type="number" name="estado" value="{{old('estado')}}">
         </label>
+        
+        @error('estado')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Estado'])</small>
+            
+        @enderror
+
         <br><br>
 
         <button type="submit">Enviar Formulario</button>

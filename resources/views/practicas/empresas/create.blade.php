@@ -14,32 +14,72 @@
 
         <label>Empresa:
             <br>
-            <input type="text" name="nombreEmpresa">
+            <input type="text" name="nombreEmpresa" value="{{old('nombreEmpresa')}}">
         </label>
+        
+        @error('nombreEmpresa')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Empresa'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Encargado:
             <br>
-            <input type="text" name="encargadoEmpresa">
+            <input type="text" name="encargadoEmpresa" value="{{old('encargadoEmpresa')}}">
         </label>
+        
+        @error('encargadoEmpresa')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Encargado'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Rubro:
             <br>
-            <input type="text" name="rubroEmpresa">
+            <input type="text" name="rubroEmpresa" value="{{old('rubroEmpresa')}}">
         </label>
+        
+        @error('rubroEmpresa')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Rubro'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Dirección:
             <br>
-            <textarea name="direccionEmpresa" rows="5"></textarea>
+            <textarea name="direccionEmpresa" rows="5">{{old('direccionEmpresa')}}</textarea>
         </label>
+        
+        @error('direccionEmpresa')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Dirección'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Teléfono:
             <br>
-            <input type="text" name="telefonoEmpresa">
+            <input type="text" name="telefonoEmpresa" value="{{old('telefonoEmpresa')}}">
         </label>
+        
+        @error('telefonoEmpresa')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Teléfono'])</small>
+            
+        @enderror
+
         <br><br>
 
         <button type="submit">Enviar Formulario</button>

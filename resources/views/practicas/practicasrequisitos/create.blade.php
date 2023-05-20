@@ -13,14 +13,30 @@
 
         <label>idPractica:
             <br>
-            <input type="number" name="idPractica">
+            <input type="number" name="idPractica" value="{{old('idPractica')}}">
         </label>
+        
+        @error('idPractica')
+
+            <br>
+            <small>*{{$message}}</small>
+            
+        @enderror
+
         <br><br>
 
         <label>idRequisito:
             <br>
-            <input type="number" name="idRequisito">
+            <input type="number" name="idRequisito" value="{{old('idRequisito')}}">
         </label>
+        
+        @error('idRequisito')
+
+            <br>
+            <small>*{{$message}}</small>
+            
+        @enderror
+
         <br><br>
 
         <button type="submit">Enviar Formulario</button>

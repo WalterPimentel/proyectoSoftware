@@ -84,6 +84,16 @@ class PracticaController extends Controller
     //stores
 
     public function store(Request $request){
+        
+        $request->validate([
+            'codigo' => 'required',
+            'idEstudiante' => 'required',
+            'idDocente' => 'required',
+            'idEmpresa' => 'required',
+            'idEtapa' => 'required',
+            'titulo' => 'required'
+        ]);
+
         $practica = new Practica();
 
         $practica->codigo = $request->codigo;
@@ -100,6 +110,16 @@ class PracticaController extends Controller
     }
 
     public function storeDocentes(Request $request){
+
+        $request->validate([
+            'codigoDocente' => 'required',
+            'nombresDocente' => 'required',
+            'apellidopDocente' => 'required',
+            'apellidomDocente' => 'required',
+            'telefonoDocente' => 'required',
+            'correoDocente' => 'required'
+        ]);
+
         $docente = new docentes();
 
         $docente->codigoDocente = $request->codigoDocente;
@@ -116,6 +136,15 @@ class PracticaController extends Controller
     }
 
     public function storeEmpresas(Request $request){
+
+        $request->validate([
+            'nombreEmpresa' => 'required',
+            'encargadoEmpresa' => 'required',
+            'rubroEmpresa' => 'required',
+            'direccionEmpresa' => 'required',
+            'telefonoEmpresa' => 'required'
+        ]);
+
         $empresa = new empresas();
 
         $empresa->nombreEmpresa = $request->nombreEmpresa;
@@ -131,6 +160,16 @@ class PracticaController extends Controller
     }
 
     public function storeEstudiantes(Request $request){
+
+        $request->validate([
+            'codigoEstudiante' => 'required',
+            'nombresEstudiante' => 'required',
+            'apellidopEstudiante' => 'required',
+            'apellidomEstudiante' => 'required',
+            'telefonoEstudiante' => 'required',
+            'correoEstudiante' => 'required'
+        ]);
+        
         $estudiante = new estudiantes();
 
         $estudiante->codigoEstudiante = $request->codigoEstudiante;
@@ -147,6 +186,12 @@ class PracticaController extends Controller
     }
 
     public function storeEtapas(Request $request){
+
+        $request->validate([
+            'nombreEtapa' => 'required',
+            'descripcionEtapa' => 'required'
+        ]);
+
         $etapa = new etapas();
 
         $etapa->nombreEtapa = $request->nombreEtapa;
@@ -159,6 +204,12 @@ class PracticaController extends Controller
     }
 
     public function storePracticasRequisitos(Request $request){
+
+        $request->validate([
+            'idPractica' => 'required',
+            'idRequisito' => 'required'
+        ]);
+
         $practicaRequisito = new practicas_requisitos();
 
         $practicaRequisito->idPractica = $request->idPractica;
@@ -171,6 +222,13 @@ class PracticaController extends Controller
     }
     
     public function storeRequisitos(Request $request){
+
+        $request->validate([
+            'nombreRequisito' => 'required',
+            'descripcionRequisito' => 'required',
+            'estado' => 'required'
+        ]);
+
         $requisito = new requisitos();
 
         $requisito->nombreRequisito = $request->nombreRequisito;

@@ -14,8 +14,16 @@
 
         <label>Descripción Recurso:
             <br>
-            <textarea name="descripcionRecurso" rows="5"></textarea>
+            <textarea name="descripcionRecurso" rows="5">{{old('nombreRequisito')}}</textarea>
         </label>
+                
+        @error('descripcionRecurso')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Descripción Recurso'])</small>
+            
+        @enderror
+
         <br><br>
 
         <button type="submit">Enviar Formulario</button>

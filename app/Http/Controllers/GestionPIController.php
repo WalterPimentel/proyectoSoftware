@@ -135,6 +135,20 @@ class GestionPIController extends Controller
     //stores
 
     public function store(Request $request){
+
+        $request->validate([
+            'idComision' => 'required',
+            'idCuadroNecesidades' => 'required',
+            'idRevisionPFD' => 'required',
+            'idActaConsejoFacultad' => 'required',
+            'idResponsableElaboracion' => 'required',
+            'idResponsableAprobacion' => 'required',
+            'descripcionPFD' => 'required',
+            'fechaElaboracionPFD' => 'required',
+            'fechaAprobacionPFD' => 'required',
+            'yearPFD' => 'required'            
+        ]);
+
         $pfd = new plan_fd();
 
         $pfd->idComision = $request->idComision;
@@ -155,6 +169,16 @@ class GestionPIController extends Controller
     }
 
     public function storeAccionesMejoras(Request $request){
+
+        $request->validate([
+            'idComision' => 'required',
+            'idPlanFD' => 'required',
+            'idMonitoreoPFD' => 'required',
+            'idTipoRecurso' => 'required',
+            'metasAM' => 'required',
+            'descripcionAM' => 'required'         
+        ]);
+
         $accionmejora = new acciones_mejora();
 
         $accionmejora->idComision = $request->idComision;
@@ -171,6 +195,17 @@ class GestionPIController extends Controller
     }
 
     public function storeComisiones(Request $request){
+
+        $request->validate([
+            'idDocente' => 'required',
+            'idAdministrativo' => 'required',
+            'nombreComision' => 'required',
+            'macroProcesoComision' => 'required',
+            'procesoComision' => 'required',
+            'subprocesoComision' => 'required',
+            'periodoComision' => 'required'           
+        ]);
+
         $comision = new comisiones_areas();
 
         $comision->idDocente = $request->idDocente;
@@ -188,6 +223,17 @@ class GestionPIController extends Controller
     }
 
     public function storeComunicarPFD(Request $request){
+
+        $request->validate([
+            'idPlanFD' => 'required',
+            'idParteInteresada' => 'required',
+            'descripcionComunicarPFD' => 'required',
+            'medioComunicarPFD' => 'required',
+            'fechaComunicarPFD' => 'required',
+            'horaComunicarPFD' => 'required',
+            'observacionesComunicarPFD' => 'required'       
+        ]);
+
         $comunicarpfd = new comunicar_plan_fd();
 
         $comunicarpfd->idPlanFD = $request->idPlanFD;
@@ -205,6 +251,13 @@ class GestionPIController extends Controller
     }
 
     public function storeCronogramas(Request $request){
+
+        $request->validate([
+            'idPlanFD' => 'required',
+            'idProyecto' => 'required',
+            'descripcionCronograma' => 'required'         
+        ]);
+
         $cronograma = new cronograma();
 
         $cronograma->idPlanFD = $request->idPlanFD;
@@ -218,6 +271,17 @@ class GestionPIController extends Controller
     }
 
     public function storeCuadroNecesidades(Request $request){
+
+        $request->validate([
+            'idComision' => 'required',
+            'idTipoRecurso' => 'required',
+            'idTipoCosto' => 'required',
+            'idTDR' => 'required',
+            'descripcionCuadroN' => 'required',
+            'cantidadCuadroN' => 'required',
+            'precioCuadroN' => 'required'          
+        ]);
+
         $cuadronecesidad = new cuadro_necesidades();
 
         $cuadronecesidad->idComision = $request->idComision;
@@ -235,6 +299,14 @@ class GestionPIController extends Controller
     }
 
     public function storeInformesGestion(Request $request){
+
+        $request->validate([
+            'idMonitoreoPFD' => 'required',
+            'idResponsableElaboracion' => 'required',
+            'descripcionIG' => 'required',
+            'observacionesIG' => 'required'       
+        ]);
+
         $informegestion = new informe_gestion();
 
         $informegestion->idMonitoreoPFD = $request->idMonitoreoPFD;
@@ -249,6 +321,13 @@ class GestionPIController extends Controller
     }
 
     public function storeMonitoreosPFD(Request $request){
+
+        $request->validate([
+            'idAccionesMejora' => 'required',
+            'descripcionMPFD' => 'required',
+            'porcentajeAvanceMPFD' => 'required'     
+        ]);
+
         $monitoreopfd = new monitoreo_pfd();
 
         $monitoreopfd->idAccionesMejora = $request->idAccionesMejora;
@@ -262,6 +341,12 @@ class GestionPIController extends Controller
     }
 
     public function storeRevisionesPFD(Request $request){
+
+        $request->validate([
+            'descripcionRPFD' => 'required',
+            'observacionesRPFD' => 'required'   
+        ]);
+
         $revisionpfd = new revision_pfd();
 
         $revisionpfd->descripcionRPFD = $request->descripcionRPFD;
@@ -274,6 +359,14 @@ class GestionPIController extends Controller
     }
 
     public function storeTDR(Request $request){
+
+        $request->validate([
+            'idTipoRecurso' => 'required',
+            'mayorCuantiaTDR' => 'required',
+            'descripcionTDR' => 'required',
+            'costoTDR' => 'required'       
+        ]);
+
         $tdr = new tdr();
 
         $tdr->idTipoRecurso = $request->idTipoRecurso;
@@ -288,6 +381,13 @@ class GestionPIController extends Controller
     }
     
     public function storeTiposCostos(Request $request){
+
+        $request->validate([
+            'idTipoRecurso' => 'required',
+            'descripcionCosto' => 'required',
+            'observacionesCosto' => 'required'     
+        ]);
+
         $tipocosto = new tipo_costo();
 
         $tipocosto->idTipoRecurso = $request->idTipoRecurso;
@@ -301,6 +401,11 @@ class GestionPIController extends Controller
     }
 
     public function storeTiposRecursos(Request $request){
+
+        $request->validate([
+            'descripcionRecurso' => 'required'   
+        ]);
+
         $tiporecurso = new tipo_recurso();
 
         $tiporecurso->descripcionRecurso = $request->descripcionRecurso;

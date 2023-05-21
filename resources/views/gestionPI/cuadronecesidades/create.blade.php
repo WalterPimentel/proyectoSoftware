@@ -14,44 +14,100 @@
 
         <label>Comisión:
             <br>
-            <input type="number" name="idComision">
+            <input type="number" name="idComision" value="{{old('idComision')}}">
         </label>
+                
+        @error('idComision')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Comisión'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Tipo Recurso:
             <br>
-            <input type="number" name="idTipoRecurso">
+            <input type="number" name="idTipoRecurso" value="{{old('idTipoRecurso')}}">
         </label>
+                
+        @error('idTipoRecurso')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Tipo Recurso'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Tipo Costo:
             <br>
-            <input type="number" name="idTipoCosto">
+            <input type="number" name="idTipoCosto" value="{{old('idTipoCosto')}}">
         </label>
+                
+        @error('idTipoCosto')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Tipo Costo'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>TDR:
             <br>
-            <input type="number" name="idTDR">
+            <input type="number" name="idTDR" value="{{old('idTDR')}}">
         </label>
+                
+        @error('idTDR')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'TDR'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Descripción:
             <br>
-            <textarea name="descripcionCuadroN" rows="5"></textarea>
+            <textarea name="descripcionCuadroN" rows="5">{{old('descripcionCuadroN')}}</textarea>
         </label>
+                
+        @error('descripcionCuadroN')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Descripción'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Cantidad:
             <br>
-            <input type="number" name="cantidadCuadroN">
+            <input type="number" name="cantidadCuadroN" value="{{old('cantidadCuadroN')}}">
         </label>
+                
+        @error('cantidadCuadroN')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Cantidad'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Precio:
             <br>
-            <input type="number" step="0.01" name="precioCuadroN">
+            <input type="number" step="0.01" name="precioCuadroN" value="{{old('precioCuadroN')}}">
         </label>
+                
+        @error('precioCuadroN')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Precio'])</small>
+            
+        @enderror
+
         <br><br>
 
         <button type="submit">Enviar Formulario</button>

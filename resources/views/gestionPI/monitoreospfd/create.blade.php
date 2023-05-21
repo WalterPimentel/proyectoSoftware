@@ -14,20 +14,44 @@
 
         <label>Accion Mejora:
             <br>
-            <input type="number" name="idAccionesMejora">
+            <input type="number" name="idAccionesMejora" value="{{old('idAccionesMejora')}}">
         </label>
+                
+        @error('idAccionesMejora')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Accion Mejora'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Descripción:
             <br>
-            <textarea name="descripcionMPFD" rows="5"></textarea>
+            <textarea name="descripcionMPFD" rows="5">{{old('descripcionMPFD')}}</textarea>
         </label>
+                
+        @error('descripcionMPFD')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Descripción'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Avance (%):
             <br>
-            <input type="number" step="0.01" min="0" max="100.00" name="porcentajeAvanceMPFD">
+            <input type="number" step="0.01" min="0" max="100.00" name="porcentajeAvanceMPFD" value="{{old('porcentajeAvanceMPFD')}}">
         </label>
+                
+        @error('porcentajeAvanceMPFD')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Avance'])</small>
+            
+        @enderror
+
         <br><br>
 
         <button type="submit">Enviar Formulario</button>

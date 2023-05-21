@@ -14,26 +14,50 @@
 
         <label>Tipo Recurso:
             <br>
-            <input type="number" name="idTipoRecurso">
+            <input type="number" name="idTipoRecurso" value="{{old('idTipoRecurso')}}">
         </label>
+                
+        @error('idTipoRecurso')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Tipo Recurso'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Mayor Cuantia:
             <br>
-            <input type="number" name="mayorCuantiaTDR">
+            <input type="number" name="mayorCuantiaTDR" value="{{old('mayorCuantiaTDR')}}">
         </label>
+                
+        @error('mayorCuantiaTDR')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Mayor Cuantia'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Descripción:
             <br>
-            <textarea name="descripcionTDR" rows="5"></textarea>
+            <textarea name="descripcionTDR" rows="5">{{old('descripcionTDR')}}</textarea>
         </label>
         <br><br>
 
         <label>Costo:
             <br>
-            <input type="number" step="0.01" name="costoTDR">
+            <input type="number" step="0.01" name="costoTDR" value="{{old('costoTDR')}}">
         </label>
+                
+        @error('costoTDR')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Costo'])</small>
+            
+        @enderror
+
         <br><br>
 
         <button type="submit">Enviar Formulario</button>

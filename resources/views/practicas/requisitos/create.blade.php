@@ -29,14 +29,6 @@
             <br>
             <input type="text" name="descripcionRequisito" value="{{old('descripcionRequisito')}}">
         </label>
-        
-        @error('descripcionRequisito')
-
-            <br>
-            <small>*@lang('validation.required', ['attribute' => 'Descripción'])</small>
-            
-        @enderror
-
         <br><br>
 
         <label>Estado:

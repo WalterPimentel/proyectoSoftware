@@ -72,14 +72,6 @@
             <br>
             <input type="text" name="telefonoEmpresa" value="{{old('telefonoEmpresa')}}">
         </label>
-        
-        @error('telefonoEmpresa')
-
-            <br>
-            <small>*@lang('validation.required', ['attribute' => 'Teléfono'])</small>
-            
-        @enderror
-
         <br><br>
 
         <button type="submit">Enviar Formulario</button>

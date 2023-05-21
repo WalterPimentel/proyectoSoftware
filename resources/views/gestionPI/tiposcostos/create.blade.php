@@ -14,20 +14,36 @@
 
         <label>Tipo Recurso:
             <br>
-            <input type="number" name="idTipoRecurso">
+            <input type="number" name="idTipoRecurso" value="{{old('idTipoRecurso')}}">
         </label>
+                
+        @error('idTipoRecurso')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Tipo Recurso'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Descripción (mayor cuantía 1, menor cuantía 0):
             <br>
-            <input type="number" min="0" max="1" name="descripcionCosto">
+            <input type="number" min="0" max="1" name="descripcionCosto" value="{{old('descripcionCosto')}}">
         </label>
+                
+        @error('descripcionCosto')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Descripción'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Observaciones:
             <br>
-            <textarea name="observacionesCosto" rows="5"></textarea>
-        </label>
+            <textarea name="observacionesCosto" rows="5">{{old('nombreRequisito')}}</textarea>
+        </label>            
         <br><br>
 
         <button type="submit">Enviar Formulario</button>

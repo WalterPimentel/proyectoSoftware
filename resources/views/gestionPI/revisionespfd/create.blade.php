@@ -5,7 +5,7 @@
 @section('content')
     <h1>En esta página se podrá crear un nuevo registro de Revisiones PFD.</h1>
 
-    <a href="{{route('revisionespfd.index')}}">regresar</a>
+    <a href="{{route('revisionespfd.index')}}">Regresar</a>
     <br><br>
 
     <form action="{{route('revisionespfd.store')}}" method="POST">
@@ -14,13 +14,21 @@
 
         <label>Descripción de Revisión:
             <br>
-            <textarea name="descripcionRPFD" rows="5"></textarea>
+            <textarea name="descripcionRPFD" rows="5">{{old('nombreRequisito')}}</textarea>
         </label>
+                
+        @error('descripcionRPFD')
+
+            <br>
+            <small>*@lang('validation.required', ['attribute' => 'Descripción de Revisión'])</small>
+            
+        @enderror
+
         <br><br>
 
         <label>Observaciones:
             <br>
-            <textarea name="observacionesRPFD" rows="5"></textarea>
+            <textarea name="observacionesRPFD" rows="5">{{old('observacionesRPFD')}}</textarea>
         </label>
         <br><br>
 

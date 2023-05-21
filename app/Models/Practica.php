@@ -9,6 +9,20 @@ class Practica extends Model
 {
     use HasFactory;
 
+    //asignar solo los campos que tiene permiso insertar, modificar o eliminar datos
+    protected $fillable = [
+        'codigo', 
+        'idEstudiante', 
+        'idDocente', 
+        'idEmpresa', 
+        'idEtapa', 
+        'titulo'
+    ];
+
+    //la reversa de fillable es guarded, indicas que campos no deben ser tocados
+    
+    protected $guarded = ['id'];
+    
     protected $table = "practicas";
 
     protected function capitalizeValue($value)

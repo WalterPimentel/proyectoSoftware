@@ -8,6 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class comisiones_areas extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'idDocente', 
+        'idAdministrativo', 
+        'nombreComision', 
+        'macroProcesoComision', 
+        'procesoComision', 
+        'subprocesoComision',
+        'periodoComision'
+    ];
+
+    protected $guarded = ['id'];
     
     protected $table = "comisiones_areas";
 

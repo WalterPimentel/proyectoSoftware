@@ -8,6 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class comunicar_plan_fd extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['codigoEstudiante', 
+        'idPlanFD', 
+        'idParteInteresada', 
+        'descripcionComunicarPFD', 
+        'medioComunicarPFD', 
+        'fechaComunicarPFD',
+        'horaComunicarPFD',
+        'observacionesComunicarPFD'
+    ];
+
+    protected $guarded = ['id'];
     
     protected $table = "comunicar_planes_fd";
 

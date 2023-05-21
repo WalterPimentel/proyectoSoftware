@@ -94,16 +94,7 @@ class PracticaController extends Controller
             'titulo' => 'required'
         ]);
 
-        $practica = new Practica();
-
-        $practica->codigo = $request->codigo;
-        $practica->idEstudiante = $request->idEstudiante;
-        $practica->idDocente = $request->idDocente;
-        $practica->idEmpresa = $request->idEmpresa;
-        $practica->idEtapa = $request->idEtapa;
-        $practica->titulo = $request->titulo;
-
-        $practica->save();
+        $practica = Practica::create($request->all());
 
         return redirect()->route('practicas.show', $practica);
         
@@ -120,16 +111,7 @@ class PracticaController extends Controller
             'correoDocente' => 'required'
         ]);
 
-        $docente = new docentes();
-
-        $docente->codigoDocente = $request->codigoDocente;
-        $docente->nombresDocente = $request->nombresDocente;
-        $docente->apellidopDocente = $request->apellidopDocente;
-        $docente->apellidomDocente = $request->apellidomDocente;
-        $docente->telefonoDocente = $request->telefonoDocente;
-        $docente->correoDocente = $request->correoDocente;
-
-        $docente->save();
+        $docente = docentes::create($request->all());
 
         return redirect()->route('docentes.show', $docente);
         
@@ -145,15 +127,7 @@ class PracticaController extends Controller
             'telefonoEmpresa' => 'required'
         ]);
 
-        $empresa = new empresas();
-
-        $empresa->nombreEmpresa = $request->nombreEmpresa;
-        $empresa->encargadoEmpresa = $request->encargadoEmpresa;
-        $empresa->rubroEmpresa = $request->rubroEmpresa;
-        $empresa->direccionEmpresa = $request->direccionEmpresa;
-        $empresa->telefonoEmpresa = $request->telefonoEmpresa;
-
-        $empresa->save();
+        $empresa = empresas::create($request->all());
 
         return redirect()->route('empresas.show', $empresa);
         
@@ -170,16 +144,7 @@ class PracticaController extends Controller
             'correoEstudiante' => 'required'
         ]);
         
-        $estudiante = new estudiantes();
-
-        $estudiante->codigoEstudiante = $request->codigoEstudiante;
-        $estudiante->nombresEstudiante = $request->nombresEstudiante;
-        $estudiante->apellidopEstudiante = $request->apellidopEstudiante;
-        $estudiante->apellidomEstudiante = $request->apellidomEstudiante;
-        $estudiante->telefonoEstudiante = $request->telefonoEstudiante;
-        $estudiante->correoEstudiante = $request->correoEstudiante;
-
-        $estudiante->save();
+        $estudiante = estudiantes::create($request->all());
 
         return redirect()->route('estudiantes.show', $estudiante);
         
@@ -192,12 +157,7 @@ class PracticaController extends Controller
             'descripcionEtapa' => 'required'
         ]);
 
-        $etapa = new etapas();
-
-        $etapa->nombreEtapa = $request->nombreEtapa;
-        $etapa->descripcionEtapa = $request->descripcionEtapa;
-
-        $etapa->save();
+        $etapa = etapas::create($request->all());
 
         return redirect()->route('etapas.show', $etapa);
         
@@ -210,12 +170,7 @@ class PracticaController extends Controller
             'idRequisito' => 'required'
         ]);
 
-        $practicaRequisito = new practicas_requisitos();
-
-        $practicaRequisito->idPractica = $request->idPractica;
-        $practicaRequisito->idRequisito = $request->idRequisito;
-
-        $practicaRequisito->save();
+        $practicaRequisito = practicas_requisitos::create($request->all());
 
         return redirect()->route('practicasrequisitos.show', $practicaRequisito);
         
@@ -229,13 +184,7 @@ class PracticaController extends Controller
             'estado' => 'required'
         ]);
 
-        $requisito = new requisitos();
-
-        $requisito->nombreRequisito = $request->nombreRequisito;
-        $requisito->descripcionRequisito = $request->descripcionRequisito;
-        $requisito->estado = $request->estado;
-
-        $requisito->save();
+        $requisito = requisitos::create($request->all());
 
         return redirect()->route('requisitos.show', $requisito);
         
@@ -318,14 +267,7 @@ class PracticaController extends Controller
 
     public function update(Request $request, Practica $practica){        
 
-        $practica->codigo = $request->codigo;
-        $practica->idEstudiante = $request->idEstudiante;
-        $practica->idDocente = $request->idDocente;
-        $practica->idEmpresa = $request->idEmpresa;
-        $practica->idEtapa = $request->idEtapa;
-        $practica->titulo = $request->titulo;
-
-        $practica->save();
+        $practica->update($request->all());
 
         return redirect()->route('practicas.show', $practica);
         
@@ -333,14 +275,7 @@ class PracticaController extends Controller
 
     public function updateDocentes(Request $request, docentes $docente){        
 
-        $docente->codigoDocente = $request->codigoDocente;
-        $docente->nombresDocente = $request->nombresDocente;
-        $docente->apellidopDocente = $request->apellidopDocente;
-        $docente->apellidomDocente = $request->apellidomDocente;
-        $docente->telefonoDocente = $request->telefonoDocente;
-        $docente->correoDocente = $request->correoDocente;
-
-        $docente->save();
+        $docente->update($request->all());
 
         return redirect()->route('docentes.show', $docente);
         
@@ -348,13 +283,7 @@ class PracticaController extends Controller
 
     public function updateEmpresas(Request $request, empresas $empresa){        
 
-        $empresa->nombreEmpresa = $request->nombreEmpresa;
-        $empresa->encargadoEmpresa = $request->encargadoEmpresa;
-        $empresa->rubroEmpresa = $request->rubroEmpresa;
-        $empresa->direccionEmpresa = $request->direccionEmpresa;
-        $empresa->telefonoEmpresa = $request->telefonoEmpresa;
-
-        $empresa->save();
+        $empresa->update($request->all());
 
         return redirect()->route('empresas.show', $empresa);
         
@@ -362,14 +291,7 @@ class PracticaController extends Controller
 
     public function updateEstudiantes(Request $request, estudiantes $estudiante){        
 
-        $estudiante->codigoEstudiante = $request->codigoEstudiante;
-        $estudiante->nombresEstudiante = $request->nombresEstudiante;
-        $estudiante->apellidopEstudiante = $request->apellidopEstudiante;
-        $estudiante->apellidomEstudiante = $request->apellidomEstudiante;
-        $estudiante->telefonoEstudiante = $request->telefonoEstudiante;
-        $estudiante->correoEstudiante = $request->correoEstudiante;
-
-        $estudiante->save();
+        $estudiante->update($request->all());
 
         return redirect()->route('estudiantes.show', $estudiante);
         
@@ -377,10 +299,7 @@ class PracticaController extends Controller
 
     public function updateEtapas(Request $request, etapas $etapa){        
 
-        $etapa->nombreEtapa = $request->nombreEtapa;
-        $etapa->descripcionEtapa = $request->descripcionEtapa;
-
-        $etapa->save();
+        $etapa->update($request->all());
 
         return redirect()->route('etapas.show', $etapa);
         
@@ -388,10 +307,7 @@ class PracticaController extends Controller
 
     public function updatePracticasRequisitos(Request $request, practicas_requisitos $practicaRequisito){        
 
-        $practicaRequisito->idPractica = $request->idPractica;
-        $practicaRequisito->idRequisito = $request->idRequisito;
-
-        $practicaRequisito->save();
+        $practicaRequisito->update($request->all());
 
         return redirect()->route('practicasrequisitos.show', $practicaRequisito);
         
@@ -399,11 +315,7 @@ class PracticaController extends Controller
     
     public function updateRequisitos(Request $request, requisitos $requisito){        
 
-        $requisito->nombreRequisito = $request->nombreRequisito;
-        $requisito->descripcionRequisito = $request->descripcionRequisito;
-        $requisito->estado = $request->estado;
-
-        $requisito->save();
+        $requisito->update($request->all());
 
         return redirect()->route('requisitos.show', $requisito);
         

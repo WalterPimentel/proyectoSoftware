@@ -9,6 +9,14 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 class monitoreo_pfd extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'idAccionesMejora', 
+        'descripcionMPFD', 
+        'porcentajeAvanceMPFD'
+    ];
+
+    protected $guarded = ['id'];
     
     protected $table = "monitoreos_pfd";
 

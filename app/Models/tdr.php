@@ -10,6 +10,15 @@ class tdr extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'idTipoRecurso', 
+        'mayorCuantiaTDR', 
+        'descripcionTDR', 
+        'costoTDR'
+    ];
+
+    protected $guarded = ['id'];
+
     protected $table = "tdr";
 
     protected function 	descripcionTDR(): Attribute{

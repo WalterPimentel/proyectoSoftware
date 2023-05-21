@@ -9,6 +9,17 @@ class estudiantes extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'codigoEstudiante', 
+        'nombresEstudiante', 
+        'apellidopEstudiante', 
+        'apellidomEstudiante', 
+        'telefonoEstudiante', 
+        'correoEstudiante'
+    ];
+
+    protected $guarded = ['id'];
+
     protected $table = "estudiantes";
     
     public function setAttribute($key, $value)

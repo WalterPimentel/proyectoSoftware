@@ -10,6 +10,14 @@ class cronograma extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['codigoEstudiante', 
+        'idPlanFD', 
+        'idProyecto', 
+        'descripcionCronograma'
+    ];
+
+    protected $guarded = ['id'];
+
     protected $table = "cronogramas";
 
     protected function 	descripcionCronograma(): Attribute{

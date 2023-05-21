@@ -149,20 +149,7 @@ class GestionPIController extends Controller
             'yearPFD' => 'required'            
         ]);
 
-        $pfd = new plan_fd();
-
-        $pfd->idComision = $request->idComision;
-        $pfd->idCuadroNecesidades = $request->idCuadroNecesidades;
-        $pfd->idRevisionPFD = $request->idRevisionPFD;
-        $pfd->idActaConsejoFacultad = $request->idActaConsejoFacultad;
-        $pfd->idResponsableElaboracion = $request->idResponsableElaboracion;
-        $pfd->idResponsableAprobacion = $request->idResponsableAprobacion;
-        $pfd->descripcionPFD = $request->descripcionPFD;
-        $pfd->fechaElaboracionPFD = $request->fechaElaboracionPFD;
-        $pfd->fechaAprobacionPFD = $request->fechaAprobacionPFD;
-        $pfd->yearPFD = $request->yearPFD;
-
-        $pfd->save();
+        $pfd = plan_fd::create($request->all());
 
         return redirect()->route('gestionPI.show', $pfd);
         
@@ -179,16 +166,7 @@ class GestionPIController extends Controller
             'descripcionAM' => 'required'         
         ]);
 
-        $accionmejora = new acciones_mejora();
-
-        $accionmejora->idComision = $request->idComision;
-        $accionmejora->idPlanFD = $request->idPlanFD;
-        $accionmejora->idMonitoreoPFD = $request->idMonitoreoPFD;
-        $accionmejora->idTipoRecurso = $request->idTipoRecurso;
-        $accionmejora->metasAM = $request->metasAM;
-        $accionmejora->descripcionAM = $request->descripcionAM;
-
-        $accionmejora->save();
+        $accionmejora = acciones_mejora::create($request->all());
 
         return redirect()->route('accionesmejoras.show', $accionmejora);
         
@@ -206,17 +184,7 @@ class GestionPIController extends Controller
             'periodoComision' => 'required'           
         ]);
 
-        $comision = new comisiones_areas();
-
-        $comision->idDocente = $request->idDocente;
-        $comision->idAdministrativo = $request->idAdministrativo;
-        $comision->nombreComision = $request->nombreComision;
-        $comision->macroProcesoComision = $request->macroProcesoComision;
-        $comision->procesoComision = $request->procesoComision;
-        $comision->subprocesoComision = $request->subprocesoComision;
-        $comision->periodoComision = $request->periodoComision;
-
-        $comision->save();
+        $comision = comisiones_areas::create($request->all());
 
         return redirect()->route('comisiones.show', $comision);
         
@@ -234,17 +202,7 @@ class GestionPIController extends Controller
             'observacionesComunicarPFD' => 'required'       
         ]);
 
-        $comunicarpfd = new comunicar_plan_fd();
-
-        $comunicarpfd->idPlanFD = $request->idPlanFD;
-        $comunicarpfd->idParteInteresada = $request->idParteInteresada;
-        $comunicarpfd->descripcionComunicarPFD = $request->descripcionComunicarPFD;
-        $comunicarpfd->medioComunicarPFD = $request->medioComunicarPFD;
-        $comunicarpfd->fechaComunicarPFD = $request->fechaComunicarPFD;
-        $comunicarpfd->horaComunicarPFD = $request->horaComunicarPFD;
-        $comunicarpfd->observacionesComunicarPFD = $request->observacionesComunicarPFD;
-
-        $comunicarpfd->save();
+        $comunicarpfd = comunicar_plan_fd::create($request->all());
 
         return redirect()->route('comunicarpfd.show', $comunicarpfd);
         
@@ -258,13 +216,7 @@ class GestionPIController extends Controller
             'descripcionCronograma' => 'required'         
         ]);
 
-        $cronograma = new cronograma();
-
-        $cronograma->idPlanFD = $request->idPlanFD;
-        $cronograma->idProyecto = $request->idProyecto;
-        $cronograma->descripcionCronograma = $request->descripcionCronograma;
-
-        $cronograma->save();
+        $cronograma = cronograma::create($request->all());
 
         return redirect()->route('cronogramas.show', $cronograma);
         
@@ -282,17 +234,7 @@ class GestionPIController extends Controller
             'precioCuadroN' => 'required'          
         ]);
 
-        $cuadronecesidad = new cuadro_necesidades();
-
-        $cuadronecesidad->idComision = $request->idComision;
-        $cuadronecesidad->idTipoRecurso = $request->idTipoRecurso;
-        $cuadronecesidad->idTipoCosto = $request->idTipoCosto;
-        $cuadronecesidad->idTDR = $request->idTDR;
-        $cuadronecesidad->descripcionCuadroN = $request->descripcionCuadroN;
-        $cuadronecesidad->cantidadCuadroN = $request->cantidadCuadroN;
-        $cuadronecesidad->precioCuadroN = $request->precioCuadroN;
-
-        $cuadronecesidad->save();
+        $cuadronecesidad = cuadro_necesidades::create($request->all());
 
         return redirect()->route('cuadronecesidades.show', $cuadronecesidad);
         
@@ -307,14 +249,7 @@ class GestionPIController extends Controller
             'observacionesIG' => 'required'       
         ]);
 
-        $informegestion = new informe_gestion();
-
-        $informegestion->idMonitoreoPFD = $request->idMonitoreoPFD;
-        $informegestion->idResponsableElaboracion = $request->idResponsableElaboracion;
-        $informegestion->descripcionIG = $request->descripcionIG;
-        $informegestion->observacionesIG = $request->observacionesIG;
-
-        $informegestion->save();
+        $informegestion = informe_gestion::create($request->all());
 
         return redirect()->route('informesgestion.show', $informegestion);
         
@@ -328,13 +263,7 @@ class GestionPIController extends Controller
             'porcentajeAvanceMPFD' => 'required'     
         ]);
 
-        $monitoreopfd = new monitoreo_pfd();
-
-        $monitoreopfd->idAccionesMejora = $request->idAccionesMejora;
-        $monitoreopfd->descripcionMPFD = $request->descripcionMPFD;
-        $monitoreopfd->porcentajeAvanceMPFD = $request->porcentajeAvanceMPFD;
-
-        $monitoreopfd->save();
+        $monitoreopfd = monitoreo_pfd::create($request->all());
 
         return redirect()->route('monitoreospfd.show', $monitoreopfd);
         
@@ -347,12 +276,7 @@ class GestionPIController extends Controller
             'observacionesRPFD' => 'required'   
         ]);
 
-        $revisionpfd = new revision_pfd();
-
-        $revisionpfd->descripcionRPFD = $request->descripcionRPFD;
-        $revisionpfd->observacionesRPFD = $request->observacionesRPFD;        
-
-        $revisionpfd->save();
+        $revisionpfd = revision_pfd::create($request->all());
 
         return redirect()->route('revisionespfd.show', $revisionpfd);
         
@@ -367,14 +291,7 @@ class GestionPIController extends Controller
             'costoTDR' => 'required'       
         ]);
 
-        $tdr = new tdr();
-
-        $tdr->idTipoRecurso = $request->idTipoRecurso;
-        $tdr->mayorCuantiaTDR = $request->mayorCuantiaTDR;        
-        $tdr->descripcionTDR = $request->descripcionTDR;
-        $tdr->costoTDR = $request->costoTDR;
-
-        $tdr->save();
+        $tdr = tdr::create($request->all());
 
         return redirect()->route('tdr.show', $tdr);
         
@@ -388,13 +305,7 @@ class GestionPIController extends Controller
             'observacionesCosto' => 'required'     
         ]);
 
-        $tipocosto = new tipo_costo();
-
-        $tipocosto->idTipoRecurso = $request->idTipoRecurso;
-        $tipocosto->descripcionCosto = $request->descripcionCosto;        
-        $tipocosto->observacionesCosto = $request->observacionesCosto;
-
-        $tipocosto->save();
+        $tipocosto = tipo_costo::create($request->all());
 
         return redirect()->route('tiposcostos.show', $tipocosto);
         
@@ -406,11 +317,7 @@ class GestionPIController extends Controller
             'descripcionRecurso' => 'required'   
         ]);
 
-        $tiporecurso = new tipo_recurso();
-
-        $tiporecurso->descripcionRecurso = $request->descripcionRecurso;
-
-        $tiporecurso->save();
+        $tiporecurso = tipo_recurso::create($request->all());
 
         return redirect()->route('tiposrecursos.show', $tiporecurso);
         
@@ -544,18 +451,7 @@ class GestionPIController extends Controller
 
     public function update(Request $request, plan_fd $pfd){        
 
-        $pfd->idComision = $request->idComision;
-        $pfd->idCuadroNecesidades = $request->idCuadroNecesidades;
-        $pfd->idRevisionPFD = $request->idRevisionPFD;
-        $pfd->idActaConsejoFacultad = $request->idActaConsejoFacultad;
-        $pfd->idResponsableElaboracion = $request->idResponsableElaboracion;
-        $pfd->idResponsableAprobacion = $request->idResponsableAprobacion;
-        $pfd->descripcionPFD = $request->descripcionPFD;
-        $pfd->fechaElaboracionPFD = $request->fechaElaboracionPFD;
-        $pfd->fechaAprobacionPFD = $request->fechaAprobacionPFD;
-        $pfd->yearPFD = $request->yearPFD;
-
-        $pfd->save();
+        $pfd->update($request->all());
 
         return redirect()->route('gestionPI.show', $pfd);
         
@@ -563,14 +459,7 @@ class GestionPIController extends Controller
 
     public function updateAccionesMejoras(Request $request, acciones_mejora $accionmejora){        
 
-        $accionmejora->idComision = $request->idComision;
-        $accionmejora->idPlanFD = $request->idPlanFD;
-        $accionmejora->idMonitoreoPFD = $request->idMonitoreoPFD;
-        $accionmejora->idTipoRecurso = $request->idTipoRecurso;
-        $accionmejora->metasAM = $request->metasAM;
-        $accionmejora->descripcionAM = $request->descripcionAM;
-
-        $accionmejora->save();
+        $accionmejora->update($request->all());
 
         return redirect()->route('accionesmejoras.show', $accionmejora);
         
@@ -578,15 +467,7 @@ class GestionPIController extends Controller
 
     public function updateComisiones(Request $request, comisiones_areas $comision){        
 
-        $comision->idDocente = $request->idDocente;
-        $comision->idAdministrativo = $request->idAdministrativo;
-        $comision->nombreComision = $request->nombreComision;
-        $comision->macroProcesoComision = $request->macroProcesoComision;
-        $comision->procesoComision = $request->procesoComision;
-        $comision->subprocesoComision = $request->subprocesoComision;
-        $comision->periodoComision = $request->periodoComision;
-
-        $comision->save();
+        $comision->update($request->all());
 
         return redirect()->route('comisiones.show', $comision);
         
@@ -594,15 +475,7 @@ class GestionPIController extends Controller
 
     public function updateComunicarPFD(Request $request, comunicar_plan_fd $comunicarpfd){        
 
-        $comunicarpfd->idPlanFD = $request->idPlanFD;
-        $comunicarpfd->idParteInteresada = $request->idParteInteresada;
-        $comunicarpfd->descripcionComunicarPFD = $request->descripcionComunicarPFD;
-        $comunicarpfd->medioComunicarPFD = $request->medioComunicarPFD;
-        $comunicarpfd->fechaComunicarPFD = $request->fechaComunicarPFD;
-        $comunicarpfd->horaComunicarPFD = $request->horaComunicarPFD;
-        $comunicarpfd->observacionesComunicarPFD = $request->observacionesComunicarPFD;
-
-        $comunicarpfd->save();
+        $comunicarpfd->update($request->all());
 
         return redirect()->route('comunicarpfd.show', $comunicarpfd);
         
@@ -610,11 +483,7 @@ class GestionPIController extends Controller
 
     public function updateCronogramas(Request $request, cronograma $cronograma){        
 
-        $cronograma->idPlanFD = $request->idPlanFD;
-        $cronograma->idProyecto = $request->idProyecto;
-        $cronograma->descripcionCronograma = $request->descripcionCronograma;
-
-        $cronograma->save();
+        $cronograma->update($request->all());
 
         return redirect()->route('cronogramas.show', $cronograma);
         
@@ -622,15 +491,7 @@ class GestionPIController extends Controller
 
     public function updateCuadroNecesidades(Request $request, cuadro_necesidades $cuadronecesidad){        
 
-        $cuadronecesidad->idComision = $request->idComision;
-        $cuadronecesidad->idTipoRecurso = $request->idTipoRecurso;
-        $cuadronecesidad->idTipoCosto = $request->idTipoCosto;
-        $cuadronecesidad->idTDR = $request->idTDR;
-        $cuadronecesidad->descripcionCuadroN = $request->descripcionCuadroN;
-        $cuadronecesidad->cantidadCuadroN = $request->cantidadCuadroN;
-        $cuadronecesidad->precioCuadroN = $request->precioCuadroN;
-
-        $cuadronecesidad->save();
+        $cuadronecesidad->update($request->all());
 
         return redirect()->route('cuadronecesidades.show', $cuadronecesidad);
         
@@ -638,12 +499,7 @@ class GestionPIController extends Controller
 
     public function updateInformesGestion(Request $request, informe_gestion $informegestion){        
 
-        $informegestion->idMonitoreoPFD = $request->idMonitoreoPFD;
-        $informegestion->idResponsableElaboracion = $request->idResponsableElaboracion;
-        $informegestion->descripcionIG = $request->descripcionIG;
-        $informegestion->observacionesIG = $request->observacionesIG;
-
-        $informegestion->save();
+        $informegestion->update($request->all());
 
         return redirect()->route('informesgestion.show', $informegestion);
         
@@ -651,11 +507,7 @@ class GestionPIController extends Controller
 
     public function updateMonitoreosPFD(Request $request, monitoreo_pfd $monitoreopfd){        
 
-        $monitoreopfd->idAccionesMejora = $request->idAccionesMejora;
-        $monitoreopfd->descripcionMPFD = $request->descripcionMPFD;
-        $monitoreopfd->porcentajeAvanceMPFD = $request->porcentajeAvanceMPFD;
-
-        $monitoreopfd->save();
+        $monitoreopfd->update($request->all());
 
         return redirect()->route('monitoreospfd.show', $monitoreopfd);
         
@@ -663,10 +515,7 @@ class GestionPIController extends Controller
 
     public function updateRevisionesPFD(Request $request, revision_pfd $revisionpfd){        
 
-        $revisionpfd->descripcionRPFD = $request->descripcionRPFD;
-        $revisionpfd->observacionesRPFD = $request->observacionesRPFD;        
-
-        $revisionpfd->save();
+        $revisionpfd->update($request->all());
 
         return redirect()->route('revisionespfd.show', $revisionpfd);
         
@@ -674,12 +523,7 @@ class GestionPIController extends Controller
 
     public function updateTDR(Request $request, tdr $tdr){        
 
-        $tdr->idTipoRecurso = $request->idTipoRecurso;
-        $tdr->mayorCuantiaTDR = $request->mayorCuantiaTDR;        
-        $tdr->descripcionTDR = $request->descripcionTDR;
-        $tdr->costoTDR = $request->costoTDR;
-
-        $tdr->save();
+        $tdr->update($request->all());
 
         return redirect()->route('tdr.show', $tdr);
         
@@ -687,11 +531,7 @@ class GestionPIController extends Controller
     
     public function updateTiposCostos(Request $request, tipo_costo $tipocosto){        
 
-        $tipocosto->idTipoRecurso = $request->idTipoRecurso;
-        $tipocosto->descripcionCosto = $request->descripcionCosto;        
-        $tipocosto->observacionesCosto = $request->observacionesCosto;
-
-        $tipocosto->save();
+        $tipocosto->update($request->all());
 
         return redirect()->route('tiposcostos.show', $tipocosto);
         
@@ -699,9 +539,7 @@ class GestionPIController extends Controller
 
     public function updateTiposRecursos(Request $request, tipo_recurso $tiporecurso){        
 
-        $tiporecurso->descripcionRecurso = $request->descripcionRecurso;
-
-        $tiporecurso->save();
+        $tiporecurso->update($request->all());
 
         return redirect()->route('tiposrecursos.show', $tiporecurso);
         

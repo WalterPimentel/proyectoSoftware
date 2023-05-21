@@ -9,6 +9,17 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 class cuadro_necesidades extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['codigoEstudiante', 
+        'idComision', 
+        'idTipoRecurso', 
+        'idTipoCosto', 
+        'idTDR', 
+        'descripcionCuadroN',
+        'cantidadCuadroN',
+        'precioCuadroN'
+    ];
+    protected $guarded = ['id'];
     
     protected $table = "cuadro_necesidades";
 

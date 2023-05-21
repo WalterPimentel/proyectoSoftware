@@ -9,6 +9,17 @@ class acciones_mejora extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'idComision', 
+        'idPlanFD', 
+        'idMonitoreoPFD', 
+        'idTipoRecurso', 
+        'metasAM', 
+        'descripcionAM'
+    ];
+
+    protected $guarded = ['id'];
+
     protected $table = "acciones_mejoras";
 
     protected function capitalizeValue($value)

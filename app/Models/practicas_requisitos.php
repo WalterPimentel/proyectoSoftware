@@ -9,5 +9,12 @@ class practicas_requisitos extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'idPractica', 
+        'idRequisito'
+    ];
+
+    protected $guarded = ['id'];
+
     protected $table = "practicas_requisitos";
 }

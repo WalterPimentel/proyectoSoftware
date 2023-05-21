@@ -9,6 +9,13 @@ class revision_pfd extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'descripcionRPFD', 
+        'observacionesRPFD'
+    ];
+
+    protected $guarded = ['id'];
+
     protected $table = "revisiones_pfd";
 
     public function setAttribute($key, $value)

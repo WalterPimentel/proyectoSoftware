@@ -10,6 +10,12 @@ class tipo_recurso extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'descripcionRecurso'
+    ];
+
+    protected $guarded = ['id'];
+
     protected $table = "tipos_recursos";
 
     protected function 	descripcionRecurso(): Attribute{

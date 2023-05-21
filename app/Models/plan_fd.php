@@ -10,6 +10,21 @@ class plan_fd extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'idComision', 
+        'idCuadroNecesidades', 
+        'idRevisionPFD', 
+        'idActaConsejoFacultad', 
+        'idResponsableElaboracion', 
+        'idResponsableAprobacion',
+        'descripcionPFD',
+        'fechaElaboracionPFD',
+        'fechaAprobacionPFD',
+        'yearPFD'
+    ];
+
+    protected $guarded = ['id'];
+
     protected $table = "planes_fd";
 
     protected function 	descripcionPFD(): Attribute{

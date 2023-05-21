@@ -9,6 +9,15 @@ class informe_gestion extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'idMonitoreoPFD', 
+        'idResponsableElaboracion', 
+        'descripcionIG', 
+        'observacionesIG'
+    ];
+
+    protected $guarded = ['id'];
+
     protected $table = "informes_gestion";
 
     public function setAttribute($key, $value)

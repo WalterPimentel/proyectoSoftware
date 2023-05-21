@@ -10,6 +10,14 @@ class tipo_costo extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'idTipoRecurso', 
+        'descripcionCosto', 
+        'observacionesCosto'
+    ];
+
+    protected $guarded = ['id'];
+
     protected $table = "tipos_costos";
 
     protected function 	observacionesCosto(): Attribute{

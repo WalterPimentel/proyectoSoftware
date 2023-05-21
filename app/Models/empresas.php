@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class empresas extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nombreEmpresa', 
+        'encargadoEmpresa', 
+        'rubroEmpresa', 
+        'direccionEmpresa', 
+        'telefonoEmpresa'
+    ];
+    
+    protected $guarded = ['id'];
     
     protected $table = "empresas";
 

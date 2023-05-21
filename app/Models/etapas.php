@@ -9,6 +9,13 @@ class etapas extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'nombreEtapa', 
+        'descripcionEtapa'
+    ];
+
+    protected $guarded = ['id'];
+
     protected $table = "etapas";
 
     protected function capitalizeValue($value)

@@ -9,6 +9,14 @@ class requisitos extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'nombreRequisito', 
+        'descripcionRequisito', 
+        'estado'
+    ];
+
+    protected $guarded = ['id'];
+
     protected $table = "requisitos";
 
     protected function capitalizeValue($value)

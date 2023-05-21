@@ -9,6 +9,17 @@ class docentes extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'codigoDocente', 
+        'nombresDocente', 
+        'apellidopDocente', 
+        'apellidomDocente', 
+        'telefonoDocente', 
+        'correoDocente'
+    ];
+
+    protected $guarded = ['id'];
+
     protected $table = "docentes";
 
     //Esta forma es mas reutilizable y guarda en la BD con letra inicial mayuscula

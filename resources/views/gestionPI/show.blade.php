@@ -13,4 +13,14 @@
 
     <p><strong>Descripción: {{$pfd->descripcionPFD}}</strong></p>
 
+    <form action="{{route('gestionPI.destroy', $pfd)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
+
 @endsection

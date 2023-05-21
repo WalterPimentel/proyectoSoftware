@@ -17,5 +17,15 @@
     <br><br>
 
     <p><strong>Código: {{$revisionpfd->id}}</strong></p>
+                
+    <form action="{{route('revisionespfd.destroy', $revisionpfd)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
 
 @endsection

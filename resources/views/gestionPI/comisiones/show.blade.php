@@ -32,5 +32,15 @@
     <br><br>
 
     <p><strong>Código: {{$comision->id}}</strong></p>
+    
+    <form action="{{route('comisiones.destroy', $comision)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
 
 @endsection

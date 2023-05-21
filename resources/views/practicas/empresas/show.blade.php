@@ -22,4 +22,14 @@
     
     <p><strong>Código: {{$empresa->id}}</strong></p>
 
+    <form action="{{route('empresas.destroy', $empresa)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
+
 @endsection

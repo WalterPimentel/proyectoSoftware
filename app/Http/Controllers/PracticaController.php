@@ -320,4 +320,62 @@ class PracticaController extends Controller
         return redirect()->route('requisitos.show', $requisito);
         
     }
+
+    //destroys
+
+    public function destroy(Practica $practica){        
+
+        $practica->delete();
+
+        return redirect()->route('practicas.index');
+        
+    }
+
+    public function destroyDocentes(docentes $docente){        
+
+        $docente->delete();
+
+        return redirect()->route('docentes.index');
+        
+    }
+
+    public function destroyEmpresas(empresas $empresa){        
+
+        $empresa->delete();
+
+        return redirect()->route('empresas.index');
+        
+    }
+
+    public function destroyEstudiantes( estudiantes $estudiante){        
+
+        $estudiante->delete();
+
+        return redirect()->route('estudiantes.index');
+        
+    }
+
+    public function destroyEtapas(etapas $etapa){        
+
+        $etapa->delete();
+
+        return redirect()->route('etapas.index');
+        
+    }
+
+    public function destroyPracticasRequisitos(practicas_requisitos $practicaRequisito){        
+
+        $practicaRequisito->delete();
+
+        return redirect()->route('practicasrequisitos.index');
+        
+    }
+    
+    public function destroyRequisitos(requisitos $requisito){        
+
+        $requisito->delete();
+
+        return redirect()->route('requisitos.show');
+        
+    }
 }

@@ -17,5 +17,15 @@
     <br><br>
 
     <p><strong>Código: {{$accionmejora->id}}</strong></p>
+    
+    <form action="{{route('accionesmejoras.destroy', $accionmejora)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
 
 @endsection

@@ -17,4 +17,15 @@
     <br><br>    
 
     <p><strong>Código: {{$requisito->id}}</strong></p>
+
+    <form action="{{route('requisitos.destroy', $requisito)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
+
 @endsection

@@ -12,5 +12,15 @@
     <br><br>
 
     <p><strong>Código: {{$docente->codigoDocente}}</strong></p>
+    
+    <form action="{{route('docentes.destroy', $docente)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
 
 @endsection

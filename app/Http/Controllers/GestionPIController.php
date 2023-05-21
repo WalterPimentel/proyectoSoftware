@@ -545,4 +545,102 @@ class GestionPIController extends Controller
         
     }
 
+    //destroys
+
+    public function destroy(plan_fd $pfd){        
+
+        $pfd->delete();
+
+        return redirect()->route('gestionPI.index');
+        
+    }
+
+    public function destroyAccionesMejoras(acciones_mejora $accionmejora){        
+
+        $accionmejora->delete();
+
+        return redirect()->route('accionesmejoras.index');
+        
+    }
+
+    public function destroyComisiones(comisiones_areas $comision){        
+
+        $comision->delete();
+
+        return redirect()->route('comisiones.index');
+        
+    }
+
+    public function destroyComunicarPFD(comunicar_plan_fd $comunicarpfd){        
+
+        $comunicarpfd->delete();
+
+        return redirect()->route('comunicarpfd.index');
+        
+    }
+
+    public function destroyCronogramas(cronograma $cronograma){        
+
+        $cronograma->delete();
+
+        return redirect()->route('cronogramas.index');
+        
+    }
+
+    public function destroyCuadroNecesidades(cuadro_necesidades $cuadronecesidad){        
+
+        $cuadronecesidad->delete();
+
+        return redirect()->route('cuadronecesidades.index');
+        
+    }
+
+    public function destroyInformesGestion(informe_gestion $informegestion){        
+
+        $informegestion->delete();
+
+        return redirect()->route('informesgestion.index');
+        
+    }
+
+    public function destroyMonitoreosPFD(monitoreo_pfd $monitoreopfd){        
+
+        $monitoreopfd->delete();
+
+        return redirect()->route('monitoreospfd.index');
+        
+    }
+
+    public function destroyRevisionesPFD(revision_pfd $revisionpfd){        
+
+        $revisionpfd->delete();
+
+        return redirect()->route('revisionespfd.index');
+        
+    }
+
+    public function destroyTDR(tdr $tdr){        
+
+        $tdr->delete();
+
+        return redirect()->route('tdr.index');
+        
+    }
+    
+    public function destroyTiposCostos(tipo_costo $tipocosto){        
+
+        $tipocosto->delete();
+
+        return redirect()->route('tiposcostos.index');
+        
+    }
+
+    public function destroyTiposRecursos(tipo_recurso $tiporecurso){        
+
+        $tiporecurso->delete();
+
+        return redirect()->route('tiposrecursos.index');
+        
+    }
+
 }

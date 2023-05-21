@@ -15,4 +15,15 @@
     {{$etapa->descripcionEtapa}}<br><br>
         
     <p><strong>Código: {{$etapa->id}}</strong></p>
+
+    <form action="{{route('etapas.destroy', $etapa)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
+
 @endsection

@@ -12,5 +12,15 @@
     <br><br>
 
     <p><strong>Código: {{$cronograma->id}}</strong></p>
+    
+    <form action="{{route('cronogramas.destroy', $cronograma)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
 
 @endsection

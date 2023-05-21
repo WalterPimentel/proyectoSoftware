@@ -12,5 +12,15 @@
     <br><br>
 
     <p><strong>Código: {{$tdr->id}}</strong></p>
+                
+    <form action="{{route('tdr.destroy', $tdr)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
 
 @endsection

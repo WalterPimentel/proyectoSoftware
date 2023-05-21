@@ -18,4 +18,14 @@
 
     <p><strong>Código: {{$comunicarpfd->id}}</strong></p>
 
+    <form action="{{route('comunicarpfd.destroy', $comunicarpfd)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
+
 @endsection

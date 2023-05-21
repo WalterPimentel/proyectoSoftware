@@ -12,5 +12,15 @@
     <br><br>
 
     <p><strong>Código: {{$monitoreopfd->id}}</strong></p>
+            
+    <form action="{{route('monitoreospfd.destroy', $monitoreopfd)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
 
 @endsection

@@ -12,4 +12,15 @@
     <br><br>
 
     <p><strong>Código: {{$practicaRequisito->id}}</strong></p>
+
+    <form action="{{route('practicasrequisitos.destroy', $practicaRequisito)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
+
 @endsection

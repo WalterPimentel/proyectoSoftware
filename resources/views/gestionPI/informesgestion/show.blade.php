@@ -17,5 +17,15 @@
     <br><br>
 
     <p><strong>Código: {{$informegestion->id}}</strong></p>
+            
+    <form action="{{route('informesgestion.destroy', $informegestion)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
 
 @endsection

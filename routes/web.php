@@ -63,6 +63,15 @@ Route::controller(PracticaController::class)->group(function(){
     Route::put('practicas/practicasrequisitos/{practicaRequisito}', 'updatePracticasRequisitos')->name('practicasrequisitos.update');
     Route::put('practicas/requisitos/{requisito}', 'updateRequisitos')->name('requisitos.update');
 
+    //destroys
+    Route::delete('practicas/{practica}', 'destroy')->name('practicas.destroy');
+    Route::delete('practicas/docentes/{docente}', 'destroyDocentes')->name('docentes.destroy');
+    Route::delete('practicas/empresas/{empresa}', 'destroyEmpresas')->name('empresas.destroy');
+    Route::delete('practicas/estudiantes/{estudiante}', 'destroyEstudiantes')->name('estudiantes.destroy');
+    Route::delete('practicas/etapas/{etapa}', 'destroyEtapas')->name('etapas.destroy');
+    Route::delete('practicas/practicasrequisitos/{practicaRequisito}', 'destroyPracticasRequisitos')->name('practicasrequisitos.destroy');
+    Route::delete('practicas/requisitos/{requisito}', 'destroyRequisitos')->name('requisitos.destroy');
+
 });
 
 //Rutas para la Gestión de Planificación Institucional
@@ -151,5 +160,19 @@ Route::controller(GestionPIController::class)->group(function(){
     Route::put('gestionPI/tdr/{tdr}', 'updateTDR')->name('tdr.update');
     Route::put('gestionPI/tiposcostos/{tipocosto}', 'updateTiposCostos')->name('tiposcostos.update');
     Route::put('gestionPI/tiposrecursos/{tiporecurso}', 'updateTiposRecursos')->name('tiposrecursos.update');
+
+    //destroys
+    Route::delete('gestionPI/{pfd}', 'destroy')->name('gestionPI.destroy');
+    Route::delete('gestionPI/accionesmejoras/{accionmejora}', 'destroyAccionesMejoras')->name('accionesmejoras.destroy');
+    Route::delete('gestionPI/comisiones/{comision}', 'destroyComisiones')->name('comisiones.destroy');
+    Route::delete('gestionPI/comunicarpfd/{comunicarpfd}', 'destroyComunicarPFD')->name('comunicarpfd.destroy');
+    Route::delete('gestionPI/cronogramas/{cronograma}', 'destroyCronogramas')->name('cronogramas.destroy');
+    Route::delete('gestionPI/cuadronecesidades/{cuadronecesidad}', 'destroyCuadroNecesidades')->name('cuadronecesidades.destroy');
+    Route::delete('gestionPI/informesgestion/{informegestion}', 'destroyInformesGestion')->name('informesgestion.destroy');
+    Route::delete('gestionPI/monitoreospfd/{monitoreopfd}', 'destroyMonitoreosPFD')->name('monitoreospfd.destroy');
+    Route::delete('gestionPI/revisionespfd/{revisionpfd}', 'destroyRevisionesPFD')->name('revisionespfd.destroy');
+    Route::delete('gestionPI/tdr/{tdr}', 'destroyTDR')->name('tdr.destroy');
+    Route::delete('gestionPI/tiposcostos/{tipocosto}', 'destroyTiposCostos')->name('tiposcostos.destroy');
+    Route::delete('gestionPI/tiposrecursos/{tiporecurso}', 'destroyTiposRecursos')->name('tiposrecursos.destroy');
 
 });

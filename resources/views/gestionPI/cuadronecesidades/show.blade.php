@@ -12,5 +12,15 @@
     <br><br>
 
     <p><strong>Código: {{$cuadronecesidad->id}}</strong></p>
+        
+    <form action="{{route('cuadronecesidades.destroy', $cuadronecesidad)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
 
 @endsection

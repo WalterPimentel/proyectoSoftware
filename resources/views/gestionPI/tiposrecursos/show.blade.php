@@ -12,5 +12,15 @@
     <br><br>
 
     <p><strong>Código: {{$tiporecurso->id}}</strong></p>
+                        
+    <form action="{{route('tiposrecursos.destroy', $tiporecurso)}}" method="POST">
+
+        @csrf
+
+        @method('delete')
+
+        <button type="submit">Eliminar</button>
+
+    </form>
 
 @endsection

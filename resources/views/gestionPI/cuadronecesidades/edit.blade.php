@@ -8,7 +8,7 @@
     <a href="{{route('cuadronecesidades.index')}}">Regresar</a>
     <br><br>
 
-    <form action="{{route('cuadronecesidades.update', $cuadronecesidad)}}" method="POST">
+    <form action="{{route('cuadronecesidades.update', $cuadronecesidade)}}" method="POST">
         
         @csrf
 
@@ -16,43 +16,43 @@
 
         <label>Comisión:
             <br>
-            <input type="number" name="idComision" value="{{$cuadronecesidad->idComision}}">
+            <input type="number" name="idComision" value="{{$cuadronecesidade->idComision}}">
         </label>
         <br><br>
 
         <label>Tipo Recurso:
             <br>
-            <input type="number" name="idTipoRecurso" value="{{$cuadronecesidad->idTipoRecurso}}">
+            <input type="number" name="idTipoRecurso" value="{{$cuadronecesidade->idTipoRecurso}}">
         </label>
         <br><br>
 
         <label>Tipo Costo:
             <br>
-            <input type="number" name="idTipoCosto" value="{{$cuadronecesidad->idTipoCosto}}">
+            <input type="number" name="idTipoCosto" value="{{$cuadronecesidade->idTipoCosto}}">
         </label>
         <br><br>
 
         <label>TDR:
             <br>
-            <input type="number" name="idTDR" value="{{$cuadronecesidad->idTDR}}">
+            <input type="number" name="idTDR" value="{{$cuadronecesidade->idTDR}}">
         </label>
         <br><br>
 
         <label>Descripción:
             <br>
-            <textarea name="descripcionCuadroN" rows="5">{{$cuadronecesidad->descripcionCuadroN}}</textarea>
+            <textarea name="descripcionCuadroN" rows="5">{{$cuadronecesidade->descripcionCuadroN}}</textarea>
         </label>
         <br><br>
 
         <label>Cantidad:
             <br>
-            <input type="number" name="cantidadCuadroN" value="{{$cuadronecesidad->cantidadCuadroN}}">
+            <input type="number" name="cantidadCuadroN" value="{{$cuadronecesidade->cantidadCuadroN}}">
         </label>
         <br><br>
 
         <label>Precio:
             <br>
-            <input type="number" step="0.01" name="precioCuadroN" value="{{$cuadronecesidad->precioCuadroN}}">
+            <input type="number" step="0.01" name="precioCuadroN" value="{{$cuadronecesidade->precioCuadroN}}">
         </label>
         <br><br>
 

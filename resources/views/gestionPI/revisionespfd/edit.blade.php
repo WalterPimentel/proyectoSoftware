@@ -8,7 +8,7 @@
     <a href="{{route('revisionespfd.index')}}">Regresar</a>
     <br><br>
 
-    <form action="{{route('revisionespfd.update', $revisionpfd)}}" method="POST">
+    <form action="{{route('revisionespfd.update', $revisionespfd)}}" method="POST">
         
         @csrf
 
@@ -16,13 +16,13 @@
 
         <label>Descripción de Revisión:
             <br>
-            <textarea name="descripcionRPFD" rows="5">{{$revisionpfd->descripcionRPFD}}</textarea>
+            <textarea name="descripcionRPFD" rows="5">{{$revisionespfd->descripcionRPFD}}</textarea>
         </label>
         <br><br>
 
         <label>Observaciones:
             <br>
-            <textarea name="observacionesRPFD" rows="5">{{$revisionpfd->observacionesRPFD}}</textarea>
+            <textarea name="observacionesRPFD" rows="5">{{$revisionespfd->observacionesRPFD}}</textarea>
         </label>
         <br><br>
 

@@ -8,7 +8,7 @@
     <a href="{{route('tiposrecursos.index')}}">Regresar</a>
     <br><br>
 
-    <form action="{{route('tiposrecursos.update', $tiporecurso)}}" method="POST">
+    <form action="{{route('tiposrecursos.update', $tiposrecurso)}}" method="POST">
         
         @csrf
 
@@ -16,7 +16,7 @@
 
         <label>Descripción Recurso:
             <br>
-            <textarea name="descripcionRecurso" rows="5">{{$tiporecurso->descripcionRecurso}}</textarea>
+            <textarea name="descripcionRecurso" rows="5">{{$tiposrecurso->descripcionRecurso}}</textarea>
         </label>
         <br><br>
 

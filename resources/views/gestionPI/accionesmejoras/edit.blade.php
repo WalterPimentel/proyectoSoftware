@@ -8,7 +8,7 @@
     <a href="{{route('accionesmejoras.index')}}">Regresar</a>
     <br><br>
 
-    <form action="{{route('accionesmejoras.update', $accionmejora)}}" method="POST">
+    <form action="{{route('accionesmejoras.update', $accionesmejora)}}" method="POST">
         
         @csrf
 
@@ -16,37 +16,37 @@
 
         <label>Comisión:
             <br>
-            <input type="number" name="idComision" value="{{$accionmejora->idComision}}">
+            <input type="number" name="idComision" value="{{$accionesmejora->idComision}}">
         </label>
         <br><br>
 
         <label>Plan FD:
             <br>
-            <input type="number" name="idPlanFD" value="{{$accionmejora->idPlanFD}}">
+            <input type="number" name="idPlanFD" value="{{$accionesmejora->idPlanFD}}">
         </label>
         <br><br>
 
         <label>Monitoreo PFD:
             <br>
-            <input type="number" name="idMonitoreoPFD" value="{{$accionmejora->idMonitoreoPFD}}">
+            <input type="number" name="idMonitoreoPFD" value="{{$accionesmejora->idMonitoreoPFD}}">
         </label>
         <br><br>
 
         <label>Tipo Recurso:
             <br>
-            <input type="number" name="idTipoRecurso" value="{{$accionmejora->idTipoRecurso}}">
+            <input type="number" name="idTipoRecurso" value="{{$accionesmejora->idTipoRecurso}}">
         </label>
         <br><br>
 
         <label>Metas:
             <br>
-            <textarea name="metasAM" rows="5">{{$accionmejora->metasAM}}</textarea>
+            <textarea name="metasAM" rows="5">{{$accionesmejora->metasAM}}</textarea>
         </label>
         <br><br>
 
         <label>Descripción:
             <br>
-            <textarea name="descripcionAM" rows="5">{{$accionmejora->descripcionAM}}</textarea>
+            <textarea name="descripcionAM" rows="5">{{$accionesmejora->descripcionAM}}</textarea>
         </label>
         <br><br>
 

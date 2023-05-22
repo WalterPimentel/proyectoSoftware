@@ -1,19 +1,19 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Necesidad: ' . $cuadronecesidad->descripcionCuadroN)
+@section('title', 'Necesidad: ' . $cuadronecesidade->descripcionCuadroN)
 
 @section('content')
-    <h1>Se encuentra en el registro: {{$cuadronecesidad->descripcionCuadroN}}</h1>
+    <h1>Se encuentra en el registro: {{$cuadronecesidade->descripcionCuadroN}}</h1>
     
     <a href="{{route('cuadronecesidades.index')}}">Regresar</a>
     <br><br>
 
-    <a href="{{route('cuadronecesidades.edit', $cuadronecesidad)}}">Editar Registro</a>
+    <a href="{{route('cuadronecesidades.edit', $cuadronecesidade)}}">Editar Registro</a>
     <br><br>
 
-    <p><strong>Código: {{$cuadronecesidad->id}}</strong></p>
+    <p><strong>Código: {{$cuadronecesidade->id}}</strong></p>
         
-    <form action="{{route('cuadronecesidades.destroy', $cuadronecesidad)}}" method="POST">
+    <form action="{{route('cuadronecesidades.destroy', $cuadronecesidade)}}" method="POST">
 
         @csrf
 

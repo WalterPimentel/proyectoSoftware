@@ -8,7 +8,7 @@
     <a href="{{route('tiposcostos.index')}}">Regresar</a>
     <br><br>
 
-    <form action="{{route('tiposcostos.update', $tipocosto)}}" method="POST">
+    <form action="{{route('tiposcostos.update', $tiposcosto)}}" method="POST">
         
         @csrf
 
@@ -16,19 +16,19 @@
 
         <label>Tipo Recurso:
             <br>
-            <input type="number" name="idTipoRecurso" value="{{$tipocosto->idTipoRecurso}}">
+            <input type="number" name="idTipoRecurso" value="{{$tiposcosto->idTipoRecurso}}">
         </label>
         <br><br>
 
         <label>Descripción (mayor cuantía 1, menor cuantía 0):
             <br>
-            <input type="number" min="0" max="1" name="descripcionCosto" value="{{$tipocosto->descripcionCosto}}">
+            <input type="number" min="0" max="1" name="descripcionCosto" value="{{$tiposcosto->descripcionCosto}}">
         </label>
         <br><br>
 
         <label>Observaciones:
             <br>
-            <textarea name="observacionesCosto" rows="5">{{$tipocosto->observacionesCosto}}</textarea>
+            <textarea name="observacionesCosto" rows="5">{{$tiposcosto->observacionesCosto}}</textarea>
         </label>
         <br><br>
 

@@ -8,7 +8,7 @@
     <a href="{{route('gestionPI.index')}}">Regresar</a>
     <br><br>
 
-    <form action="{{route('gestionPI.update', $pfd)}}" method="POST">
+    <form action="{{route('gestionPI.update', $gestionPI)}}" method="POST">
         
         @csrf
 
@@ -16,55 +16,55 @@
 
         <label>Comisión:
             <br>
-            <input type="number" name="idComision" value="{{$pfd->idComision}}">
+            <input type="number" name="idComision" value="{{$gestionPI->idComision}}">
         </label>
         <br><br>
 
         <label>Cuadro Necesidad:
             <br>
-            <input type="number" name="idCuadroNecesidades" value="{{$pfd->idCuadroNecesidades}}">
+            <input type="number" name="idCuadroNecesidades" value="{{$gestionPI->idCuadroNecesidades}}">
         </label>
         <br><br>
 
         <label>Revisión:
             <br>
-            <input type="number" name="idRevisionPFD" value="{{$pfd->idRevisionPFD}}">
+            <input type="number" name="idRevisionPFD" value="{{$gestionPI->idRevisionPFD}}">
         </label>
         <br><br>
 
         <label>Acta:
             <br>
-            <input type="number" name="idActaConsejoFacultad" value="{{$pfd->idActaConsejoFacultad}}">
+            <input type="number" name="idActaConsejoFacultad" value="{{$gestionPI->idActaConsejoFacultad}}">
         </label>
         <br><br>
 
         <label>Responsable Elaboración:
             <br>
-            <input type="number" name="idResponsableElaboracion" value="{{$pfd->idResponsableElaboracion}}">
+            <input type="number" name="idResponsableElaboracion" value="{{$gestionPI->idResponsableElaboracion}}">
         </label>
         <br><br>
 
         <label>Responsable Aprobación:
             <br>
-            <input type="number" name="idResponsableAprobacion" value="{{$pfd->idResponsableAprobacion}}">
+            <input type="number" name="idResponsableAprobacion" value="{{$gestionPI->idResponsableAprobacion}}">
         </label>
         <br><br>
 
         <label>Descripción:
             <br>
-            <textarea name="descripcionPFD" rows="5">{{$pfd->descripcionPFD}}</textarea>
+            <textarea name="descripcionPFD" rows="5">{{$gestionPI->descripcionPFD}}</textarea>
         </label>
         <br><br>
 
         <label>Fecha Elaboración:
             <br>
-            <input type="datetime-local" name="fechaElaboracionPFD" value="{{$pfd->fechaElaboracionPFD}}">
+            <input type="datetime-local" name="fechaElaboracionPFD" value="{{$gestionPI->fechaElaboracionPFD}}">
         </label>
         <br><br>
 
         <label>Fecha Aprobación:
             <br>
-            <input type="datetime-local" name="fechaAprobacionPFD" value="{{$pfd->fechaAprobacionPFD}}">
+            <input type="datetime-local" name="fechaAprobacionPFD" value="{{$gestionPI->fechaAprobacionPFD}}">
         </label>
         <br><br>
 
@@ -75,9 +75,9 @@
                   $anioActual = date('Y');
                   $anioInicial = 1900;
                 @endphp
-                <option value="{{$pfd->yearPFD}}" selected>{{$pfd->yearPFD}}</option>
+                <option value="{{$gestionPI->yearPFD}}" selected>{{$gestionPI->yearPFD}}</option>
                 @for ($i = $anioActual; $i >= $anioInicial; $i--)                  
-                    @if ($i != $pfd->yearPFD)
+                    @if ($i != $gestionPI->yearPFD)
                         <option value="{{ $i }}">{{ $i }}</option>
                     @endif
                 @endfor

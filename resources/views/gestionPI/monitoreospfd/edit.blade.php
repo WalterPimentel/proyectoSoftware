@@ -8,7 +8,7 @@
     <a href="{{route('monitoreospfd.index')}}">Regresar</a>
     <br><br>
 
-    <form action="{{route('monitoreospfd.update', $monitoreopfd)}}" method="POST">
+    <form action="{{route('monitoreospfd.update', $monitoreospfd)}}" method="POST">
         
         @csrf
 
@@ -16,19 +16,19 @@
 
         <label>Accion Mejora:
             <br>
-            <input type="number" name="idAccionesMejora" value="{{$monitoreopfd->idAccionesMejora}}">
+            <input type="number" name="idAccionesMejora" value="{{$monitoreospfd->idAccionesMejora}}">
         </label>
         <br><br>
 
         <label>Descripción:
             <br>
-            <textarea name="descripcionMPFD" rows="5">{{$monitoreopfd->descripcionMPFD}}</textarea>
+            <textarea name="descripcionMPFD" rows="5">{{$monitoreospfd->descripcionMPFD}}</textarea>
         </label>
         <br><br>
 
         <label>Avance (%):
             <br>
-            <input type="number" step="0.01" min="0" max="100.00" name="porcentajeAvanceMPFD" value="{{$monitoreopfd->porcentajeAvanceMPFD}}">
+            <input type="number" step="0.01" min="0" max="100.00" name="porcentajeAvanceMPFD" value="{{$monitoreospfd->porcentajeAvanceMPFD}}">
         </label>
         <br><br>
 

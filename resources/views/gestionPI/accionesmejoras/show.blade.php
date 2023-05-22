@@ -1,24 +1,24 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Acción: ' . $accionmejora->metasAM)
+@section('title', 'Acción: ' . $accionesmejora->metasAM)
 
 @section('content')
-    <h1>Se encuentra en el registro: {{$accionmejora->metasAM}}</h1>
+    <h1>Se encuentra en el registro: {{$accionesmejora->metasAM}}</h1>
 
     <a href="{{route('accionesmejoras.index')}}">Regresar</a>
     <br><br>
 
-    <a href="{{route('accionesmejoras.edit', $accionmejora)}}">Editar Registro</a>
+    <a href="{{route('accionesmejoras.edit', $accionesmejora)}}">Editar Registro</a>
     <br><br>
 
     Descripción:
     <br>
-    {{$accionmejora->descripcionAM}}
+    {{$accionesmejora->descripcionAM}}
     <br><br>
 
-    <p><strong>Código: {{$accionmejora->id}}</strong></p>
+    <p><strong>Código: {{$accionesmejora->id}}</strong></p>
     
-    <form action="{{route('accionesmejoras.destroy', $accionmejora)}}" method="POST">
+    <form action="{{route('accionesmejoras.destroy', $accionesmejora)}}" method="POST">
 
         @csrf
 

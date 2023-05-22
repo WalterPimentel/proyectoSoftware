@@ -8,7 +8,7 @@
     <a href="{{route('comisiones.index')}}">Regresar</a>
     <br><br>
 
-    <form action="{{route('comisiones.update', $comision)}}" method="POST">
+    <form action="{{route('comisiones.update', $comisione)}}" method="POST">
         
         @csrf
 
@@ -16,43 +16,43 @@
 
         <label>Docente:
             <br>
-            <input type="number" name="idDocente" value="{{$comision->idDocente}}">
+            <input type="number" name="idDocente" value="{{$comisione->idDocente}}">
         </label>
         <br><br>
 
         <label>Administrativo:
             <br>
-            <input type="number" name="idAdministrativo" value="{{$comision->idAdministrativo}}">
+            <input type="number" name="idAdministrativo" value="{{$comisione->idAdministrativo}}">
         </label>
         <br><br>
 
         <label>Nombre Comisión:
             <br>
-            <input type="text" name="nombreComision" value="{{$comision->nombreComision}}">
+            <input type="text" name="nombreComision" value="{{$comisione->nombreComision}}">
         </label>
         <br><br>
 
         <label>Macro Proceso:
             <br>
-            <input type="text" name="macroProcesoComision" value="{{$comision->macroProcesoComision}}">
+            <input type="text" name="macroProcesoComision" value="{{$comisione->macroProcesoComision}}">
         </label>
         <br><br>
 
         <label>Proceso:
             <br>
-            <input type="text" name="procesoComision" value="{{$comision->procesoComision}}">
+            <input type="text" name="procesoComision" value="{{$comisione->procesoComision}}">
         </label>
         <br><br>
 
         <label>Subproceso:
             <br>
-            <input type="text" name="subprocesoComision" value="{{$comision->subprocesoComision}}">
+            <input type="text" name="subprocesoComision" value="{{$comisione->subprocesoComision}}">
         </label>
         <br><br>
 
         <label>Periodo:
             <br>
-            <input type="text" name="periodoComision" value="{{$comision->periodoComision}}">
+            <input type="text" name="periodoComision" value="{{$comisione->periodoComision}}">
         </label>
         <br><br>
 

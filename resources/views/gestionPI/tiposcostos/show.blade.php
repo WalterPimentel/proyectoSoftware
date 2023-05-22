@@ -1,24 +1,24 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Costo: ' . $tipocosto->id)
+@section('title', 'Costo: ' . $tiposcosto->id)
 
 @section('content')
-    <h1>Se encuentra en el registro: {{$tipocosto->observacionesCosto}}</h1>
+    <h1>Se encuentra en el registro: {{$tiposcosto->observacionesCosto}}</h1>
 
     <a href="{{route('tiposcostos.index')}}">Regresar</a>
     <br><br>
 
-    <a href="{{route('tiposcostos.edit', $tipocosto)}}">Editar Registro</a>
+    <a href="{{route('tiposcostos.edit', $tiposcosto)}}">Editar Registro</a>
     <br><br>
 
     Cuantía:
     <br>
-    {{$tipocosto->descripcionCosto}}
+    {{$tiposcosto->descripcionCosto}}
     <br><br>
 
-    <p><strong>Código: {{$tipocosto->id}}</strong></p>
+    <p><strong>Código: {{$tiposcosto->id}}</strong></p>
                     
-    <form action="{{route('tiposcostos.destroy', $tipocosto)}}" method="POST">
+    <form action="{{route('tiposcostos.destroy', $tiposcosto)}}" method="POST">
 
         @csrf
 

@@ -47,3 +47,5 @@ Route::resource('revisionespfd', RevisionesPFDController::class);
 Route::resource('tdr', TDRController::class);
 Route::resource('tiposcostos', TiposCostoController::class);
 Route::resource('tiposrecursos', TiposRecursoController::class);
+
+Route::view('nosotros', 'nosotros')->name('nosotros');

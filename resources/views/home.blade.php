@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Home')
+@section('title', 'Página Principal')
 
 @section('content')
     <h1>Bienvenido a la Página Principal</h1>

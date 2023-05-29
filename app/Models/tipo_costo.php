@@ -28,4 +28,12 @@ class tipo_costo extends Model
         );
 
     }
+
+    public function tipo_recurso(){
+        return $this->belongsTo('App\Models\tipo_recurso', 'idTipoRecurso');
+    }
+
+    public function cuadro_necesidades(){
+        return $this->hasMany('App\Models\cuadro_necesidades', 'idTipoCosto');
+    }
 }

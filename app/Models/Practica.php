@@ -52,4 +52,27 @@ class Practica extends Model
 
         return parent::setAttribute($key, $value);
     }
+
+    //método para relación de 1 a 1 viceversa, desde entidad débil (recibir los datos)
+    public function estudiante(){
+        return $this->belongsTo('App\Models\estudiantes', 'idEstudiante');
+    }
+
+    //método para relación de 1 a Muchos viceversa, desde entidad débil (recibir los datos)
+    public function docente(){
+        return $this->belongsTo('App\Models\Docentes', 'idDocente');
+    }
+    
+    public function etapa(){
+        return $this->belongsTo('App\Models\etapas', 'idEtapa');
+    }
+
+    public function empresa(){
+        return $this->belongsTo('App\Models\empresas', 'idEmpresa');
+    }
+
+    //método para relación de Muchos a Muchos viceversa, desde entidad fuerte
+    public function requisitos(){
+        return $this->belongsToMany('App\Models\requisitos');
+    }
 }

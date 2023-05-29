@@ -52,4 +52,16 @@ class comisiones_areas extends Model
 
         return parent::setAttribute($key, $value);
     }
+
+    public function plan_fd(){
+        return $this->hasMany('App\Models\plan_fd', 'idComision');
+    }
+    
+    public function acciones_mejora(){
+        return $this->hasMany('App\Models\acciones_mejora', 'idComision');
+    }
+
+    public function cuadro_necesidades(){
+        return $this->hasOne('App\Models\cuadro_necesidades', 'idComision');
+    }
 }

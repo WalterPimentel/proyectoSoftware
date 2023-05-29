@@ -14,8 +14,17 @@ return new class extends Migration
         Schema::create('practicas_requisitos', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('idPractica');
-            $table->integer('idRequisito');
+            $table->unsignedBigInteger('idPractica');
+            $table->foreign('idPractica')
+                ->references('id')
+                ->on('practicas')
+                ->onDelete('cascade');
+
+            $table->unsignedBigInteger('idRequisito');
+            $table->foreign('idRequisito')
+                ->references('id')
+                ->on('requisitos')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('apellidomDocente', 20);
             $table->string('telefonoDocente', 15);
             $table->string('correoDocente', 50);
-            $table->string('avatar')->nullable();
+            $table->string('fotoDocente')->nullable();
 
             $table->timestamps();
         });

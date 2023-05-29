@@ -17,7 +17,6 @@ class monitoreo_pfdFactory extends Factory
     {
         return [
           
-            'idAccionesMejora' => $this->faker->numberBetween(1,137),
             'descripcionMPFD' => $this->faker->sentence(),
             'porcentajeAvanceMPFD' => $this->faker->randomFloat(2, 0, 100)
 

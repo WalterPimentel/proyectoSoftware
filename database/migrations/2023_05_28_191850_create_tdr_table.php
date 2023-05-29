@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('tdr', function (Blueprint $table) {
             $table->id();
-
-            $table->integer('idTipoRecurso');
+            
+            $table->unsignedBigInteger('idTipoRecurso')->nullable();
+            $table->foreign('idTipoRecurso')
+                ->references('id')
+                ->on('tipos_recursos')
+                ->onDelete('set null')
+                ->onUpdate('cascade');
+            
             $table->boolean('mayorCuantiaTDR');
             $table->string('descripcionTDR');
             $table->decimal('costoTDR', 10, 2);

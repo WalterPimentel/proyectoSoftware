@@ -14,12 +14,6 @@
 
         @method('put')
 
-        <label>Accion Mejora:
-            <br>
-            <input type="number" name="idAccionesMejora" value="{{$monitoreospfd->idAccionesMejora}}">
-        </label>
-        <br><br>
-
         <label>Descripción:
             <br>
             <textarea name="descripcionMPFD" rows="5">{{$monitoreospfd->descripcionMPFD}}</textarea>

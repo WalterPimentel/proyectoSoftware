@@ -14,7 +14,13 @@ return new class extends Migration
         Schema::create('comunicar_planes_fd', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('idPlanFD');
+            $table->unsignedBigInteger('idPlanFD')->unique();
+            $table->foreign('idPlanFD')
+                ->references('id')
+                ->on('planes_fd')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+                                
             $table->integer('idParteInteresada');
             $table->string('descripcionComunicarPFD');
             $table->string('medioComunicarPFD', 100);

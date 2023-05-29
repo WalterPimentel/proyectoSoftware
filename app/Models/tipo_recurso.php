@@ -26,4 +26,20 @@ class tipo_recurso extends Model
         );
 
     }
+
+    public function acciones_mejora(){
+        return $this->hasMany('App\Models\acciones_mejora', 'idTipoRecurso');
+    }
+
+    public function cuadro_necesidades(){
+        return $this->hasMany('App\Models\cuadro_necesidades', 'idTipoRecurso');
+    }
+
+    public function tipo_costo(){
+        return $this->hasOne('App\Models\tipo_costo', 'idTipoRecurso');
+    }
+
+    public function tdr(){
+        return $this->hasOne('App\Models\tdr', 'idTipoRecurso');
+    }
 }

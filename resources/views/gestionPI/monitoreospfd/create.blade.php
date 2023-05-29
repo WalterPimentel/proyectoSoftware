@@ -12,20 +12,6 @@
         
         @csrf
 
-        <label>Accion Mejora:
-            <br>
-            <input type="number" name="idAccionesMejora" value="{{old('idAccionesMejora')}}">
-        </label>
-                
-        @error('idAccionesMejora')
-
-            <br>
-            <small>*@lang('validation.required', ['attribute' => 'Accion Mejora'])</small>
-            
-        @enderror
-
-        <br><br>
-
         <label>Descripción:
             <br>
             <textarea name="descripcionMPFD" rows="5">{{old('descripcionMPFD')}}</textarea>

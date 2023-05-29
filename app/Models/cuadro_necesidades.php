@@ -31,4 +31,24 @@ class cuadro_necesidades extends Model
         );
 
     }
+
+    public function plan_fd(){
+        return $this->hasMany('App\Models\plan_fd', 'idCuadroNecesidades');
+    }
+
+    public function comisiones_areas(){
+        return $this->belongsTo('App\Models\comisiones_areas', 'idComision');
+    }
+
+    public function tipo_recurso(){
+        return $this->belongsTo('App\Models\tipo_recurso', 'idTipoRecurso');
+    }
+
+    public function tipo_costo(){
+        return $this->belongsTo('App\Models\tipo_costo', 'idTipoCosto');
+    }
+
+    public function tdr(){
+        return $this->belongsTo('App\Models\tdr', 'idTDR');
+    }
 }

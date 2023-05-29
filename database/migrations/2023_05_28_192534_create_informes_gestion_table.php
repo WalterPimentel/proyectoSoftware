@@ -9,13 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    
     public function up(): void
     {
         Schema::create('informes_gestion', function (Blueprint $table) {
             $table->id();
+            
+            $table->unsignedBigInteger('idMonitoreoPFD')->nullable();
+            $table->foreign('idMonitoreoPFD')
+                ->references('id')
+                ->on('monitoreos_pfd')
+                ->onDelete('set null')
+                ->onUpdate('cascade');
 
-            $table->integer('idMonitoreoPFD');
             $table->integer('idResponsableElaboracion');
             $table->string('descripcionIG');
             $table->string('observacionesIG')->nullable();            
@@ -23,7 +28,7 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-    
+
     /**
      * Reverse the migrations.
      */

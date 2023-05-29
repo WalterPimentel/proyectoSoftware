@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('monitoreos_pfd', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('idAccionesMejora');
             $table->string('descripcionMPFD');
             $table->decimal('porcentajeAvanceMPFD', 5, 2);
 

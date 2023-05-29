@@ -32,4 +32,9 @@ class estudiantes extends Model
 
         return parent::setAttribute($key, $value);
     }
+
+    //método para relación de 1 a 1 desde entidad fuerte
+    public function practica(){
+        return $this->hasOne('App\Models\Practica', 'idEstudiante');
+    }
 }

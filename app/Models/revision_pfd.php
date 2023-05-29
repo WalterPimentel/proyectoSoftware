@@ -26,4 +26,8 @@ class revision_pfd extends Model
 
         return parent::setAttribute($key, $value);
     }
+
+    public function plan_fd(){
+        return $this->hasOne('App\Models\plan_fd', 'idRevisionPFD');
+    }
 }

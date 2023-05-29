@@ -36,4 +36,8 @@ class comunicar_plan_fd extends Model
 
         return parent::setAttribute($key, $value);
     }
+
+    public function plan_fd(){
+        return $this->belongsTo('App\Models\plan_fd', 'idPlanFD');
+    }
 }

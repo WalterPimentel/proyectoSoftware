@@ -47,4 +47,8 @@ class etapas extends Model
 
         return parent::setAttribute($key, $value);
     }
+    
+    public function practica(){
+        return $this->hasMany('App\Models\Practica', 'idEtapa');
+    }
 }

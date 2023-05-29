@@ -48,4 +48,9 @@ class requisitos extends Model
 
         return parent::setAttribute($key, $value);
     }
+
+    //método para relación de Muchos a Muchos viceversa, desde entidad débil (recibir los datos) 
+    public function practica(){
+        return $this->belongsToMany('App\Models\Practica');
+    }
 }

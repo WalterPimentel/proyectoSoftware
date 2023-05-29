@@ -28,4 +28,8 @@ class informe_gestion extends Model
 
         return parent::setAttribute($key, $value);
     }
+
+    public function monitoreo_pfd(){
+        return $this->belongsTo('App\Modles\monitoreo_pfd', 'idMonitoreoPFD');
+    }
 }

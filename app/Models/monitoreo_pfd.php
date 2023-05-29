@@ -28,4 +28,12 @@ class monitoreo_pfd extends Model
         );
 
     }
+
+    public function acciones_mejora(){
+        return $this->hasMany('App\Modles\acciones_mejora', 'idMonitoreoPFD');
+    }
+
+    public function informe_gestion(){
+        return $this->hasMany('App\Modles\informe_gestion', 'idMonitoreoPFD');
+    }
 }

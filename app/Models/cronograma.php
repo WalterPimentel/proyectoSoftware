@@ -28,4 +28,8 @@ class cronograma extends Model
         );
 
     }
+
+    public function plan_fd(){
+        return $this->belongsTo('App\Models\plan_fd', 'idPlanFD');
+    }
 }

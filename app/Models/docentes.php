@@ -22,8 +22,10 @@ class docentes extends Model
 
     protected $table = "docentes";
 
-    //Esta forma es mas reutilizable y guarda en la BD con letra inicial mayuscula
-    //Este codigo es mas util para campos como nombres y apellidos, para textos u oraciones mejor el anterior (solo minusculas)
+    /*
+    * Esta forma es mas reutilizable y guarda en la BD con letra inicial mayuscula
+    * Este codigo es mas util para campos como nombres y apellidos, para textos u oraciones mejor el anterior (solo minusculas)
+    */
 
     public function setAttribute($key, $value)
     {
@@ -36,40 +38,8 @@ class docentes extends Model
         return parent::setAttribute($key, $value);
     }
 
-    /*
-    protected function nombresDocente(): Attribute{
-        
-        return new Attribute(
-            get: fn($value) => ucwords($value),
-            set: fn($value) => strtolower($value)
-        );
-
+    //método para relación de 1 a Muchos desde entidad fuerte
+    public function practica(){
+        return $this->hasMany('App\Models\Practica', 'idDocente');
     }
-
-    protected function apellidopDocente(): Attribute{
-        
-        return new Attribute(
-            get: fn($value) => ucwords($value),
-            set: fn($value) => strtolower($value)
-        );
-
-    }
-
-    protected function apellidomDocente(): Attribute{
-        
-        return new Attribute(
-            get: fn($value) => ucwords($value),
-            set: fn($value) => strtolower($value)
-        );
-
-    }
-
-    protected function correoDocente(): Attribute{
-        
-        return new Attribute(
-            set: fn($value) => strtolower($value)
-        );
-
-    }
-    */
 }

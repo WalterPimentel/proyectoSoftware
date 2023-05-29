@@ -14,7 +14,13 @@ return new class extends Migration
         Schema::create('cronogramas', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('idPlanFD');
+            $table->unsignedBigInteger('idPlanFD')->unique();
+            $table->foreign('idPlanFD')
+                ->references('id')
+                ->on('planes_fd')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
             $table->integer('idProyecto');
             $table->string('descripcionCronograma');
 

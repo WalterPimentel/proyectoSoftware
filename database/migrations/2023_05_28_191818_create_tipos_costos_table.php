@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('tipos_costos', function (Blueprint $table) {
             $table->id();
+            
+            $table->unsignedBigInteger('idTipoRecurso')->unique();
+            $table->foreign('idTipoRecurso')
+                ->references('id')
+                ->on('tipos_recursos')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
-            $table->integer('idTipoRecurso');
             $table->boolean('descripcionCosto');
             $table->string('observacionesCosto')->nullable();
 

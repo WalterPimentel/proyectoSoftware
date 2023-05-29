@@ -35,4 +35,21 @@ class acciones_mejora extends Model
 
         return parent::setAttribute($key, $value);
     }
+
+    public function plan_fd(){
+        return $this->belongsTo('App\Models\plan_fd', 'idPlanFD');
+    }
+
+    public function comisiones_areas(){
+        return $this->belongsTo('App\Models\comisiones_areas', 'idComision');
+    }
+
+    public function monitoreo_pfd(){
+        return $this->belongsTo('App\Models\monitoreo_pfd', 'idMonitoreoPFD');
+    }
+
+    public function tipo_recurso(){
+        return $this->belongsTo('App\Models\tipo_recurso', 'idTipoRecurso');
+    }
+
 }

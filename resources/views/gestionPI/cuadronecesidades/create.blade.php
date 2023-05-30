@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Crear Necesidad')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear un nuevo registro de Cuadro Necesidades.</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('cuadronecesidades.index')}}">Regresar</a>
     <br><br>
@@ -114,4 +119,5 @@
         <br><br>
 
     </form>
-@endsection
+
+@stop

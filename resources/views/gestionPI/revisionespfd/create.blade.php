@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Crear Revisión')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear un nuevo registro de Revisiones PFD.</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('revisionespfd.index')}}">Regresar</a>
     <br><br>
@@ -36,4 +41,5 @@
         <br><br>
 
     </form>
-@endsection
+
+@stop

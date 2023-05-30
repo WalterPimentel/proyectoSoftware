@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Comisión: ' . $comisione->nombreComision)
 
-@section('content')
+@section('content_header')
+    
     <h1>Se encuentra en el registro: {{$comisione->nombreComision}}</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('comisiones.index')}}">Regresar</a>
     <br><br>
@@ -43,4 +48,4 @@
 
     </form>
 
-@endsection
+@stop

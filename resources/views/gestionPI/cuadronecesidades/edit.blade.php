@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Editar Cuadro de Necesidades')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear editar un registro de Cuadros de Necesidades.</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('cuadronecesidades.index')}}">Regresar</a>
     <br><br>
@@ -59,4 +64,5 @@
         <button type="submit">Actualizar Formulario</button>
 
     </form>
-@endsection
+
+@stop

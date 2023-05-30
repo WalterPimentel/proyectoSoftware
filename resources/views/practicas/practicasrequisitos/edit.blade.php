@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Editar Practica Requisito')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear editar un registro de practicas requisitos.</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('practicasrequisitos.index')}}">Volver a Requisitos</a>
     <br><br>
@@ -29,4 +34,5 @@
         <button type="submit">Actualizar Formulario</button>
 
     </form>
-@endsection
+
+@stop

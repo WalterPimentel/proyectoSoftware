@@ -1,9 +1,15 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Comunicados PFD')
 
-@section('content')
+@section('content_header')
+
     <h1>Bienvenido a la Gestión de Comunicados PFD</h1>
+
+@stop
+
+@section('content')
+    
     <a href="{{route('gestionPI.index')}}">Regresar</a>
     <br><br>
     <a href="{{route('comunicarpfd.create')}}">Nuevo Comunicado</a>
@@ -15,4 +21,5 @@
         @endforeach
     </ul>    
     {{$comunicarpfd->links()}}    
-@endsection
+    
+@stop

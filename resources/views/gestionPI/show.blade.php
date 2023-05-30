@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Plan: ' . $gestionPI->id)
 
-@section('content')
+@section('content_header')
+
     <h1>Se encuentra en el registro: {{$gestionPI->id}}</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('gestionPI.index')}}">Volver a PlanFD</a>
     <br><br>
@@ -23,4 +28,4 @@
 
     </form>
 
-@endsection
+@stop

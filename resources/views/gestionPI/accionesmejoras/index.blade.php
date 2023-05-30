@@ -1,9 +1,15 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Acciones Mejoras')
 
-@section('content')
+@section('content_header')
+
     <h1>Bienvenido a la Gestión de Acciones de Mejora</h1>
+
+@stop
+
+@section('content')
+    
     <a href="{{route('gestionPI.index')}}">Regresar</a>
     <br><br>
     <a href="{{route('accionesmejoras.create')}}">Nueva Acción</a>
@@ -14,5 +20,6 @@
             </li>
         @endforeach
     </ul>    
-    {{$accionesmejoras->links()}}    
-@endsection
+    {{$accionesmejoras->links()}}   
+
+@stop

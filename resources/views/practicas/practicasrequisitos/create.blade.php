@@ -1,9 +1,15 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Crear Practicas Requisitos')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear un nuevo registro de prácticas requisitos.</h1>
+
+@stop
+
+@section('content')
+    
     <a href="{{route('practicasrequisitos.index')}}">Volver a Prácticas Requisitos</a>
     <br><br>
 
@@ -42,4 +48,5 @@
         <button type="submit">Enviar Formulario</button>
 
     </form>
-@endsection
+
+@stop

@@ -1,10 +1,15 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Registrar')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear un nuevo registro de practicas.</h1>
 
+@stop
+
+@section('content')
+    
     <a href="{{route('practicas.index')}}">Volver a Prácticas</a>
     <br><br>
 
@@ -105,7 +110,8 @@
 
         <br><br>
 
-        <button type="submit">Enviar Formulario</button>
+        <button type="submit" class="btn btn-success">Enviar Formulario</button>
 
     </form>
-@endsection
+
+@stop

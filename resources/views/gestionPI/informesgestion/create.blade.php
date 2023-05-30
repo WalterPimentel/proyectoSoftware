@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Crear Informe')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear un nuevo registro de Informe Gestión.</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('informesgestion.index')}}">Regresar</a>
     <br><br>
@@ -64,4 +69,5 @@
         <br><br>
 
     </form>
-@endsection
+    
+@stop

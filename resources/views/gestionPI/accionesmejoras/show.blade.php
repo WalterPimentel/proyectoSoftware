@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Acción: ' . $accionesmejora->metasAM)
 
-@section('content')
+@section('content_header')
+
     <h1>Se encuentra en el registro: {{$accionesmejora->metasAM}}</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('accionesmejoras.index')}}">Regresar</a>
     <br><br>
@@ -28,4 +33,4 @@
 
     </form>
 
-@endsection
+@stop

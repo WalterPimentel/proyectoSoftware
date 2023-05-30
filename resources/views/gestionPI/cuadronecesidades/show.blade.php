@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Necesidad: ' . $cuadronecesidade->descripcionCuadroN)
 
-@section('content')
+@section('content_header')
+
     <h1>Se encuentra en el registro: {{$cuadronecesidade->descripcionCuadroN}}</h1>
+
+@stop
+
+@section('content')    
     
     <a href="{{route('cuadronecesidades.index')}}">Regresar</a>
     <br><br>
@@ -23,4 +28,4 @@
 
     </form>
 
-@endsection
+@stop

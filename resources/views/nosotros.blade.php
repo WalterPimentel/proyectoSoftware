@@ -1,7 +1,7 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Nosotros')
 
-@section('content')
+@section('content_header')
     <h1>Nosotros</h1>
-@endsection
+@stop

@@ -1,9 +1,15 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Empresas')
 
-@section('content')
+@section('content_header')
+
     <h1>Bienvenido a la Gestión de Empresas</h1>
+
+@stop
+
+@section('content')
+    
     <a href="{{route('practicas.index')}}">Volver a Practicas</a> |
     <a href="{{route('empresas.create')}}">Nueva Empresa</a>
     <ul>
@@ -13,5 +19,6 @@
             </li>
         @endforeach
     </ul>    
-    {{$empresas->links()}}    
-@endsection
+    {{$empresas->links()}}
+
+@stop

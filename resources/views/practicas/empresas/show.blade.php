@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Empresa: ' . $empresa->nombreEmpresa)
 
-@section('content')
-    <h1>Se encuentra en el registro: {{$empresa->nombreEmpresa}} ({{$empresa->rubroEmpresa}})</h1>
+@section('content_header')
+
+<h1>Se encuentra en el registro: {{$empresa->nombreEmpresa}} ({{$empresa->rubroEmpresa}})</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('empresas.index')}}">Volver a Empresas</a>
     <br><br>
@@ -32,4 +37,4 @@
 
     </form>
 
-@endsection
+@stop

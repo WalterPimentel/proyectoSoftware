@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Etapa: ' . $etapa->nombreEtapa)
 
-@section('content')
+@section('content_header')
+
     <h1>Se encuentra en el registro: {{$etapa->nombreEtapa}}</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('etapas.index')}}">Volver a Etapas</a>
     <br><br>
@@ -26,4 +31,4 @@
 
     </form>
 
-@endsection
+@stop

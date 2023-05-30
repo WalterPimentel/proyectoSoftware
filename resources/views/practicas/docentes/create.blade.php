@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Crear Docentes')
 
-@section('content')
+@section('content_header')
+    
     <h1>En esta página se podrá crear un nuevo registro de docentes.</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('docentes.index')}}">Volver a Docentes</a>
     <br><br>
@@ -96,7 +101,8 @@
 
         <br><br>
 
-        <button type="submit">Enviar Formulario</button>
+        <button type="submit" class="btn btn-success">Enviar Formulario</button>
 
     </form>
-@endsection
+
+@stop

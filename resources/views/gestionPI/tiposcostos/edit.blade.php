@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Editar Tipo Costo')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear editar un registro de Tipos de Costos.</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('tiposcostos.index')}}">Regresar</a>
     <br><br>
@@ -35,4 +40,5 @@
         <button type="submit">Actualizar Formulario</button>
 
     </form>
-@endsection
+    
+@stop

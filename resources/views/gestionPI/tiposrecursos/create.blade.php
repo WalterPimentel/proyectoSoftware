@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Crear Recurso')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear un nuevo registro de Tipo Recurso.</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('tiposrecursos.index')}}">Regresar</a>
     <br><br>
@@ -30,4 +35,5 @@
         <br><br>
 
     </form>
-@endsection
+
+@stop

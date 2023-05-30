@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Cronograma: ' . $cronograma->descripcionCronograma)
 
-@section('content')
+@section('content_header')
+
     <h1>Se encuentra en el registro: {{$cronograma->descripcionCronograma}}</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('cronogramas.index')}}">Regresar</a>
     <br><br>
@@ -23,4 +28,4 @@
 
     </form>
 
-@endsection
+@stop

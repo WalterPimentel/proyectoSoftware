@@ -1,9 +1,15 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Comisiones y Áreas')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear un nuevo registro de Comisiones y/o Áreas.</h1>
+
+@stop
+
+@section('content')
+    
     <a href="{{route('comisiones.index')}}">Regresar</a>
     <br><br>
 
@@ -113,4 +119,5 @@
         <br><br>
 
     </form>
-@endsection
+
+@stop

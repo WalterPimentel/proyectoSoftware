@@ -1,9 +1,15 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Planificación Institucional')
 
-@section('content')
+@section('content_header')
+
     <h1>Bienvenido a la Página Principal de la Gestión de Planificación Institucional</h1>
+
+@stop
+
+@section('content')
+
     <a href="{{route('home')}}">Inicio</a> |
     <a href="{{route('accionesmejoras.index')}}">Acciones Mejora</a> |
     <a href="{{route('comisiones.index')}}">Comisiones</a> |
@@ -26,4 +32,5 @@
         @endforeach
     </ul>    
     {{$pfds->links()}}   
-@endsection
+
+@stop

@@ -1,9 +1,20 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'N°: ' . $practicasrequisito->id)
 
-@section('content')
-    <h1>Se encuentra en el registro: IDPractica({{$practicasrequisito->idPractica}}) con IDRequisito({{$practicasrequisito->idRequisito}})</h1>
+@section('content_header')
+
+    <h1>
+        Se encuentra en el registro: 
+        IDPractica
+        ({{$practicasrequisito->idPractica}}) 
+        con IDRequisito
+        ({{$practicasrequisito->idRequisito}})
+    </h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('practicasrequisitos.index')}}">Volver a Prácticas Requisitos</a>
     <br><br>
@@ -23,4 +34,4 @@
 
     </form>
 
-@endsection
+@stop

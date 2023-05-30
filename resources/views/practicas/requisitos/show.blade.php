@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Requisito: ' . $requisito->nombreRequisito)
 
-@section('content')
+@section('content_header')
+
     <h1>Se encuentra en el registro: {{$requisito->nombreRequisito}}</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('requisitos.index')}}">Volver a Requisitos</a>
     <br><br>
@@ -28,4 +33,4 @@
 
     </form>
 
-@endsection
+@stop

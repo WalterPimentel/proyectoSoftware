@@ -1,9 +1,15 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Tipo Costos')
 
-@section('content')
+@section('content_header')
+
     <h1>Bienvenido a la Gestión de Tipo Costos</h1>
+
+@stop
+
+@section('content')
+
     <a href="{{route('gestionPI.index')}}">Regresar</a>
     <br><br>
     <a href="{{route('tiposcostos.create')}}">Nuevo Costo</a>
@@ -15,4 +21,5 @@
         @endforeach
     </ul>    
     {{$tiposcostos->links()}}    
-@endsection
+    
+@stop

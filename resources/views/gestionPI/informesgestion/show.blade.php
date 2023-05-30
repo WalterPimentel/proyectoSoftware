@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Informe: ' . $informesgestion->descripcionIG)
 
-@section('content')
+@section('content_header')
+
     <h1>Se encuentra en el registro: {{$informesgestion->descripcionIG}}</h1>
+
+@stop
+
+@section('content')
 
     <a href="{{route('informesgestion.index')}}">Regresar</a>
     <br><br>
@@ -28,4 +33,4 @@
 
     </form>
 
-@endsection
+@stop

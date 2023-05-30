@@ -22,10 +22,12 @@ use App\Http\Controllers\{
     RevisionesPFDController,
     TDRController,
     TiposCostoController,
-    TiposRecursoController
+    TiposRecursoController,
+    Admin\HomeController as AdminHomeController
 };
 
-Route::get('/', HomeController::class)->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [AdminHomeController::class, 'index'])->name('admin.home');
 
 Route::resource('practicas', PracticaController::class);
 Route::resource('docentes', DocenteController::class);

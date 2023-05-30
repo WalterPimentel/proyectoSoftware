@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Comunicado: ' . $comunicarpfd->descripcionComunicarPFD)
 
-@section('content')
+@section('content_header')
+
     <h1>Se encuentra en el registro: {{$comunicarpfd->descripcionComunicarPFD}}</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('comunicarpfd.index')}}">Volver a Prácticas</a>
     <br><br>
@@ -28,4 +33,4 @@
 
     </form>
 
-@endsection
+@stop

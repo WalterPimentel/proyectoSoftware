@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Crear Empresas')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear un nuevo registro de empresas.</h1>
+
+@stop
+
+@section('content')
 
     <a href="{{route('empresas.index')}}">Volver a Empresas</a>
     <br><br>
@@ -77,4 +82,5 @@
         <button type="submit">Enviar Formulario</button>
 
     </form>
-@endsection
+
+@stop

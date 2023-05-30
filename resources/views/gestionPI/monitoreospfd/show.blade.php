@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Monitoreo: ' . $monitoreospfd->descripcionMPFD)
 
-@section('content')
+@section('content_header')
+
     <h1>Se encuentra en el registro: {{$monitoreospfd->descripcionMPFD}}</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('monitoreospfd.index')}}">Regresar</a>
     <br><br>
@@ -23,4 +28,4 @@
 
     </form>
 
-@endsection
+@stop

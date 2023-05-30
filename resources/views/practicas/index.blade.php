@@ -1,9 +1,15 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Prácticas Preprofesionales')
 
-@section('content')
+@section('content_header')
+
     <h1>Bienvenido a la Gestión de Practicas Preprofesionales</h1>
+
+@stop
+
+@section('content')
+    
     <a href="{{route('home')}}">Inicio</a> |
     <a href="{{route('docentes.index')}}">Docentes</a> |
     <a href="{{route('empresas.index')}}">Empresas</a> |
@@ -21,4 +27,5 @@
         @endforeach
     </ul>    
     {{$practicas->links()}}    
-@endsection
+
+@stop

@@ -1,10 +1,15 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Practica: ' . $practica->titulo)
 
-@section('content')
+@section('content_header')
+
     <h1>Se encuentra en el registro: {{$practica->titulo}}</h1>
 
+@stop
+
+@section('content')
+    
     <a href="{{route('practicas.index')}}">Volver a Prácticas</a>
     <br><br>
 
@@ -19,8 +24,8 @@
 
         @method('delete')
 
-        <button type="submit">Eliminar</button>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
 
     </form>
 
-@endsection
+@stop

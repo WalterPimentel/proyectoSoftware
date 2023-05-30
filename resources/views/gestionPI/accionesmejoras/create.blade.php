@@ -1,9 +1,15 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Crear Acciones de Mejora')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear una Nueva Accion de Mejora.</h1>
+
+@stop
+
+@section('content')
+    
     <a href="{{route('accionesmejoras.index')}}">Regresar</a>
     <br><br>
 
@@ -99,4 +105,5 @@
         <br><br>
 
     </form>
-@endsection
+
+@stop

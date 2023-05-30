@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Costo: ' . $tiposcosto->id)
 
-@section('content')
+@section('content_header')
+
     <h1>Se encuentra en el registro: {{$tiposcosto->observacionesCosto}}</h1>
+
+@stop
+
+@section('content')
 
     <a href="{{route('tiposcostos.index')}}">Regresar</a>
     <br><br>
@@ -28,4 +33,4 @@
 
     </form>
 
-@endsection
+@stop

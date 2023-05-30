@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Editar Plan FD')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear editar un registro de Planes FD.</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('gestionPI.index')}}">Regresar</a>
     <br><br>
@@ -88,4 +93,4 @@
         <button type="submit">Actualizar Formulario</button>
 
     </form>
-@endsection
+@stop

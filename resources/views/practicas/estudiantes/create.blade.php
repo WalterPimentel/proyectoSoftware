@@ -1,9 +1,15 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Crear Estudiantes')
 
-@section('content')
+@section('content_header')
+
     <h1>En esta página se podrá crear un nuevo registro de estudiantes.</h1>
+
+@stop
+
+@section('content')
+    
     <a href="{{route('estudiantes.index')}}">Volver a Estudiantes</a>
     <br><br>
 
@@ -98,4 +104,5 @@
         <button type="submit">Enviar Formulario</button>
 
     </form>
-@endsection
+
+@stop

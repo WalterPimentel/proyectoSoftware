@@ -1,9 +1,19 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Docente: ' . $docente->apellidopDocente)
 
-@section('content')
-    <h1>Se encuentra en el registro: {{$docente->apellidopDocente}} {{$docente->apellidomDocente}}, {{$docente->nombresDocente}}</h1>
+@section('content_header')
+
+    <h1>
+        Se encuentra en el registro: 
+        {{$docente->apellidopDocente}} 
+        {{$docente->apellidomDocente}}, 
+        {{$docente->nombresDocente}}
+    </h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('docentes.index')}}">Volver a Docentes</a>
     <br><br>
@@ -19,8 +29,8 @@
 
         @method('delete')
 
-        <button type="submit">Eliminar</button>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
 
     </form>
 
-@endsection
+@stop

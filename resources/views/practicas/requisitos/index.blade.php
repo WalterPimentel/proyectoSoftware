@@ -1,9 +1,15 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Requisitos')
 
-@section('content')
+@section('content_header')
+
     <h1>Bienvenido a la Gestión de Requisitos</h1>
+
+@stop
+
+@section('content')
+
     <a href="{{route('practicas.index')}}">Volver a Practicas</a> |
     <a href="{{route('requisitos.create')}}">Nuevo Requisito</a>
     <ul>
@@ -14,4 +20,5 @@
         @endforeach
     </ul>    
     {{$requisitos->links()}}    
-@endsection
+
+@stop

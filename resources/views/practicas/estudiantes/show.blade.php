@@ -1,9 +1,14 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('title', 'Estudiante: ' . $estudiante->apellidopEstudiante)
 
-@section('content')
+@section('content_header')
+
     <h1>Se encuentra en el registro: {{$estudiante->apellidopEstudiante}} {{$estudiante->apellidomEstudiante}}, {{$estudiante->nombresEstudiante}}</h1>
+
+@stop
+
+@section('content')    
 
     <a href="{{route('estudiantes.index')}}">Volver a Estudiantes</a>
     <br><br>
@@ -23,4 +28,5 @@
 
     </form>
 
-@endsection
+
+@stop

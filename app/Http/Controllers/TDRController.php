@@ -41,7 +41,14 @@ class TDRController extends Controller
         return view('gestionPI/tdr.edit', compact('tdr'));
     }
 
-    public function update(Request $request, tdr $tdr){        
+    public function update(Request $request, tdr $tdr){
+
+        $request->validate([
+            'idTipoRecurso' => 'required',
+            'mayorCuantiaTDR' => 'required',
+            'descripcionTDR' => 'required',
+            'costoTDR' => 'required'       
+        ]);
 
         $tdr->update($request->all());
 

@@ -45,7 +45,17 @@ class ComisionController extends Controller
         return view('gestionPI/comisiones.edit', compact('comisione'));
     }
 
-    public function update(Request $request, comisiones_areas $comisione){        
+    public function update(Request $request, comisiones_areas $comisione){
+        
+        $request->validate([
+            'idDocente' => 'required',
+            'idAdministrativo' => 'required',
+            'nombreComision' => 'required',
+            'macroProcesoComision' => 'required',
+            'procesoComision' => 'required',
+            'subprocesoComision' => 'required',
+            'periodoComision' => 'required'           
+        ]);
 
         $comisione->update($request->all());
 

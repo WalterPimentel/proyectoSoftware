@@ -40,7 +40,13 @@ class CronogramaController extends Controller
         return view('gestionPI/cronogramas.edit', compact('cronograma'));
     }
 
-    public function update(Request $request, cronograma $cronograma){        
+    public function update(Request $request, cronograma $cronograma){
+
+        $request->validate([
+            'idPlanFD' => 'required',
+            'idProyecto' => 'required',
+            'descripcionCronograma' => 'required'         
+        ]);
 
         $cronograma->update($request->all());
 

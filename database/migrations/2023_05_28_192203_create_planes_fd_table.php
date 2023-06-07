@@ -28,11 +28,11 @@ return new class extends Migration
                 ->onDelete('set null')
                 ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('idRevisionPFD')->unique();
+            $table->unsignedBigInteger('idRevisionPFD')->nullable();
             $table->foreign('idRevisionPFD')
                 ->references('id')
                 ->on('revisiones_pfd')
-                ->onDelete('cascade')
+                ->onDelete('set null')
                 ->onUpdate('cascade');
 
             $table->integer('idActaConsejoFacultad');

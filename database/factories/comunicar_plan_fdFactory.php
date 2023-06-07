@@ -16,7 +16,7 @@ class comunicar_plan_fdFactory extends Factory
     {
         return [
 
-            'idPlanFD' => $this->faker->numberBetween(1,25),
+            'idPlanFD' => $this->faker->unique()->numberBetween(1,25),
             'idParteInteresada' => $this->faker->numberBetween(1,7),
             'descripcionComunicarPFD' => $this->faker->sentence(),
             'medioComunicarPFD' => $this->faker->words(2, true),

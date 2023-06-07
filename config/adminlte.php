@@ -15,8 +15,8 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => '',
-    'title_postfix' => ' | UContinental',    
+    'title_prefix' => 'UC | ',
+    'title_postfix' => '',    
 
     /*
     |--------------------------------------------------------------------------
@@ -293,7 +293,7 @@ return [
         // Navbar items:
         [
             'type'         => 'navbar-search',
-            'text'         => 'search',
+            'text'         => 'Búsqueda',
             'topnav_right' => true,
         ],
         [
@@ -304,7 +304,7 @@ return [
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
-            'text' => 'search',
+            'text' => 'Búsqueda',
         ],
         [
             'text' => 'blog',
@@ -317,7 +317,7 @@ return [
             'route' => 'admin.home'
         ],
         [
-            'text'  => 'Home',
+            'text'  => 'Inicio',
             'icon'  => 'fas fa-fw fa-home',
             'route' => 'home'
         ],
@@ -357,9 +357,131 @@ return [
                         ],
                         [
                             'text'      => 'Planificación Institucional',
-                            'icon'      => 'fas fa-fw fa-bullseye',
+                            'icon'      => 'fas fa-fw fa-project-diagram',
                             'icon_color' => 'maroon',
-                            'url'       => 'gestionPI'
+                            'url'       => 'gestionPI',
+                            'submenu'   => [
+                                [
+                                    'text'      => 'Plan de Funcionamiento y Desarrollo',
+                                    'icon'      => 'fas fa-fw fa-scroll',                                    
+                                    'url'       => 'gestionPI',
+                                    'active'    => [
+                                        'gestionPI*', 
+                                        'regex:@^gestionPI/[0-9]+$@', 
+                                        'regex:@^gestionPI/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Acciones Mejora',
+                                    'icon'      => 'fas fa-fw fa-chart-line',                                    
+                                    'url'       => 'accionesmejoras',
+                                    'active'    => [
+                                        'accionesmejoras*', 
+                                        'regex:@^accionesmejoras/[0-9]+$@', 
+                                        'regex:@^accionesmejoras/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Comisiones o Áreas',
+                                    'icon'      => 'fas fa-fw fa-warehouse',
+                                    'url'       => 'comisiones',
+                                    'active'    => [
+                                        'comisiones*', 
+                                        'regex:@^comisiones/[0-9]+$@', 
+                                        'regex:@^comisiones/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Comunicar PFD',
+                                    'icon'      => 'fas fa-fw fa-bullhorn',
+                                    'url'       => 'comunicarpfd',
+                                    'active'    => [
+                                        'comunicarpfd*', 
+                                        'regex:@^comunicarpfd/[0-9]+$@', 
+                                        'regex:@^comunicarpfd/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Cronograma',
+                                    'icon'      => 'fas fa-fw fa-calendar-alt',
+                                    'url'       => 'cronogramas',
+                                    'active'    => [
+                                        'cronogramas*', 
+                                        'regex:@^cronogramas/[0-9]+$@', 
+                                        'regex:@^cronogramas/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Cuadro de Necesidades',
+                                    'icon'      => 'fas fa-fw fa-comments',
+                                    'url'       => 'cuadronecesidades',
+                                    'active'    => [
+                                        'cuadronecesidades*', 
+                                        'regex:@^cuadronecesidades/[0-9]+$@', 
+                                        'regex:@^cuadronecesidades/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Informe de Gestión',
+                                    'icon'      => 'fas fa-fw fa-file-word',
+                                    'url'       => 'informesgestion',
+                                    'active'    => [
+                                        'informesgestion*', 
+                                        'regex:@^informesgestion/[0-9]+$@', 
+                                        'regex:@^informesgestion/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Monitoreo PFD',
+                                    'icon'      => 'fas fa-fw fa-binoculars',
+                                    'url'       => 'monitoreospfd',
+                                    'active'    => [
+                                        'monitoreospfd*', 
+                                        'regex:@^monitoreospfd/[0-9]+$@', 
+                                        'regex:@^monitoreospfd/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Revisión PFD',
+                                    'icon'      => 'fas fa-fw fa-clipboard-check',
+                                    'url'       => 'revisionespfd',
+                                    'active'    => [
+                                        'revisionespfd*', 
+                                        'regex:@^revisionespfd/[0-9]+$@', 
+                                        'regex:@^revisionespfd/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'TDR',
+                                    'icon'      => 'fas fa-fw fa-file-alt',
+                                    'url'       => 'tdr',
+                                    'active'    => [
+                                        'tdr*', 
+                                        'regex:@^tdr/[0-9]+$@', 
+                                        'regex:@^tdr/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Tipo de Costo',
+                                    'icon'      => 'fas fa-fw fa-money-bill-alt',
+                                    'url'       => 'tiposcostos',
+                                    'active'    => [
+                                        'tiposcostos*', 
+                                        'regex:@^tiposcostos/[0-9]+$@', 
+                                        'regex:@^tiposcostos/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Tipo de Recurso',
+                                    'icon'      => 'fas fa-fw fa-boxes',
+                                    'url'       => 'tiposrecursos',
+                                    'active'    => [
+                                        'tiposrecursos*', 
+                                        'regex:@^tiposrecursos/[0-9]+$@', 
+                                        'regex:@^tiposrecursos/[0-9]+/edit$@'
+                                    ],
+                                ],
+                            ],
                         ]
                     ]
                 ],
@@ -413,9 +535,80 @@ return [
                         ],
                         [
                             'text'      => 'Prácticas Pre Profesionales',
-                            'icon'      => 'fas fa-fw fa-chart-pie',
+                            'icon'      => 'fas fa-fw fa-briefcase',
                             'icon_color' => 'lightblue',
-                            'url'       => 'practicas'
+                            'url'       => 'practicas',
+                            'submenu'   => [
+                                [
+                                    'text'      => 'Prácticas',
+                                    'icon'      => 'fas fa-fw fa-briefcase',
+                                    'url'       => 'practicas',
+                                    'active' => [ 
+                                        'regex:@^practicas/[0-9]+$@', 
+                                        'regex:@^practicas/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Docentes',
+                                    'icon'      => 'fas fa-fw fa-chalkboard-teacher',
+                                    'url'       => 'docentes',
+                                    'active' => [
+                                        'docentes*', 
+                                        'regex:@^docentes/[0-9]+$@', 
+                                        'regex:@^docentes/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Empresas',
+                                    'icon'      => 'fas fa-fw fa-building',
+                                    'url'       => 'empresas',
+                                    'active' => [
+                                        'empresas*', 
+                                        'regex:@^empresas/[0-9]+$@', 
+                                        'regex:@^empresas/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Estudiantes',
+                                    'icon'      => 'fas fa-fw fa-user-graduate',
+                                    'url'       => 'estudiantes',
+                                    'active' => [
+                                        'estudiantes*', 
+                                        'regex:@^estudiantes/[0-9]+$@', 
+                                        'regex:@^estudiantes/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Etapas',
+                                    'icon'      => 'fas fa-fw fa-chart-line',
+                                    'url'       => 'etapas',
+                                    'active' => [
+                                        'etapas*', 
+                                        'regex:@^etapas/[0-9]+$@', 
+                                        'regex:@^etapas/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Prácticas Requisitos',
+                                    'icon'      => 'fas fa-fw fa-clipboard-check',
+                                    'url'       => 'practicasrequisitos',
+                                    'active' => [
+                                        'practicasrequisitos*', 
+                                        'regex:@^practicasrequisitos/[0-9]+$@', 
+                                        'regex:@^practicasrequisitos/[0-9]+/edit$@'
+                                    ],
+                                ],
+                                [
+                                    'text'      => 'Requisitos',
+                                    'icon'      => 'fas fa-fw fa-spell-check',
+                                    'url'       => 'requisitos',
+                                    'active'    => [
+                                        'requisitos*', 
+                                        'regex:@^requisitos/[0-9]+$@', 
+                                        'regex:@^requisitos/[0-9]+/edit$@'
+                                    ],
+                                ],
+                            ],
                         ],
                         [
                             'text'      => 'Proyección Social y Extención Universitaria',
@@ -463,43 +656,43 @@ return [
                 ],
                 [
                     'text'      => 'De Soporte',
-                    'icon'      => 'fas fa-fw fa-wrench',
+                    'icon'      => 'fas fa-fw fa-tools',
                     'icon_color' => 'green',
                     'url'       => '#',
                     'submenu'   => [
                         [
                             'text'      => 'Seguridad y Salud en el Trabajo',
-                            'icon'      => 'fas fa-fw fa-wrench',
+                            'icon'      => 'fas fa-fw fa-tools',
                             'icon_color' => 'cyan',
                             'url'       => '#'
                         ],
                         [
                             'text'      => 'Talento Humano',
-                            'icon'      => 'fas fa-fw fa-wrench',
+                            'icon'      => 'fas fa-fw fa-tools',
                             'icon_color' => 'cyan',
                             'url'       => '#'
                         ],
                         [
                             'text'      => 'Información y Comunicación',
-                            'icon'      => 'fas fa-fw fa-wrench',
+                            'icon'      => 'fas fa-fw fa-tools',
                             'icon_color' => 'cyan',
                             'url'       => '#'
                         ],
                         [
                             'text'      => 'Consejería',
-                            'icon'      => 'fas fa-fw fa-wrench',
+                            'icon'      => 'fas fa-fw fa-tools',
                             'icon_color' => 'cyan',
                             'url'       => '#'
                         ],
                         [
                             'text'      => 'Bienestar Organizacional',
-                            'icon'      => 'fas fa-fw fa-wrench',
+                            'icon'      => 'fas fa-fw fa-tools',
                             'icon_color' => 'cyan',
                             'url'       => '#'
                         ],
                         [
                             'text'      => 'Servicios Educacionales',
-                            'icon'      => 'fas fa-fw fa-wrench',
+                            'icon'      => 'fas fa-fw fa-tools',
                             'icon_color' => 'cyan',
                             'url'       => '#'
                         ]
@@ -689,6 +882,16 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                ],
+            ],
+        ],
+        'App' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => 'js/app.js',
                 ],
             ],
         ],

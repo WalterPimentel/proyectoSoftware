@@ -44,7 +44,17 @@ class ComunicarPFDController extends Controller
         return view('gestionPI/comunicarpfd.edit', compact('comunicarpfd'));
     }
 
-    public function update(Request $request, comunicar_plan_fd $comunicarpfd){        
+    public function update(Request $request, comunicar_plan_fd $comunicarpfd){
+
+        $request->validate([
+            'idPlanFD' => 'required',
+            'idParteInteresada' => 'required',
+            'descripcionComunicarPFD' => 'required',
+            'medioComunicarPFD' => 'required',
+            'fechaComunicarPFD' => 'required',
+            'horaComunicarPFD' => 'required',
+            'observacionesComunicarPFD' => 'required'       
+        ]);
 
         $comunicarpfd->update($request->all());
 

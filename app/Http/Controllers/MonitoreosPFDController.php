@@ -40,7 +40,13 @@ class MonitoreosPFDController extends Controller
         return view('gestionPI/monitoreospfd.edit', compact('monitoreospfd'));
     }
 
-    public function update(Request $request, monitoreo_pfd $monitoreospfd){        
+    public function update(Request $request, monitoreo_pfd $monitoreospfd){
+
+        $request->validate([
+            'idAccionesMejora' => 'required',
+            'descripcionMPFD' => 'required',
+            'porcentajeAvanceMPFD' => 'required'     
+        ]);
 
         $monitoreospfd->update($request->all());
 

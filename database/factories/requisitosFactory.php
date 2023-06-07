@@ -19,7 +19,7 @@ class requisitosFactory extends Factory
             
             'nombreRequisito' => $this->faker->sentence(),
             'descripcionRequisito' => $this->faker->paragraph(),
-            'estado' => $this->faker->numberBetween(-128,127)
+            'estado' => $this->faker->numberBetween(0,1)
 
         ];
     }

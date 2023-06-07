@@ -20,8 +20,8 @@ class RequisitoController extends Controller
 
         $request->validate([
             'nombreRequisito' => 'required',
-            'descripcionRequisito' => 'required',
-            'estado' => 'required'
+            'descripcionRequisito' => 'nullable',
+            'estado' => 'required|boolean'
         ]);
 
         $requisito = requisitos::create($request->all());
@@ -40,7 +40,13 @@ class RequisitoController extends Controller
         return view('practicas/requisitos.edit', compact('requisito'));        
     }
 
-    public function update(Request $request, requisitos $requisito){        
+    public function update(Request $request, requisitos $requisito){
+
+        $request->validate([
+            'nombreRequisito' => 'required',
+            'descripcionRequisito' => 'nullable',
+            'estado' => 'required|boolean'
+        ]);
 
         $requisito->update($request->all());
 

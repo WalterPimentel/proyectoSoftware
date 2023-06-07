@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->string('nombreRequisito', 100);
             $table->text('descripcionRequisito', 250)->nullable();
-            $table->tinyInteger('estado');            
+            $table->boolean('estado')->default(false);         
 
             $table->timestamps();
         });

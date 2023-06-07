@@ -20,10 +20,10 @@ class EmpresaController extends Controller
 
         $request->validate([
             'nombreEmpresa' => 'required',
-            'encargadoEmpresa' => 'required',
+            'encargadoEmpresa' => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
             'rubroEmpresa' => 'required',
             'direccionEmpresa' => 'required',
-            'telefonoEmpresa' => 'required'
+            'telefonoEmpresa' => 'nullable|numeric'
         ]);
 
         $empresa = empresas::create($request->all());
@@ -42,7 +42,15 @@ class EmpresaController extends Controller
         return view('practicas/empresas.edit', compact('empresa'));        
     }
 
-    public function update(Request $request, empresas $empresa){        
+    public function update(Request $request, empresas $empresa){
+
+        $request->validate([
+            'nombreEmpresa' => 'required',
+            'encargadoEmpresa' => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'rubroEmpresa' => 'required',
+            'direccionEmpresa' => 'required',
+            'telefonoEmpresa' => 'nullable|numeric'
+        ]);
 
         $empresa->update($request->all());
 

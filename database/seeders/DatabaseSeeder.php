@@ -13,27 +13,29 @@ class DatabaseSeeder extends Seeder
 {
 
     public function run(): void
-    {
-        acciones_mejora::factory(137)->create();
-        comisiones_areas::factory(10)->create();
-        comunicar_plan_fd::factory(25)->create();
-        cronograma::factory(25)->create();
-        cuadro_necesidades::factory(25)->create();
+    {   
+        
+        User::factory(10)->create();
         docentes::factory(20)->create();
         empresas::factory(50)->create();
         estudiantes::factory(100)->create();
         etapas::factory(3)->create();
-        informe_gestion::factory(25)->create();
-        monitoreo_pfd::factory(175)->create();
-        plan_fd::factory(25)->create();
         Practica::factory(50)->create();
-        practicas_requisitos::factory(73)->create();        
         requisitos::factory(178)->create();
+        practicas_requisitos::factory(73)->create();
+
+        comisiones_areas::factory(10)->create();
         revision_pfd::factory(25)->create();
-        tipo_costo::factory(2)->create();
-        tipo_recurso::factory(2)->create();
+        tipo_recurso::factory(2)->create();        
         tdr::factory(25)->Create();
-        User::factory(10)->create();
+        tipo_costo::factory(1)->create();
+        cuadro_necesidades::factory(1)->create();
+        plan_fd::factory(25)->create();
+        cronograma::factory(1)->create();
+        comunicar_plan_fd::factory(1)->create();
+        monitoreo_pfd::factory(175)->create();
+        acciones_mejora::factory(137)->create();
+        informe_gestion::factory(25)->create();
 
     }
 }

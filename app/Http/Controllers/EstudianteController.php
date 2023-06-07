@@ -19,12 +19,23 @@ class EstudianteController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'codigoEstudiante' => 'required',
-            'nombresEstudiante' => 'required',
-            'apellidopEstudiante' => 'required',
-            'apellidomEstudiante' => 'required',
-            'telefonoEstudiante' => 'required',
-            'correoEstudiante' => 'required'
+            'codigoEstudiante' => ['required', 'numeric', 'min:1'],
+            'nombresEstudiante' => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'apellidopEstudiante' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'apellidomEstudiante' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'telefonoEstudiante' => ['required', 'numeric', 'min:900000000', 'regex:/^9\d{8}$/'],
+            'correoEstudiante' => ['required', 'email', function ($attribute, $value, $fail) {
+                if (!str_contains($value, '@')) {
+                    $fail("El campo Correo debe ser un correo electrónico válido.");
+                    return;
+                }
+        
+                $allowedDomains = ['continental.edu.pe'];
+                $domain = explode('@', $value)[1];  
+                if (!in_array($domain, $allowedDomains)) {
+                    $fail('El dominio "@' .$domain. '" no esta permitido para estudiantes, debe tener el dominio: @' . implode(", ", $allowedDomains));                    
+                }
+            }]
         ]);
         
         $estudiante = estudiantes::create($request->all());
@@ -43,7 +54,27 @@ class EstudianteController extends Controller
         return view('practicas/estudiantes.edit', compact('estudiante'));        
     }
 
-    public function update(Request $request, estudiantes $estudiante){        
+    public function update(Request $request, estudiantes $estudiante){
+
+        $request->validate([
+            'codigoEstudiante' => ['required', 'numeric', 'min:1'],
+            'nombresEstudiante' => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'apellidopEstudiante' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'apellidomEstudiante' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'telefonoEstudiante' => ['required', 'numeric', 'min:900000000', 'regex:/^9\d{8}$/'],
+            'correoEstudiante' => ['required', 'email', function ($attribute, $value, $fail) {
+                if (!str_contains($value, '@')) {
+                    $fail("El campo Correo debe ser un correo electrónico válido.");
+                    return;
+                }
+        
+                $allowedDomains = ['continental.edu.pe'];
+                $domain = explode('@', $value)[1];  
+                if (!in_array($domain, $allowedDomains)) {
+                    $fail('El dominio "@' .$domain. '" no esta permitido para estudiantes, debe tener el dominio: @' . implode(", ", $allowedDomains));                    
+                }
+            }]
+        ]);
 
         $estudiante->update($request->all());
 

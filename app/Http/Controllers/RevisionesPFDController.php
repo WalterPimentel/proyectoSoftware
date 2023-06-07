@@ -39,7 +39,12 @@ class RevisionesPFDController extends Controller
         return view('gestionPI/revisionespfd.edit', compact('revisionespfd'));
     }
 
-    public function update(Request $request, revision_pfd $revisionespfd){        
+    public function update(Request $request, revision_pfd $revisionespfd){
+
+        $request->validate([
+            'descripcionRPFD' => 'required',
+            'observacionesRPFD' => 'required'   
+        ]);
 
         $revisionespfd->update($request->all());
 

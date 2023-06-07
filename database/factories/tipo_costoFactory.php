@@ -17,7 +17,7 @@ class tipo_costoFactory extends Factory
     {
         return [
 
-            'idTipoRecurso' => $this->faker->numberBetween(1,2),
+            'idTipoRecurso' => $this->faker->numberBetween(1, 1),
             'descripcionCosto' => $this->faker->boolean(),
             'observacionesCosto' => $this->faker->sentence(),
             

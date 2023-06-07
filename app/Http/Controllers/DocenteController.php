@@ -19,12 +19,46 @@ class DocenteController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'codigoDocente' => 'required',
-            'nombresDocente' => 'required',
-            'apellidopDocente' => 'required',
-            'apellidomDocente' => 'required',
-            'telefonoDocente' => 'required',
-            'correoDocente' => 'required'
+            'codigoDocente'    => ['required', 'numeric', 'min:1'],
+            'nombresDocente'   => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'apellidopDocente' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'apellidomDocente' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'telefonoDocente'  => ['required', 'numeric', 'min:900000000', 'regex:/^9\d{8}$/'],
+            'correoDocente'    => ['required', 'email', function ($attribute, $value, $fail) {
+                if (!str_contains($value, '@')) {
+                    $fail("El campo Correo debe ser un correo electrónico válido.");
+                    return;
+                }
+        
+                $allowedDomains = [
+                    'gmail.com', 
+                    'outlook.com', 
+                    'continental.edu.pe', 
+                    'yahoo.com', 
+                    'hotmail.com', 
+                    'icloud.com',
+                    'aol.com', 
+                    'protonmail.com', 
+                    'mail.com', 
+                    'zoho.com', 
+                    'yandex.com', 
+                    'live.com',
+                    'gmx.com',
+                    'tutanota.com',
+                    'inbox.com',
+                    'mail.ru',
+                    'uncp.edu.pe',
+                    'virtualuncp.edu.pe',
+                    'mail.upla.edu.pe',
+                    'upla.edu.pe',
+                    'utp.edu.pe'
+                ];
+                $domain = explode('@', $value)[1];  
+                if (!in_array($domain, $allowedDomains)) {
+                    $fail('El dominio "@' .$domain. '" no esta permitido.');
+                    //$fail("El campo Correo debe tener un dominio permitido: " . implode(', ', $allowedDomains));
+                }
+            }]
         ]);
 
         $docente = docentes::create($request->all());
@@ -43,7 +77,49 @@ class DocenteController extends Controller
         return view('practicas/docentes.edit', compact('docente'));        
     }
 
-    public function update(Request $request, docentes $docente){        
+    public function update(Request $request, docentes $docente){
+
+        $request->validate([
+            'codigoDocente' => ['required', 'numeric', 'min:1'],
+            'nombresDocente' => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'apellidopDocente' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'apellidomDocente' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'telefonoDocente' => ['required', 'numeric', 'min:900000000', 'regex:/^9\d{8}$/'],
+            'correoDocente' => ['required', 'email', function ($attribute, $value, $fail) {
+                if (!str_contains($value, '@')) {
+                    $fail("El campo Correo debe ser un correo electrónico válido.");
+                    return;
+                }
+        
+                $allowedDomains = [
+                    'gmail.com', 
+                    'outlook.com', 
+                    'continental.edu.pe', 
+                    'yahoo.com', 
+                    'hotmail.com', 
+                    'icloud.com',
+                    'aol.com', 
+                    'protonmail.com', 
+                    'mail.com', 
+                    'zoho.com', 
+                    'yandex.com', 
+                    'live.com',
+                    'gmx.com',
+                    'tutanota.com',
+                    'inbox.com',
+                    'mail.ru',
+                    'uncp.edu.pe',
+                    'virtualuncp.edu.pe',
+                    'mail.upla.edu.pe',
+                    'upla.edu.pe',
+                    'utp.edu.pe'
+                ];
+                $domain = explode('@', $value)[1];  
+                if (!in_array($domain, $allowedDomains)) {
+                    $fail("El campo Correo debe tener un dominio permitido: " . implode(', ', $allowedDomains));
+                }
+            }]
+        ]);
 
         $docente->update($request->all());
 

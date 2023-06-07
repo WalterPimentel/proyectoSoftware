@@ -17,9 +17,9 @@ class cuadro_necesidadesFactory extends Factory
     {
         return [
             
-            'idComision' => $this->faker->numberBetween(1,10),
+            'idComision' => $this->faker->numberBetween(1,1),
             'idTipoRecurso' => $this->faker->numberBetween(1,2),
-            'idTipoCosto' => $this->faker->numberBetween(1,2),
+            'idTipoCosto' => $this->faker->numberBetween(1,1),
             'idTDR' => $this->faker->numberBetween(1,25),
             'descripcionCuadroN' => $this->faker->sentence(),
             'cantidadCuadroN' => $this->faker->numberBetween(1,74),

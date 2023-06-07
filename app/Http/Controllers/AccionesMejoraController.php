@@ -43,7 +43,16 @@ class AccionesMejoraController extends Controller
         return view('gestionPI/accionesmejoras.edit', compact('accionesmejora'));
     }
 
-    public function update(Request $request, acciones_mejora $accionesmejora){        
+    public function update(Request $request, acciones_mejora $accionesmejora){   
+        
+        $request->validate([
+            'idComision' => 'required',
+            'idPlanFD' => 'required',
+            'idMonitoreoPFD' => 'required',
+            'idTipoRecurso' => 'required',
+            'metasAM' => 'required',
+            'descripcionAM' => 'required'         
+        ]);
 
         $accionesmejora->update($request->all());
 

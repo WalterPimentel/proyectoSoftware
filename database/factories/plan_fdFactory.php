@@ -21,7 +21,7 @@ class plan_fdFactory extends Factory
         return [
             
             'idComision' => $this->faker->numberBetween(1,10),
-            'idCuadroNecesidades' => $this->faker->numberBetween(1,25),
+            'idCuadroNecesidades' => $this->faker->numberBetween(1,1),
             'idRevisionPFD' => $this->faker->numberBetween(1,25),
             'idActaConsejoFacultad' => $this->faker->numberBetween(1,25),
             'idResponsableElaboracion' => $this->faker->numberBetween(1,10),

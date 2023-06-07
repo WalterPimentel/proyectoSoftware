@@ -44,7 +44,17 @@ class CuadroNecesidadController extends Controller
         return view('gestionPI/cuadronecesidades.edit', compact('cuadronecesidade'));
     }
 
-    public function update(Request $request, cuadro_necesidades $cuadronecesidade){        
+    public function update(Request $request, cuadro_necesidades $cuadronecesidade){
+
+        $request->validate([
+            'idComision' => 'required',
+            'idTipoRecurso' => 'required',
+            'idTipoCosto' => 'required',
+            'idTDR' => 'required',
+            'descripcionCuadroN' => 'required',
+            'cantidadCuadroN' => 'required',
+            'precioCuadroN' => 'required'          
+        ]);
 
         $cuadronecesidade->update($request->all());
 

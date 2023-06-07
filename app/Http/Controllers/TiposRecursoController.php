@@ -38,7 +38,11 @@ class TiposRecursoController extends Controller
         return view('gestionPI/tiposrecursos.edit', compact('tiposrecurso'));
     }
 
-    public function update(Request $request, tipo_recurso $tiposrecurso){        
+    public function update(Request $request, tipo_recurso $tiposrecurso){
+
+        $request->validate([
+            'descripcionRecurso' => 'required'   
+        ]);
 
         $tiposrecurso->update($request->all());
 

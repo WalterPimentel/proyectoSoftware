@@ -41,7 +41,13 @@ class TiposCostoController extends Controller
         return view('gestionPI/tiposcostos.edit', compact('tiposcosto'));
     }
 
-    public function update(Request $request, tipo_costo $tiposcosto){        
+    public function update(Request $request, tipo_costo $tiposcosto){
+
+        $request->validate([
+            'idTipoRecurso' => 'required',
+            'descripcionCosto' => 'required',
+            'observacionesCosto' => 'required'     
+        ]);
 
         $tiposcosto->update($request->all());
 

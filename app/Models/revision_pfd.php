@@ -28,6 +28,6 @@ class revision_pfd extends Model
     }
 
     public function plan_fd(){
-        return $this->hasOne('App\Models\plan_fd', 'idRevisionPFD');
+        return $this->hasMany('App\Models\plan_fd', 'idRevisionPFD');
     }
 }

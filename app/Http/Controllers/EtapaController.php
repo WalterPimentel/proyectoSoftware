@@ -39,7 +39,12 @@ class EtapaController extends Controller
         return view('practicas/etapas.edit', compact('etapa'));        
     }
 
-    public function update(Request $request, etapas $etapa){        
+    public function update(Request $request, etapas $etapa){
+
+        $request->validate([
+            'nombreEtapa' => 'required',
+            'descripcionEtapa' => 'required'
+        ]);
 
         $etapa->update($request->all());
 

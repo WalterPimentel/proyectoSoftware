@@ -19,8 +19,8 @@ class PracticasRequisitoController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'idPractica' => 'required',
-            'idRequisito' => 'required'
+            'idPractica' => ['required', 'numeric', 'min:1'],
+            'idRequisito' => ['required', 'numeric', 'min:1']
         ]);
 
         $practicasrequisito = practicas_requisitos::create($request->all());
@@ -39,7 +39,12 @@ class PracticasRequisitoController extends Controller
         return view('practicas/practicasrequisitos.edit', compact('practicasrequisito'));        
     }
 
-    public function update(Request $request, practicas_requisitos $practicasrequisito){        
+    public function update(Request $request, practicas_requisitos $practicasrequisito){
+
+        $request->validate([
+            'idPractica' => ['required', 'numeric', 'min:1'],
+            'idRequisito' => ['required', 'numeric', 'min:1']
+        ]);
 
         $practicasrequisito->update($request->all());
 

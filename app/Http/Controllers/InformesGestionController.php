@@ -41,7 +41,14 @@ class InformesGestionController extends Controller
         return view('gestionPI/informesgestion.edit', compact('informesgestion'));
     }
 
-    public function update(Request $request, informe_gestion $informesgestion){        
+    public function update(Request $request, informe_gestion $informesgestion){
+
+        $request->validate([
+            'idMonitoreoPFD' => 'required',
+            'idResponsableElaboracion' => 'required',
+            'descripcionIG' => 'required',
+            'observacionesIG' => 'required'       
+        ]);
 
         $informesgestion->update($request->all());
 

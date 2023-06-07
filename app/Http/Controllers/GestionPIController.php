@@ -21,16 +21,16 @@ class GestionPIController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'idComision' => 'required',
-            'idCuadroNecesidades' => 'required',
-            'idRevisionPFD' => 'required',
-            'idActaConsejoFacultad' => 'required',
-            'idResponsableElaboracion' => 'required',
-            'idResponsableAprobacion' => 'required',
+            'idComision' => ['required', 'numeric', 'min:1'],
+            'idCuadroNecesidades' => ['required', 'numeric', 'min:1'],
+            'idRevisionPFD' => ['required', 'numeric', 'min:1'],
+            'idActaConsejoFacultad' => ['required', 'numeric', 'min:1'],
+            'idResponsableElaboracion' => ['required', 'numeric', 'min:1'],
+            'idResponsableAprobacion' => ['required', 'numeric', 'min:1'],
             'descripcionPFD' => 'required',
-            'fechaElaboracionPFD' => 'required',
-            'fechaAprobacionPFD' => 'required',
-            'yearPFD' => 'required'            
+            'fechaElaboracionPFD' => 'required|date',
+            'fechaAprobacionPFD' => 'required|date',
+            'yearPFD' => 'required|date_format:Y'            
         ]);
 
         $pfd = plan_fd::create($request->all());
@@ -49,7 +49,20 @@ class GestionPIController extends Controller
         return view('gestionPI.edit', compact('gestionPI'));
     }
 
-    public function update(Request $request, plan_fd $gestionPI){        
+    public function update(Request $request, plan_fd $gestionPI){
+
+        $request->validate([
+            'idComision' => ['required', 'numeric', 'min:1'],
+            'idCuadroNecesidades' => ['required', 'numeric', 'min:1'],
+            'idRevisionPFD' => ['required', 'numeric', 'min:1'],
+            'idActaConsejoFacultad' => ['required', 'numeric', 'min:1'],
+            'idResponsableElaboracion' => ['required', 'numeric', 'min:1'],
+            'idResponsableAprobacion' => ['required', 'numeric', 'min:1'],
+            'descripcionPFD' => 'required',
+            'fechaElaboracionPFD' => 'required|date',
+            'fechaAprobacionPFD' => 'required|date',
+            'yearPFD' => 'required|date_format:Y'            
+        ]);
 
         $gestionPI->update($request->all());
 

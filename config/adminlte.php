@@ -701,6 +701,11 @@ return [
             ]
         ],
         [
+            'text'        => 'Usuarios del Sistema',            
+            'icon'        => 'fas fa-fw fa-user-friends',
+            'url'         => 'users',
+        ],
+        [
             'text'        => 'pages',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',

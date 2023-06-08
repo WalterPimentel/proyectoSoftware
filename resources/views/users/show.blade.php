@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Usuario: ' . $docente->apellidopDocente)
+@section('title', 'Docente: ' . $docente->apellidopDocente)
 
 @section('content_header')
     <div class="d-flex justify-content-between">

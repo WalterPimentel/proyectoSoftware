@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\{
     AccionesMejoraController,
@@ -23,31 +25,36 @@ use App\Http\Controllers\{
     TDRController,
     TiposCostoController,
     TiposRecursoController,
+    Admin\UserController,
     Admin\HomeController as AdminHomeController
 };
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/', [AdminHomeController::class, 'index'])->name('admin.home');
+Auth::routes();
 
-Route::resource('practicas', PracticaController::class);
-Route::resource('docentes', DocenteController::class);
-Route::resource('empresas', EmpresaController::class);
-Route::resource('estudiantes', EstudianteController::class);
-Route::resource('etapas', EtapaController::class);
-Route::resource('practicasrequisitos', PracticasRequisitoController::class);
-Route::resource('requisitos', RequisitoController::class);
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth:sanctum');
+Route::get('/', [AdminHomeController::class, 'index'])->name('admin.home')->middleware('auth:sanctum');
 
-Route::resource('gestionPI', GestionPIController::class);
-Route::resource('accionesmejoras', AccionesMejoraController::class);
-Route::resource('comisiones', ComisionController::class);
-Route::resource('comunicarpfd', ComunicarPFDController::class);
-Route::resource('cronogramas', CronogramaController::class);
-Route::resource('cuadronecesidades', CuadroNecesidadController::class);
-Route::resource('informesgestion', InformesGestionController::class);
-Route::resource('monitoreospfd', MonitoreosPFDController::class);
-Route::resource('revisionespfd', RevisionesPFDController::class);
-Route::resource('tdr', TDRController::class);
-Route::resource('tiposcostos', TiposCostoController::class);
-Route::resource('tiposrecursos', TiposRecursoController::class);
+Route::resource('users', UserController::class)->middleware('auth:sanctum');
 
-Route::view('nosotros', 'nosotros')->name('nosotros');
+Route::resource('gestionPI', GestionPIController::class)->middleware('auth:sanctum');
+Route::resource('accionesmejoras', AccionesMejoraController::class)->middleware('auth:sanctum');
+Route::resource('comisiones', ComisionController::class)->middleware('auth:sanctum');
+Route::resource('comunicarpfd', ComunicarPFDController::class)->middleware('auth:sanctum');
+Route::resource('cronogramas', CronogramaController::class)->middleware('auth:sanctum');
+Route::resource('cuadronecesidades', CuadroNecesidadController::class)->middleware('auth:sanctum');
+Route::resource('informesgestion', InformesGestionController::class)->middleware('auth:sanctum');
+Route::resource('monitoreospfd', MonitoreosPFDController::class)->middleware('auth:sanctum');
+Route::resource('revisionespfd', RevisionesPFDController::class)->middleware('auth:sanctum');
+Route::resource('tdr', TDRController::class)->middleware('auth:sanctum');
+Route::resource('tiposcostos', TiposCostoController::class)->middleware('auth:sanctum');
+Route::resource('tiposrecursos', TiposRecursoController::class)->middleware('auth:sanctum');
+
+Route::resource('practicas', PracticaController::class)->middleware('auth:sanctum');
+Route::resource('docentes', DocenteController::class)->middleware('auth:sanctum');
+Route::resource('empresas', EmpresaController::class)->middleware('auth:sanctum');
+Route::resource('estudiantes', EstudianteController::class)->middleware('auth:sanctum');
+Route::resource('etapas', EtapaController::class)->middleware('auth:sanctum');
+Route::resource('practicasrequisitos', PracticasRequisitoController::class)->middleware('auth:sanctum');
+Route::resource('requisitos', RequisitoController::class)->middleware('auth:sanctum');
+
+Route::view('nosotros', 'nosotros')->name('nosotros')->middleware('auth:sanctum');

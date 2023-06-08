@@ -4,20 +4,41 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\{acciones_mejora, comisiones_areas, comunicar_plan_fd, cronograma, cuadro_necesidades, docentes, empresas, estudiantes, etapas, informe_gestion, 
-                monitoreo_pfd, plan_fd, Practica, practicas_requisitos, requisitos, revision_pfd, tdr, tipo_costo, tipo_recurso, User};
+use App\Models\{
+    acciones_mejora, 
+    comisiones_areas, 
+    comunicar_plan_fd, 
+    cronograma, 
+    cuadro_necesidades, 
+    docentes, 
+    empresas, 
+    estudiantes, 
+    etapas, 
+    informe_gestion,
+    monitoreo_pfd, 
+    plan_fd, 
+    Practica, 
+    practicas_requisitos, 
+    requisitos, 
+    revision_pfd, 
+    tdr, 
+    tipo_costo, 
+    tipo_recurso, 
+    User
+};
+
 use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Seeder;
+use Database\Seeders\{RoleSeeder, UserSeeder};
 
 class DatabaseSeeder extends Seeder
 {
 
     public function run(): void
     {   
-        $this->call(RoleSeeder::class);
-        $this->call(UserSeeder::class);
-
+        $this->call(RoleSeeder::class);        
         User::factory(10)->create();
+        $this->call(UserSeeder::class);
         docentes::factory(20)->create();
         empresas::factory(50)->create();
         estudiantes::factory(100)->create();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -21,26 +22,37 @@ class UserController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'name'          => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
-            'password'  => 'required',
-            'email'    => ['required', 'email', function ($attribute, $value, $fail) {
+            'name'      => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]{5,}$/'],            
+            'email'     => ['required', 'email', function ($attribute, $value, $fail) {
                 if (!str_contains($value, '@')) {
                     $fail("El campo Correo debe ser un correo electrónico válido.");
                     return;
                 }
         
-                $allowedDomains = ['continental.edu.pe', 'asdasd.com.pe'];
+                $allowedDomains = ['continental.edu.pe'];
                 $domain = explode('@', $value)[1];  
-                if (!in_array($domain, $allowedDomains)) {
-                    $fail('El dominio "@' .$domain. '" no esta permitido.');
-                    $fail("El campo Correo debe tener un dominio permitido: " . implode(', ', '@' + $allowedDomains));
+                if (!in_array($domain, $allowedDomains)) {                    
+                    $fail("El campo Correo debe tener un dominio permitido: @" . implode(', @', $allowedDomains));
                 }
-            }]
+            }],
+            'password' => [
+                'required', 
+                'min:8', 
+                'regex:/^(?=.*[a-záéíóúñ])(?=.*[A-ZÁÉÍÓÚÑ])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/', 
+                'confirmed'
+            ]
+            
         ]);
+
+        $password = $request->input('password');
+        if (!empty($password)) {
+            $hashedPassword = Hash::make($password);
+            $request->merge(['password' => $hashedPassword]);
+        }
 
         $user = User::create($request->all());
 
-        return redirect()->route('users.show', $user);
+        return redirect()->route('users.show', $user)->with('success', 'Usuario creado exitosamente.');
         
     }
 
@@ -56,47 +68,43 @@ class UserController extends Controller
 
     public function update(Request $request, User $user){
 
+        $currentPassword = $request->input('current_password');
+        $user = User::find($user->id);
+
+        if (!Hash::check($currentPassword, $user->password)) {
+            // La contraseña actual no coincide, puedes agregar un mensaje de error
+            return redirect()->back()->withErrors(['current_password' => 'La contraseña actual es incorrecta.']);
+        }
+
         $request->validate([
-            'codigouser' => ['required', 'numeric', 'min:1'],
-            'nombresuser' => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
-            'apellidopuser' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
-            'apellidomuser' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
-            'telefonouser' => ['required', 'numeric', 'min:900000000', 'regex:/^9\d{8}$/'],
-            'correouser' => ['required', 'email', function ($attribute, $value, $fail) {
+            'name'      => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]{5,}$/'],            
+            'email'     => ['required', 'email', function ($attribute, $value, $fail) {
                 if (!str_contains($value, '@')) {
                     $fail("El campo Correo debe ser un correo electrónico válido.");
                     return;
                 }
         
-                $allowedDomains = [
-                    'gmail.com', 
-                    'outlook.com', 
-                    'continental.edu.pe', 
-                    'yahoo.com', 
-                    'hotmail.com', 
-                    'icloud.com',
-                    'aol.com', 
-                    'protonmail.com', 
-                    'mail.com', 
-                    'zoho.com', 
-                    'yandex.com', 
-                    'live.com',
-                    'gmx.com',
-                    'tutanota.com',
-                    'inbox.com',
-                    'mail.ru',
-                    'uncp.edu.pe',
-                    'virtualuncp.edu.pe',
-                    'mail.upla.edu.pe',
-                    'upla.edu.pe',
-                    'utp.edu.pe'
-                ];
+                $allowedDomains = ['continental.edu.pe'];
                 $domain = explode('@', $value)[1];  
-                if (!in_array($domain, $allowedDomains)) {
-                    $fail("El campo Correo debe tener un dominio permitido: " . implode(', ', $allowedDomains));
+                if (!in_array($domain, $allowedDomains)) {                    
+                    $fail("El campo Correo debe tener un dominio permitido: @" . implode(', @', $allowedDomains));
                 }
-            }]
+            }],
+            'current_password' => ['required'],
+            'password' => [
+                'required', 
+                'min:8', 
+                'regex:/^(?=.*[a-záéíóúñ])(?=.*[A-ZÁÉÍÓÚÑ])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/', 
+                'confirmed'
+            ]
+            
         ]);
+
+        $password = $request->input('password');
+        if (!empty($password)) {
+            $hashedPassword = Hash::make($password);
+            $request->merge(['password' => $hashedPassword]);
+        }
 
         $user->update($request->all());
 

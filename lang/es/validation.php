@@ -34,6 +34,7 @@ return [
     'boolean'              => 'El campo :attribute debe ser verdadero o falso.',
     'confirmed'            => 'El campo confirmación de :attribute no coincide.',
     'current_password'     => 'La contraseña es incorrecta.',
+    'password_confirmed'   => 'La confirmación de contraseña no coincide.', //Esto se añadió manualmente
     'date'                 => 'El campo :attribute no corresponde con una fecha válida.',
     'date_equals'          => 'El campo :attribute debe ser una fecha igual a :date.',
     'date_format'          => 'El campo :attribute no corresponde con el formato de fecha :format.',
@@ -119,6 +120,7 @@ return [
         'symbols'       => 'El campo :attribute debe contener al menos un símbolo.',
         'uncompromised' => 'El :attribute proporcionado ha aparecido en una filtración de datos. Por favor, elija un :attribute diferente.',
         'incorrect'     => 'La contraseña es incorrecta.', //Esto se añadió manualmente
+        'confirmed'     => 'La confirmación de :attribute no coincide.', //Esto se añadió manualmente
     ],
     'present'              => 'El campo :attribute debe estar presente.',
     'prohibited'           => 'El campo :attribute está prohibido.',
@@ -166,6 +168,7 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
+            'password_confirmed' => 'La confirmación de contraseña no coincide.', //Esto se añadió manualmente
         ],
     ],
 

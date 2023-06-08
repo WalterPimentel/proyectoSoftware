@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar Docente')
+@section('title', 'Editar Usuario')
 
 @section('content_header')
 
-    <div class="d-flex justify-content-between">    
-        <h1>Editar Registro "{{$docente->apellidopDocente}}" de Docentes.</h1>
+    <div class="d-flex justify-content-between">
+        <h1>Editar Registro "{{$user->name}}" de Usuarios</h1>
         <a style="background-color: rgb(108, 117, 125)" href="javascript:history.back()" class="btn">
             <i class="fas fa-chevron-circle-left" style="color: #ffffff;">   Atrás</i>
         </a>
@@ -22,28 +22,13 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="fas fa-angle-left fa-xs">   Macroprocesos   </i>
+                <a href="{{route('users.index')}}">
+                    <i class="fas fa-angle-left fa-xs">   Usuarios del Sistema   </i>
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="fas fa-angle-left fa-xs">   Misionales  </i>
-                </a>
+                <i class="fas fa-angle-left fa-xs">   Editar Usuario del Sistema   </i>
             </li>
-            <li>
-                <a href="{{route('practicas.index')}}">
-                    <i class="fas fa-angle-left fa-xs">   Prácticas Pre Profesionales   </i>
-                </a>
-            </li>
-            <li>
-                <a href="{{route('docentes.index')}}">
-                    <i class="fas fa-angle-left fa-xs">   Docentes    </i>                
-                </a>
-            </li>
-            <li class="active">
-                <i class="fas fa-angle-left fa-xs">   Editar Docente   </i>
-            </li>            
         </ol>
     </div>
     <div class="card card-outline card-info">
@@ -51,128 +36,52 @@
           <h3 class="card-title">Editar Formulario</h3>
         </div>
         <div class="card-body">
-            <form action="{{route('docentes.update', $docente)}}" method="POST">
+            <form action="{{route('users.update', $user)}}" method="POST">
         
                 @csrf
         
                 @method('put')
         
                 <div class="form-group">
-                    <label>Código</label>
+                    <label>Nombre</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input class="form-control" type="number" name="codigoDocente" value="{{old('codigoDocente', $docente->codigoDocente)}}" min="1" pattern="\d+" required>
+                        <input class="form-control" type="text" name="name" value="{{old('name', $user->name)}}" pattern="[A-Za-z\sáéíóúÁÉÍÓÚñÑ]+" required>
                     </div>
-                    @error('codigoDocente')
-        
-                        @if ($errors->has('codigoDocente'))
-                            @if (old('codigoDocente'))
-                                <small class="text-danger">*El campo Código debe ser mayor a 1.</small>
-                            @else
-                                <small class="text-warning">*@lang('validation.required', ['attribute' => 'Código'])</small>
+                    @error('name')
+
+                        @if ($errors->has('name'))
+                            @if (old('name'))                        
+                                <small class="text-danger">
+                                    *@lang('validation.regex', ['attribute' => 'Nombre'])
+                                    <ul>
+                                        <li>@lang('validation.min.string', ['attribute' => 'Nombre', 'min' => '5'])</li>
+                                        <li>@lang('validation.alpha', ['attribute' => 'Nombre'])</li>
+                                    </ul>
+                                </small>
+                            @else                        
+                                <small class="text-warning">*@lang('validation.required', ['attribute' => 'Nombre'])</small>
                             @endif
                         @endif
                         
                     @enderror
-                </div>
-        
-                <div class="form-group">
-                    <label>Nombres</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        </div>
-                        <input class="form-control" type="text" name="nombresDocente" value="{{old('nombresDocente', $docente->nombresDocente)}}" pattern="^[A-Za-zñÑáéíóúÁÉÍÓÚ\s.]+" required>
-                    </div>
-                    @error('nombresDocente')
-        
-                        @if ($errors->has('nombresDocente'))
-                            @if (old('nombresDocente'))
-                                <small class="text-danger">*El campo Nombres solo puede contener letras.</small>
-                            @else
-                                <small class="text-warning">*@lang('validation.required', ['attribute' => 'Nombres'])</small>
-                            @endif
-                        @endif 
-                        
-                    @enderror
                 </div>        
-        
-                <div class="form-group">
-                    <label>Apellido Paterno</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        </div>
-                        <input class="form-control" type="text" name="apellidopDocente" value="{{old('apellidopDocente', $docente->apellidopDocente)}}" pattern="^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$" required>
-                    </div>
-                    @error('apellidopDocente')
-        
-                        @if ($errors->has('apellidopDocente'))
-                            @if (old('apellidopDocente'))
-                                <small class="text-danger">*El campo Apellido Paterno solo puede contener letras.</small>
-                            @else
-                                <small class="text-warning">*@lang('validation.required', ['attribute' => 'Apellido Paterno'])</small>
-                            @endif
-                        @endif 
-                        
-                    @enderror
-                </div>
 
-                <div class="form-group">
-                    <label>Apellido Materno</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        </div>
-                        <input class="form-control" type="text" name="apellidomDocente" value="{{old('apellidomDocente', $docente->apellidomDocente)}}" pattern="^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$" required>
-                    </div>
-                    @error('apellidomDocente')
-        
-                        @if ($errors->has('apellidomDocente'))
-                            @if (old('apellidomDocente'))
-                                <small class="text-danger">*El campo Apellido Materno solo puede contener letras.</small>
-                            @else
-                                <small class="text-warning">*@lang('validation.required', ['attribute' => 'Apellido Materno'])</small>
-                            @endif
-                        @endif 
-                        
-                    @enderror
-                </div>
-        
-                <div class="form-group">
-                    <label>Teléfono</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                        </div>
-                        <input class="form-control" type="text" name="telefonoDocente" value="{{old('telefonoDocente', $docente->telefonoDocente)}}" pattern="^(9[0-9]{8}|[1-9][0-9]{8,})$" required>
-                    </div>
-                    @error('telefonoDocente')
-                        @if ($errors->has('telefonoDocente'))
-                            @if (old('telefonoDocente'))
-                                <small class="text-danger">*El campo Teléfono debe ser verídico.</small>
-                            @else
-                                <small class="text-warning">*@lang('validation.required', ['attribute' => 'Teléfono'])</small>
-                            @endif
-                        @endif  
-                    @enderror
-                </div>
-        
                 <div class="form-group">
                     <label>Correo</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                         </div>
-                        <input class="form-control" type="text" name="correoDocente" value="{{old('correoDocente', $docente->correoDocente)}}" required>
+                        <input class="form-control" type="text" name="email" value="{{old('email', $user->email)}}" required>
                     </div>
-                    @error('correoDocente')
+                    @error('email')
 
-                        @if ($errors->has('correoDocente'))
-                            @if (old('correoDocente'))
-                                @if ($message == "El campo correo docente debe ser una dirección de correo válida.")
+                        @if ($errors->has('email'))
+                            @if (old('email'))
+                                @if ($message == "El campo email debe ser una dirección de correo válida.")
                                     <small class="text-danger">*@lang('validation.email', ['attribute' => 'Correo'])</small>
                                 @else
                                     <small class="text-danger">*{{$message}}</small>
@@ -180,8 +89,136 @@
                             @else
                                 <small class="text-warning">*@lang('validation.required', ['attribute' => 'Correo'])</small>
                             @endif
-                        @endif            
-                    
+                        @endif
+                
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label>Contraseña Actual</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text toggle-locka" onclick="togglePasswordAVisibility()"><i class="fas fa-lock"></i></span>
+                        </div>
+                        <input class="form-control" type="password" name="current_password" id="password-inputa" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text toggle-passworda" onclick="togglePasswordAVisibility()"><i class="fas fa-eye"></i></span>
+                        </div>
+                        <script>
+                            function togglePasswordAVisibility() {
+                                var passwordInput = document.getElementById("password-inputa");
+                                var togglePasswordIcon = document.querySelector(".toggle-passworda i");
+                                var toggleLockIcon = document.querySelector(".toggle-locka i");
+
+                                if (passwordInput.type === "password") {
+                                    passwordInput.type = "text";
+                                    togglePasswordIcon.classList.remove("fa-eye");
+                                    togglePasswordIcon.classList.add("fa-eye-slash");
+                                    toggleLockIcon.classList.remove("fa-lock");
+                                    toggleLockIcon.classList.add("fa-unlock");
+                                } else {
+                                    passwordInput.type = "password";
+                                    togglePasswordIcon.classList.remove("fa-eye-slash");
+                                    togglePasswordIcon.classList.add("fa-eye");
+                                    toggleLockIcon.classList.remove("fa-unlock");
+                                    toggleLockIcon.classList.add("fa-lock");
+                                }
+                            }
+                        </script>
+                    </div>
+                    @error('current_password')
+                        <small class="text-danger">*{{ $message }}</small>
+                    @enderror   
+                </div>
+
+                <div class="form-group">
+                    <label>Contraseña Nueva</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text toggle-lock" onclick="togglePasswordVisibility()"><i class="fas fa-lock"></i></span>
+                        </div>
+                        <input class="form-control" type="password" name="password" id="password-input" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text toggle-password" onclick="togglePasswordVisibility()"><i class="fas fa-eye"></i></span>
+                        </div>
+                        <script>
+                            function togglePasswordVisibility() {
+                                var passwordInput = document.getElementById("password-input");
+                                var togglePasswordIcon = document.querySelector(".toggle-password i");
+                                var toggleLockIcon = document.querySelector(".toggle-lock i");
+
+                                if (passwordInput.type === "password") {
+                                    passwordInput.type = "text";
+                                    togglePasswordIcon.classList.remove("fa-eye");
+                                    togglePasswordIcon.classList.add("fa-eye-slash");
+                                    toggleLockIcon.classList.remove("fa-lock");
+                                    toggleLockIcon.classList.add("fa-unlock");
+                                } else {
+                                    passwordInput.type = "password";
+                                    togglePasswordIcon.classList.remove("fa-eye-slash");
+                                    togglePasswordIcon.classList.add("fa-eye");
+                                    toggleLockIcon.classList.remove("fa-unlock");
+                                    toggleLockIcon.classList.add("fa-lock");
+                                }
+                            }
+                        </script>
+                    </div>
+                    @error('password')
+
+                        @if ($errors->has('password'))
+                            @if ($message == "El formato del campo password es inválido.")
+                                <small class="text-danger">
+                                    *@lang('validation.regex', ['attribute' => 'Contraseña'])
+                                    <ul>
+                                        <li>@lang('validation.password.mixed', ['attribute' => 'Contraseña'])</li>
+                                        <li>@lang('validation.password.numbers', ['attribute' => 'Contraseña'])</li>
+                                        <li>@lang('validation.password.symbols', ['attribute' => 'Contraseña'])</li>
+                                    </ul>
+                                </small>
+                            @elseif ($errors->first('password', 'min'))
+                                <small class="text-warning">*@lang('validation.min.string', ['attribute' => 'Contraseña', 'min' => '8'])</small>
+                            @endif
+                        @endif
+                        
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label>Confirmar Nueva Contraseña</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text toggle-lock1" onclick="togglePasswordCVisibility()"><i class="fas fa-lock"></i></span>
+                        </div>
+                        <input class="form-control" type="password" name="password_confirmation" id="password-input1" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text toggle-password1" onclick="togglePasswordCVisibility()"><i class="fas fa-eye"></i></span>
+                        </div>
+                        <script>
+                            function togglePasswordCVisibility() {
+                                var passwordInput = document.getElementById("password-input1");
+                                var togglePasswordIcon = document.querySelector(".toggle-password1 i");
+                                var toggleLockIcon = document.querySelector(".toggle-lock1 i");
+
+                                if (passwordInput.type === "password") {
+                                    passwordInput.type = "text";
+                                    togglePasswordIcon.classList.remove("fa-eye");
+                                    togglePasswordIcon.classList.add("fa-eye-slash");
+                                    toggleLockIcon.classList.remove("fa-lock");
+                                    toggleLockIcon.classList.add("fa-unlock");
+                                } else {
+                                    passwordInput.type = "password";
+                                    togglePasswordIcon.classList.remove("fa-eye-slash");
+                                    togglePasswordIcon.classList.add("fa-eye");
+                                    toggleLockIcon.classList.remove("fa-unlock");
+                                    toggleLockIcon.classList.add("fa-lock");
+                                }
+                            }
+                        </script>
+                    </div>
+                    @error('password')                        
+                        @if ($errors->first('password', 'password'))
+                            <small class="text-danger">@lang('validation.password.confirmed', ['attribute' => 'Contraseña'])</small>
+                        @endif
                     @enderror
                 </div>
   

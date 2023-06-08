@@ -4,8 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\{Role, Permission};
 
 class RoleSeeder extends Seeder
 {
@@ -22,12 +21,12 @@ class RoleSeeder extends Seeder
 
         Permission::create(['name' => 'admin.home'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
         Permission::create(['name' => 'home'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
-        Permission::create(['name' => 'nosotros'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
-        Permission::create(['name' => 'practicas'])->syncRoles([$role1, $role2]);
         Permission::create(['name' => 'gestionPI'])->syncRoles([$role1, $role3]);
         Permission::create(['name' => 'monitoreospfd'])->syncRoles([$role1, $role4]);
         Permission::create(['name' => 'revisionespfd'])->syncRoles([$role1, $role5]);
+        Permission::create(['name' => 'practicas'])->syncRoles([$role1, $role2]);
         Permission::create(['name' => 'users'])->syncRoles([$role1]);
+        Permission::create(['name' => 'nosotros'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
 
         //En caso que su ruta tenga otro nombre diferente al grupal "practicas"
         /*

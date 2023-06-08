@@ -16,9 +16,7 @@
             </a>
         </li>
         <li>
-            <a href="{{route('users.index')}}">
-                <i class="fas fa-angle-left fa-xs">   Usuarios del Sistema   </i>
-            </a>
+            <i class="fas fa-angle-left fa-xs">   Usuarios del Sistema   </i>
         </li>
     </ol>
     

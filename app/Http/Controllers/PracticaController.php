@@ -21,12 +21,12 @@ class PracticaController extends Controller
     public function store(Request $request){
         
         $request->validate([
-            'codigo' => ['required', 'numeric', 'min:1'],
-            'idEstudiante' => ['required', 'numeric', 'min:1'],
-            'idDocente' => ['required', 'numeric', 'min:1'],
-            'idEmpresa' => ['required', 'numeric', 'min:1'],
-            'idEtapa' => ['required', 'numeric', 'min:1'],
-            'titulo' => 'required',
+            'codigo'        => ['required', 'numeric', 'min:1'],
+            'idEstudiante'  => ['required', 'numeric', 'min:1'],
+            'idDocente'     => ['required', 'numeric', 'min:1'],
+            'idEmpresa'     => ['required', 'numeric', 'min:1'],
+            'idEtapa'       => ['required', 'numeric', 'min:1'],
+            'titulo'        => 'required',
         ]);
 
         $practica = Practica::create($request->all());
@@ -48,12 +48,12 @@ class PracticaController extends Controller
     public function update(Request $request, Practica $practica){  
         
         $request->validate([
-            'codigo' => ['required', 'numeric', 'min:1'],
-            'idEstudiante' => ['required', 'numeric', 'min:1'],
-            'idDocente' => ['required', 'numeric', 'min:1'],
-            'idEmpresa' => ['required', 'numeric', 'min:1'],
-            'idEtapa' => ['required', 'numeric', 'min:1'],
-            'titulo' => 'required',
+            'codigo'        => ['required', 'numeric', 'min:1'],
+            'idEstudiante'  => ['required', 'numeric', 'min:1'],
+            'idDocente'     => ['required', 'numeric', 'min:1'],
+            'idEmpresa'     => ['required', 'numeric', 'min:1'],
+            'idEtapa'       => ['required', 'numeric', 'min:1'],
+            'titulo'        => 'required',
         ]);
 
         $practica->update($request->all());

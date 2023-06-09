@@ -19,7 +19,7 @@ class RevisionesPFDController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'descripcionRPFD' => 'required',
+            'descripcionRPFD'   => 'required',
             'observacionesRPFD' => 'required'   
         ]);
 
@@ -42,7 +42,7 @@ class RevisionesPFDController extends Controller
     public function update(Request $request, revision_pfd $revisionespfd){
 
         $request->validate([
-            'descripcionRPFD' => 'required',
+            'descripcionRPFD'   => 'required',
             'observacionesRPFD' => 'required'   
         ]);
 

@@ -19,9 +19,9 @@ class MonitoreosPFDController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'idAccionesMejora' => 'required',
-            'descripcionMPFD' => 'required',
-            'porcentajeAvanceMPFD' => 'required'     
+            'idAccionesMejora'      => ['required', 'numeric', 'min:1'],
+            'descripcionMPFD'       => 'required',
+            'porcentajeAvanceMPFD'  => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2})?$/'],
         ]);
 
         $monitoreospfd = monitoreo_pfd::create($request->all());
@@ -43,9 +43,9 @@ class MonitoreosPFDController extends Controller
     public function update(Request $request, monitoreo_pfd $monitoreospfd){
 
         $request->validate([
-            'idAccionesMejora' => 'required',
-            'descripcionMPFD' => 'required',
-            'porcentajeAvanceMPFD' => 'required'     
+            'idAccionesMejora'      => ['required', 'numeric', 'min:1'],
+            'descripcionMPFD'       => 'required',
+            'porcentajeAvanceMPFD'  => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2})?$/'],
         ]);
 
         $monitoreospfd->update($request->all());

@@ -20,13 +20,13 @@ class ComisionController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'idDocente' => 'required',
-            'idAdministrativo' => 'required',
-            'nombreComision' => 'required',
-            'macroProcesoComision' => 'required',
-            'procesoComision' => 'required',
-            'subprocesoComision' => 'required',
-            'periodoComision' => 'required'           
+            'idDocente'             => ['required', 'numeric', 'min:1'],
+            'idAdministrativo'      => ['required', 'numeric', 'min:1'],
+            'nombreComision'        => 'required',
+            'macroProcesoComision'  => 'required',
+            'procesoComision'       => 'required',
+            'subprocesoComision'    => 'required',
+            'periodoComision'       => 'required'           
         ]);
 
         $comision = comisiones_areas::create($request->all());
@@ -48,13 +48,13 @@ class ComisionController extends Controller
     public function update(Request $request, comisiones_areas $comisione){
         
         $request->validate([
-            'idDocente' => 'required',
-            'idAdministrativo' => 'required',
-            'nombreComision' => 'required',
-            'macroProcesoComision' => 'required',
-            'procesoComision' => 'required',
-            'subprocesoComision' => 'required',
-            'periodoComision' => 'required'           
+            'idDocente'             => ['required', 'numeric', 'min:1'],
+            'idAdministrativo'      => ['required', 'numeric', 'min:1'],
+            'nombreComision'        => 'required',
+            'macroProcesoComision'  => 'required',
+            'procesoComision'       => 'required',
+            'subprocesoComision'    => 'required',
+            'periodoComision'       => 'required'           
         ]);
 
         $comisione->update($request->all());

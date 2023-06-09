@@ -19,11 +19,11 @@ class EmpresaController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'nombreEmpresa' => 'required',
-            'encargadoEmpresa' => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
-            'rubroEmpresa' => 'required',
-            'direccionEmpresa' => 'required',
-            'telefonoEmpresa' => 'nullable|numeric'
+            'nombreEmpresa'     => 'required',
+            'encargadoEmpresa'  => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'rubroEmpresa'      => 'required',
+            'direccionEmpresa'  => 'required',
+            'telefonoEmpresa'   => 'nullable|numeric'
         ]);
 
         $empresa = empresas::create($request->all());
@@ -45,11 +45,11 @@ class EmpresaController extends Controller
     public function update(Request $request, empresas $empresa){
 
         $request->validate([
-            'nombreEmpresa' => 'required',
-            'encargadoEmpresa' => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
-            'rubroEmpresa' => 'required',
-            'direccionEmpresa' => 'required',
-            'telefonoEmpresa' => 'nullable|numeric'
+            'nombreEmpresa'     => 'required',
+            'encargadoEmpresa'  => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'rubroEmpresa'      => 'required',
+            'direccionEmpresa'  => 'required',
+            'telefonoEmpresa'   => 'nullable|numeric'
         ]);
 
         $empresa->update($request->all());

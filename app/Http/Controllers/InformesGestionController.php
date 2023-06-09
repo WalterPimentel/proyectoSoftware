@@ -19,10 +19,10 @@ class InformesGestionController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'idMonitoreoPFD' => 'required',
-            'idResponsableElaboracion' => 'required',
-            'descripcionIG' => 'required',
-            'observacionesIG' => 'required'       
+            'idMonitoreoPFD'            => ['required', 'numeric', 'min:1'],
+            'idResponsableElaboracion'  => ['required', 'numeric', 'min:1'],
+            'descripcionIG'             => 'required',
+            'observacionesIG'           => 'required'       
         ]);
 
         $informesgestion = informe_gestion::create($request->all());
@@ -44,10 +44,10 @@ class InformesGestionController extends Controller
     public function update(Request $request, informe_gestion $informesgestion){
 
         $request->validate([
-            'idMonitoreoPFD' => 'required',
-            'idResponsableElaboracion' => 'required',
-            'descripcionIG' => 'required',
-            'observacionesIG' => 'required'       
+            'idMonitoreoPFD'            => ['required', 'numeric', 'min:1'],
+            'idResponsableElaboracion'  => ['required', 'numeric', 'min:1'],
+            'descripcionIG'             => 'required',
+            'observacionesIG'           => 'required'       
         ]);
 
         $informesgestion->update($request->all());

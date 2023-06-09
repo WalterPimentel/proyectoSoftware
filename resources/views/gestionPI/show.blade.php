@@ -60,16 +60,16 @@
                 <td>{{$gestionPI->id}}</td>
             </tr>
             <tr>
-                <th>Cuadro Necesidad</th>
-                <td>{{$gestionPI->idCuadroNecesidades}}</td>
+                <th>Comisión</th>
+                <td>{!! $nombreComision !!}</td>
             </tr>
             <tr>
-                <th>Comisión</th>
-                <td>{{$gestionPI->idComision}}</td>
+                <th>Cuadro Necesidad</th>
+                <td>{!!$descripcionCuadroN!!}</td>
             </tr>
             <tr>
                 <th>Revisión</th>
-                <td>{{$gestionPI->idRevisionPFD }}</td>
+                <td>{!!$descripcionRPFD!!}</td>
             </tr>
             <tr>
                 <th>Acta</th>

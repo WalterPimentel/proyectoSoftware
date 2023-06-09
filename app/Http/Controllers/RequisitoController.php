@@ -19,9 +19,9 @@ class RequisitoController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'nombreRequisito' => 'required',
-            'descripcionRequisito' => 'nullable',
-            'estado' => 'required|boolean'
+            'nombreRequisito'       => 'required',
+            'descripcionRequisito'  => 'nullable',
+            'estado'                => 'required|boolean'
         ]);
 
         $requisito = requisitos::create($request->all());
@@ -43,9 +43,9 @@ class RequisitoController extends Controller
     public function update(Request $request, requisitos $requisito){
 
         $request->validate([
-            'nombreRequisito' => 'required',
-            'descripcionRequisito' => 'nullable',
-            'estado' => 'required|boolean'
+            'nombreRequisito'       => 'required',
+            'descripcionRequisito'  => 'nullable',
+            'estado'                => 'required|boolean'
         ]);
 
         $requisito->update($request->all());

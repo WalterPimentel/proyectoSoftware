@@ -19,7 +19,7 @@ class TiposRecursoController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'descripcionRecurso' => 'required'   
+            'descripcionRecurso'    => 'required'   
         ]);
 
         $tiposrecurso = tipo_recurso::create($request->all());
@@ -41,7 +41,7 @@ class TiposRecursoController extends Controller
     public function update(Request $request, tipo_recurso $tiposrecurso){
 
         $request->validate([
-            'descripcionRecurso' => 'required'   
+            'descripcionRecurso'    => 'required'   
         ]);
 
         $tiposrecurso->update($request->all());

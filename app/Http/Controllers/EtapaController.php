@@ -19,8 +19,8 @@ class EtapaController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'nombreEtapa' => 'required',
-            'descripcionEtapa' => 'required'
+            'nombreEtapa'       => 'required',
+            'descripcionEtapa'  => 'required'
         ]);
 
         $etapa = etapas::create($request->all());
@@ -42,8 +42,8 @@ class EtapaController extends Controller
     public function update(Request $request, etapas $etapa){
 
         $request->validate([
-            'nombreEtapa' => 'required',
-            'descripcionEtapa' => 'required'
+            'nombreEtapa'       => 'required',
+            'descripcionEtapa'  => 'required'
         ]);
 
         $etapa->update($request->all());

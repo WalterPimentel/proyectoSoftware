@@ -19,12 +19,12 @@ class AccionesMejoraController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'idComision' => 'required',
-            'idPlanFD' => 'required',
-            'idMonitoreoPFD' => 'required',
-            'idTipoRecurso' => 'required',
-            'metasAM' => 'required',
-            'descripcionAM' => 'required'         
+            'idComision'        => ['required', 'numeric', 'min:1'],
+            'idPlanFD'          => ['required', 'numeric', 'min:1'],
+            'idMonitoreoPFD'    => ['required', 'numeric', 'min:1'],
+            'idTipoRecurso'     => ['required', 'numeric', 'min:1'],
+            'metasAM'           => 'required',
+            'descripcionAM'     => 'required'
         ]);
 
         $accionesmejora = acciones_mejora::create($request->all());
@@ -46,12 +46,12 @@ class AccionesMejoraController extends Controller
     public function update(Request $request, acciones_mejora $accionesmejora){   
         
         $request->validate([
-            'idComision' => 'required',
-            'idPlanFD' => 'required',
-            'idMonitoreoPFD' => 'required',
-            'idTipoRecurso' => 'required',
-            'metasAM' => 'required',
-            'descripcionAM' => 'required'         
+            'idComision'        => ['required', 'numeric', 'min:1'],
+            'idPlanFD'          => ['required', 'numeric', 'min:1'],
+            'idMonitoreoPFD'    => ['required', 'numeric', 'min:1'],
+            'idTipoRecurso'     => ['required', 'numeric', 'min:1'],
+            'metasAM'           => 'required',
+            'descripcionAM'     => 'required'
         ]);
 
         $accionesmejora->update($request->all());

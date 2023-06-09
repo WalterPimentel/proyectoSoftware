@@ -19,8 +19,8 @@ class CronogramaController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'idPlanFD' => 'required',
-            'idProyecto' => 'required',
+            'idPlanFD'              => ['required', 'numeric', 'min:1'],
+            'idProyecto'            => ['required', 'numeric', 'min:1'],
             'descripcionCronograma' => 'required'         
         ]);
 
@@ -43,8 +43,8 @@ class CronogramaController extends Controller
     public function update(Request $request, cronograma $cronograma){
 
         $request->validate([
-            'idPlanFD' => 'required',
-            'idProyecto' => 'required',
+            'idPlanFD'              => ['required', 'numeric', 'min:1'],
+            'idProyecto'            => ['required', 'numeric', 'min:1'],
             'descripcionCronograma' => 'required'         
         ]);
 

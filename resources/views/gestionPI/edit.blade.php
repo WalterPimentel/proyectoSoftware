@@ -54,14 +54,20 @@
                 @csrf
         
                 @method('put')
-        
+
                 <div class="form-group">
                     <label>Comisión</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
                         </div>
-                        <input class="form-control" type="number" name="idComision" value="{{old('idComision', $gestionPI->idComision)}}" min="1" pattern="\d+" required>
+                        <select class="form-control" name="idComision" required>                            
+                            @foreach ($comision as $comisio)
+                                <option value="{{ $comisio->id }}" {{ old('idComision', $gestionPI->idComision) == $comisio->id ? 'selected' : '' }}>
+                                    {{ $comisio->nombreComision }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     @error('idComision')
         
@@ -75,14 +81,20 @@
                         
                     @enderror
                 </div>
-        
+
                 <div class="form-group">
                     <label>Cuadro Necesidad</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-comments"></i></span>
                         </div>
-                        <input class="form-control" type="number" name="idCuadroNecesidades" value="{{ old('idCuadroNecesidades', $gestionPI->idCuadroNecesidades) }}" min="1" pattern="\d+" required>
+                        <select class="form-control" name="idCuadroNecesidades" required>                            
+                            @foreach ($cuadronecesidade as $cuadronecesidad)
+                            <option value="{{ $cuadronecesidad->id }}" {{ old('idCuadroNecesidades', $gestionPI->idCuadroNecesidades) == $cuadronecesidad->id ? 'selected' : '' }}>
+                                    {{ $cuadronecesidad->descripcionCuadroN }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     @error('idCuadroNecesidades')
         
@@ -103,7 +115,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-clipboard-check"></i></span>
                         </div>
-                        <input class="form-control" type="number" name="idRevisionPFD" value="{{ old('idRevisionPFD', $gestionPI->idRevisionPFD) }}" min="1" pattern="\d+" required>
+                        <select class="form-control" name="idRevisionPFD" required>                            
+                            @foreach ($revisionespfd as $revisionpfd)
+                                <option value="{{ $revisionpfd->id }}" {{ old('idRevisionPFD', $gestionPI->idRevisionPFD) == $revisionpfd->id ? 'selected' : '' }}>
+                                    {{ $revisionpfd->descripcionRPFD }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     @error('idRevisionPFD')
         
@@ -124,7 +142,20 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-file-contract"></i></span>
                         </div>
-                        <input class="form-control" type="number" name="idActaConsejoFacultad" value="{{ old('idActaConsejoFacultad', $gestionPI->idActaConsejoFacultad) }}" min="1" pattern="\d+" required>
+                        <select class="form-control" name="idActaConsejoFacultad" required>
+                            <option value="{{ old('idActaConsejoFacultad', $gestionPI->idActaConsejoFacultad) }}">
+                                idActaConsejoFacultad {{$gestionPI->idActaConsejoFacultad}}
+                            </option>
+                            <option value="3" {{ old('idActaConsejoFacultad') == "3" ? 'selected' : '' }}>
+                                idActaConsejoFacultad 3
+                            </option>
+                            <option value="2" {{ old('idActaConsejoFacultad') == "2" ? 'selected' : '' }}>
+                                idActaConsejoFacultad 2
+                            </option>
+                            <option value="1" {{ old('idActaConsejoFacultad') == "1" ? 'selected' : '' }}>
+                                idActaConsejoFacultad 1
+                            </option>
+                        </select>
                     </div>
                     @error('idActaConsejoFacultad')
         
@@ -145,7 +176,20 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
                         </div>
-                        <input class="form-control" type="number" name="idResponsableElaboracion" value="{{ old('idResponsableElaboracion', $gestionPI->idResponsableElaboracion) }}" min="1" pattern="\d+" required>
+                        <select class="form-control" name="idResponsableElaboracion" required>
+                            <option value="{{ old('idResponsableElaboracion', $gestionPI->idResponsableElaboracion) }}">
+                                idResponsableElaboracion {{$gestionPI->idResponsableElaboracion}}
+                            </option>
+                            <option value="3" {{ old('idResponsableElaboracion') == "3" ? 'selected' : '' }}>
+                                idResponsableElaboracion 3
+                            </option>
+                            <option value="2" {{ old('idResponsableElaboracion') == "2" ? 'selected' : '' }}>
+                                idResponsableElaboracion 2
+                            </option>
+                            <option value="1" {{ old('idResponsableElaboracion') == "1" ? 'selected' : '' }}>
+                                idResponsableElaboracion 1
+                            </option>
+                        </select>
                     </div>
                     @error('idResponsableElaboracion')
         
@@ -166,7 +210,20 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user-check"></i></span>
                         </div>
-                        <input class="form-control" type="number" name="idResponsableAprobacion" value="{{ old('idResponsableAprobacion', $gestionPI->idResponsableAprobacion) }}" min="1" pattern="\d+" required>
+                        <select class="form-control" name="idResponsableAprobacion" required>
+                            <option value="{{ old('idResponsableAprobacion', $gestionPI->idResponsableAprobacion) }}">
+                                idResponsableAprobacion {{$gestionPI->idResponsableAprobacion}}
+                            </option>
+                            <option value="3" {{ old('idResponsableAprobacion') == "3" ? 'selected' : '' }}>
+                                idResponsableAprobacion 3
+                            </option>
+                            <option value="2" {{ old('idResponsableAprobacion') == "2" ? 'selected' : '' }}>
+                                idResponsableAprobacion 2
+                            </option>
+                            <option value="1" {{ old('idResponsableAprobacion') == "1" ? 'selected' : '' }}>
+                                idResponsableAprobacion 1
+                            </option>
+                        </select>
                     </div>
                     @error('idResponsableAprobacion')
         

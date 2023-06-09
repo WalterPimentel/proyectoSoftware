@@ -20,9 +20,9 @@ class TiposCostoController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'idTipoRecurso' => 'required',
-            'descripcionCosto' => 'required',
-            'observacionesCosto' => 'required'     
+            'idTipoRecurso'         => ['required', 'numeric', 'min:1'],
+            'descripcionCosto'      => 'required',
+            'observacionesCosto'    => 'required|boolean',    
         ]);
 
         $tiposcosto = tipo_costo::create($request->all());
@@ -44,9 +44,9 @@ class TiposCostoController extends Controller
     public function update(Request $request, tipo_costo $tiposcosto){
 
         $request->validate([
-            'idTipoRecurso' => 'required',
-            'descripcionCosto' => 'required',
-            'observacionesCosto' => 'required'     
+            'idTipoRecurso'         => ['required', 'numeric', 'min:1'],
+            'descripcionCosto'      => 'required',
+            'observacionesCosto'    => 'required|boolean',    
         ]);
 
         $tiposcosto->update($request->all());

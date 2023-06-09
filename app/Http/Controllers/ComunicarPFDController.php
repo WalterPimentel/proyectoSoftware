@@ -19,12 +19,12 @@ class ComunicarPFDController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'idPlanFD' => 'required',
-            'idParteInteresada' => 'required',
-            'descripcionComunicarPFD' => 'required',
-            'medioComunicarPFD' => 'required',
-            'fechaComunicarPFD' => 'required',
-            'horaComunicarPFD' => 'required',
+            'idPlanFD'                  => ['required', 'numeric', 'min:1'],
+            'idParteInteresada'         => ['required', 'numeric', 'min:1'],
+            'descripcionComunicarPFD'   => 'required',
+            'medioComunicarPFD'         => 'required',
+            'fechaComunicarPFD'         => 'required|date',
+            'horaComunicarPFD'          => 'required|date_format:H:i:s',
             'observacionesComunicarPFD' => 'required'       
         ]);
 
@@ -47,12 +47,12 @@ class ComunicarPFDController extends Controller
     public function update(Request $request, comunicar_plan_fd $comunicarpfd){
 
         $request->validate([
-            'idPlanFD' => 'required',
-            'idParteInteresada' => 'required',
-            'descripcionComunicarPFD' => 'required',
-            'medioComunicarPFD' => 'required',
-            'fechaComunicarPFD' => 'required',
-            'horaComunicarPFD' => 'required',
+            'idPlanFD'                  => ['required', 'numeric', 'min:1'],
+            'idParteInteresada'         => ['required', 'numeric', 'min:1'],
+            'descripcionComunicarPFD'   => 'required',
+            'medioComunicarPFD'         => 'required',
+            'fechaComunicarPFD'         => 'required|date',
+            'horaComunicarPFD'          => 'required|date_format:H:i:s',
             'observacionesComunicarPFD' => 'required'       
         ]);
 

@@ -704,6 +704,11 @@ return [
             'text'        => 'Usuarios del Sistema',            
             'icon'        => 'fas fa-fw fa-user-friends',
             'url'         => 'users',
+            'active'    => [
+                'users*', 
+                'regex:@^users/[0-9]+$@', 
+                'regex:@^users/[0-9]+/edit$@'
+            ],
         ],
         [
             'text'        => 'pages',

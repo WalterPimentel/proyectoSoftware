@@ -19,12 +19,12 @@ class EstudianteController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'codigoEstudiante' => ['required', 'numeric', 'min:1'],
-            'nombresEstudiante' => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
-            'apellidopEstudiante' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
-            'apellidomEstudiante' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
-            'telefonoEstudiante' => ['required', 'numeric', 'min:900000000', 'regex:/^9\d{8}$/'],
-            'correoEstudiante' => ['required', 'email', function ($attribute, $value, $fail) {
+            'codigoEstudiante'      => ['required', 'numeric', 'min:1'],
+            'nombresEstudiante'     => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'apellidopEstudiante'   => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'apellidomEstudiante'   => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'telefonoEstudiante'    => ['required', 'numeric', 'min:900000000', 'regex:/^9\d{8}$/'],
+            'correoEstudiante'      => ['required', 'email', function ($attribute, $value, $fail) {
                 if (!str_contains($value, '@')) {
                     $fail("El campo Correo debe ser un correo electrónico válido.");
                     return;
@@ -57,12 +57,12 @@ class EstudianteController extends Controller
     public function update(Request $request, estudiantes $estudiante){
 
         $request->validate([
-            'codigoEstudiante' => ['required', 'numeric', 'min:1'],
-            'nombresEstudiante' => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
-            'apellidopEstudiante' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
-            'apellidomEstudiante' => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
-            'telefonoEstudiante' => ['required', 'numeric', 'min:900000000', 'regex:/^9\d{8}$/'],
-            'correoEstudiante' => ['required', 'email', function ($attribute, $value, $fail) {
+            'codigoEstudiante'      => ['required', 'numeric', 'min:1'],
+            'nombresEstudiante'     => ['required', 'regex:/^[A-Za-z.\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'apellidopEstudiante'   => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'apellidomEstudiante'   => ['required', 'regex:/^[A-Za-z\sñÑáéíóúÁÉÍÓÚ]+$/'],
+            'telefonoEstudiante'    => ['required', 'numeric', 'min:900000000', 'regex:/^9\d{8}$/'],
+            'correoEstudiante'      => ['required', 'email', function ($attribute, $value, $fail) {
                 if (!str_contains($value, '@')) {
                     $fail("El campo Correo debe ser un correo electrónico válido.");
                     return;

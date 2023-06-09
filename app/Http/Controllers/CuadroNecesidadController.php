@@ -19,13 +19,13 @@ class CuadroNecesidadController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'idComision' => 'required',
-            'idTipoRecurso' => 'required',
-            'idTipoCosto' => 'required',
-            'idTDR' => 'required',
-            'descripcionCuadroN' => 'required',
-            'cantidadCuadroN' => 'required',
-            'precioCuadroN' => 'required'          
+            'idComision'            => ['required', 'numeric', 'min:1'],
+            'idTipoRecurso'         => ['required', 'numeric', 'min:1'],
+            'idTipoCosto'           => ['required', 'numeric', 'min:1'],
+            'idTDR'                 => ['required', 'numeric', 'min:1'],
+            'descripcionCuadroN'    => 'required',
+            'cantidadCuadroN'       => ['required', 'numeric', 'min:1'],
+            'precioCuadroN'         => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2})?$/']
         ]);
 
         $cuadronecesidade = cuadro_necesidades::create($request->all());
@@ -47,13 +47,13 @@ class CuadroNecesidadController extends Controller
     public function update(Request $request, cuadro_necesidades $cuadronecesidade){
 
         $request->validate([
-            'idComision' => 'required',
-            'idTipoRecurso' => 'required',
-            'idTipoCosto' => 'required',
-            'idTDR' => 'required',
-            'descripcionCuadroN' => 'required',
-            'cantidadCuadroN' => 'required',
-            'precioCuadroN' => 'required'          
+            'idComision'            => ['required', 'numeric', 'min:1'],
+            'idTipoRecurso'         => ['required', 'numeric', 'min:1'],
+            'idTipoCosto'           => ['required', 'numeric', 'min:1'],
+            'idTDR'                 => ['required', 'numeric', 'min:1'],
+            'descripcionCuadroN'    => 'required',
+            'cantidadCuadroN'       => ['required', 'numeric', 'min:1'],
+            'precioCuadroN'         => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2})?$/']
         ]);
 
         $cuadronecesidade->update($request->all());

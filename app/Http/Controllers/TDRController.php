@@ -19,10 +19,10 @@ class TDRController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'idTipoRecurso' => 'required',
-            'mayorCuantiaTDR' => 'required',
-            'descripcionTDR' => 'required',
-            'costoTDR' => 'required'       
+            'idTipoRecurso'     => ['required', 'numeric', 'min:1'],
+            'mayorCuantiaTDR'   => 'required|boolean',
+            'descripcionTDR'    => 'required',
+            'costoTDR'          => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2})?$/'],     
         ]);
 
         $tdr = tdr::create($request->all());
@@ -44,10 +44,10 @@ class TDRController extends Controller
     public function update(Request $request, tdr $tdr){
 
         $request->validate([
-            'idTipoRecurso' => 'required',
-            'mayorCuantiaTDR' => 'required',
-            'descripcionTDR' => 'required',
-            'costoTDR' => 'required'       
+            'idTipoRecurso'     => ['required', 'numeric', 'min:1'],
+            'mayorCuantiaTDR'   => 'required|boolean',
+            'descripcionTDR'    => 'required',
+            'costoTDR'          => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2})?$/'],     
         ]);
 
         $tdr->update($request->all());

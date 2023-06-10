@@ -4,7 +4,7 @@
     use Carbon\Carbon;
 @endphp
 
-@section('title', 'Plan: ' . $gestionPI->id)
+@section('title', 'Plan: ' . $gestionPI->descripcionPFD)
 
 @section('content_header')
     <div class="d-flex justify-content-between">

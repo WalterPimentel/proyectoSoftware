@@ -51,34 +51,19 @@ class GestionPIController extends Controller
 
     public function show(plan_fd $gestionPI){
         
-        
-        $comision = comisiones_areas::all();
-        $idComision = $gestionPI->idComision;        
-        $comisionEncontrada = $comision->find($idComision);
-        if ($comisionEncontrada) {
-            $nombreComision = $comisionEncontrada->nombreComision;
-        } else {
-            $nombreComision = "<span style='color: red;'>Error al obtener registro.</span>";
-        }
-
-        $cuadronecesidade = cuadro_necesidades::all();
-        $idCuadroNecesidades  = $gestionPI->idCuadroNecesidades ;        
-        $cnEncontrada = $cuadronecesidade->find($idCuadroNecesidades);
-        if ($cnEncontrada) {
-            $descripcionCuadroN = $cnEncontrada->descripcionCuadroN;
-        } else {
-            $descripcionCuadroN = "<span style='color: red;'>Error al obtener registro.</span>";
-        }
-
+        $comisiones = comisiones_areas::all();
+        $cuadronecesidades = cuadro_necesidades::all();
         $revisionespfd = revision_pfd::all();
-        $idRevisionPFD  = $gestionPI->idRevisionPFD;        
-        $rpfdEncontrada = $revisionespfd->find($idRevisionPFD);
-        if ($rpfdEncontrada) {
-            $descripcionRPFD = $rpfdEncontrada->descripcionRPFD;
-        } else {
-            $rpfdEncontrada = "<span style='color: red;'>Error al obtener registro.</span>";
-        }
-
+    
+        $comisionEncontrada = $comisiones->find($gestionPI->idComision);
+        $nombreComision = $comisionEncontrada ? $comisionEncontrada->nombreComision : "<span style='color: red;'>Error al obtener registro.</span>";
+    
+        $cnEncontrada = $cuadronecesidades->find($gestionPI->idCuadroNecesidades);
+        $descripcionCuadroN = $cnEncontrada ? $cnEncontrada->descripcionCuadroN : "<span style='color: red;'>Error al obtener registro.</span>";
+    
+        $rpfdEncontrada = $revisionespfd->find($gestionPI->idRevisionPFD);
+        $descripcionRPFD = $rpfdEncontrada ? $rpfdEncontrada->descripcionRPFD : "<span style='color: red;'>Error al obtener registro.</span>";
+        
         return view('gestionPI.show', compact('gestionPI', 'nombreComision', 'descripcionCuadroN', 'descripcionRPFD'));
     }
 

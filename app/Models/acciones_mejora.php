@@ -10,8 +10,8 @@ class acciones_mejora extends Model
     use HasFactory;
 
     protected $fillable = [
-        'idComision', 
-        'idPlanFD', 
+        'idPlanFD',
+        'idComision',          
         'idMonitoreoPFD', 
         'idTipoRecurso', 
         'metasAM', 

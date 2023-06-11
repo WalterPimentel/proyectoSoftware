@@ -53,23 +53,13 @@
 
             <thead class="thead-light">
                 <tr class="text-center">
-                    <th class=" align-middle">Acción</th>
-                    <th class=" align-middle">Plan de Funcionamiento y Desarrollo</th>
+                    <th class=" align-middle">Acción</th>                    
                     <th class=" align-middle">Acción de Mejora</th>
-                    <th class=" align-middle">Commisión o Área</th>
-                    <th class=" align-middle">Monitoreos de Plan de Funcionamiento y Desarrollo</th>
-                    <th class=" align-middle">Tipo de Recurso</th>
                     <th class=" align-middle">Descripción de las Acciones de Mejora</th>                    
                 </tr>
             </thead>        
             <tbody>
                 @foreach ($accionesmejoras as $accionesmejora)
-                    @php
-
-                        $planFDEncontrada = $pfds->find($accionesmejora->idPlanFD);
-                        $descripcionPFD = $planFDEncontrada ? $planFDEncontrada->descripcionPFD : "<span style='color: red;'>Error al obtener registro.</span>";
-
-                    @endphp
                     <tr>
                         <td class=" align-middle" style="width: 120px" class="align-middle">
                             <div class="text-center d-flex justify-content-center align-items-center">
@@ -85,12 +75,8 @@
                                 </form>
                             </div> 
                         </td>
-                        <td class=" align-middle" title="Clic derecho para copiar texto: '{!!$descripcionPFD!!}'" class="align-middle" onclick="window.location='{{ route('accionesmejoras.show', $accionesmejora->id) }}';" oncontextmenu="copyText(event, '{{$accionesmejora->metasAM}}')" style="cursor: pointer;">{!!$descripcionPFD!!}</td>
-                        <td class=" align-middle" title="Clic derecho para copiar texto: ''" class="align-middle" onclick="window.location='{{ route('accionesmejoras.show', $accionesmejora->id) }}';" oncontextmenu="copyText(event, '{{$accionesmejora->metasAM}}')" style="cursor: pointer;">{{$accionesmejora->metasAM}}</td>
-                        <td class=" align-middle" title="Clic derecho para copiar texto: ''" class="align-middle" onclick="window.location='{{ route('accionesmejoras.show', $accionesmejora->id) }}';" oncontextmenu="copyText(event, '{{$accionesmejora->metasAM}}')" style="cursor: pointer;"></td>
-                        <td class=" align-middle" title="Clic derecho para copiar texto: ''" class="align-middle" onclick="window.location='{{ route('accionesmejoras.show', $accionesmejora->id) }}';" oncontextmenu="copyText(event, '{{$accionesmejora->metasAM}}')" style="cursor: pointer;">{{$accionesmejora->idMonitoreoPFD }}</td>
-                        <td class=" align-middle" title="Clic derecho para copiar texto: ''" class="align-middle" onclick="window.location='{{ route('accionesmejoras.show', $accionesmejora->id) }}';" oncontextmenu="copyText(event, '{{$accionesmejora->metasAM}}')" style="cursor: pointer;">{{$accionesmejora->idTipoRecurso }}</td>
-                        <td class=" align-middle" title="Clic derecho para copiar texto: ''" class="align-middle" onclick="window.location='{{ route('accionesmejoras.show', $accionesmejora->id) }}';" oncontextmenu="copyText(event, '{{$accionesmejora->metasAM}}')" style="cursor: pointer;">{{$accionesmejora->descripcionAM}}</td>
+                        <td class=" align-middle" title="Clic derecho para copiar texto: '{{$accionesmejora->metasAM}}'" class="align-middle" onclick="window.location='{{ route('accionesmejoras.show', $accionesmejora->id) }}';" oncontextmenu="copyText(event, '{{$accionesmejora->metasAM}}')" style="cursor: pointer;">{{$accionesmejora->metasAM}}</td>
+                        <td class=" align-middle" title="Clic derecho para copiar texto: '{{$accionesmejora->descripcionAM}}'" class="align-middle" onclick="window.location='{{ route('accionesmejoras.show', $accionesmejora->id) }}';" oncontextmenu="copyText(event, '{{$accionesmejora->metasAM}}')" style="cursor: pointer;">{{$accionesmejora->descripcionAM}}</td>
                     </tr>
                 @endforeach
             </tbody>

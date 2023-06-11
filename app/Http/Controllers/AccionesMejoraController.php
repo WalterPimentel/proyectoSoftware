@@ -15,13 +15,8 @@ class AccionesMejoraController extends Controller
     public function index(){
 
         $accionesmejoras = acciones_mejora::orderby('id', 'desc')->paginate();
-
-        $pfds = plan_fd::all();
-        $comision = comisiones_areas::all();      
-        $monitoreoPFD = monitoreo_pfd::all();
-        $tipoRecurso = tipo_recurso::all();
         
-        return view('gestionPI/accionesmejoras.index', compact('accionesmejoras', 'pfds', 'comision', 'monitoreoPFD', 'tipoRecurso'));
+        return view('gestionPI/accionesmejoras.index', compact('accionesmejoras'));
     }
 
     public function create(){
